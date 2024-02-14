@@ -11,29 +11,28 @@ int main() {
   const unsigned char key = 130;
 
   unsigned long long plaintextLen = 40 * sizeof(char);
-  void* plaintext = malloc(plaintextLen);
+  void* memory = malloc(plaintextLen);
   char* string = "The brown fox jumped over the lazy dog.";
-  memcpy(plaintext, string, plaintextLen);
+  memcpy(memory, string, plaintextLen);
 
-  printf("Plaintext before encryption: %s\n", (char *) plaintext);
+  printf("Plaintext before encryption: %s\n", (char *) memory);
   printf("Plaintext length %llu\n\n", plaintextLen);
 
-  void* ciphertext;
   unsigned long long cipherLen;
-  int ret = crypto_aead_encrypt(ciphertext, &cipherLen,
-                      plaintext, plaintextLen,
+  int ret = crypto_aead_encrypt(memory, &cipherLen,
+                      memory, plaintextLen,
                       &tag, sizeof(const unsigned char),
                       NULL, &nonce,
                       &key);
 
-  printf("Ciphertext created by encryption: %s\n", (char *) ciphertext);
+  printf("Ciphertext created by encryption: %s\n", (char *) memory);
   printf("Ciphertext length: %llu\n", cipherLen);
   printf("Return status: %d\n\n", ret);
 
   void* decrypted;
   unsigned long long decryptedLen;
   ret = crypto_aead_decrypt(decrypted, &decryptedLen,
-                      NULL, ciphertext,
+                      NULL, memory,
                       cipherLen, &tag,
                       sizeof(const unsigned char), &nonce,
                       &key);
@@ -42,6 +41,6 @@ int main() {
   printf("Decrypted ciphertext length: %llu\n", decryptedLen);
   printf("Return status: %d\n\n", ret);
 
-  free(plaintext);
+  free(memory);
   return 0;
 }
