@@ -37,8 +37,8 @@ int main() {
                       sizeof(const unsigned char), &nonce,
                       &key);
 
-  printf("Decrypted ciphertext %s\n", (char *) decrypted);
-  printf("Decrypted ciphertext length %llu\n\n", decryptedLen);
+  printf("Decrypted ciphertext: %s\n", (char *) decrypted);
+  printf("Decrypted ciphertext length: %llu\n\n", decryptedLen);
 
   free(plaintext);
   return 0;
