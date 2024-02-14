@@ -1,7 +1,7 @@
 all: main
 
 main: main.o core.o permutations.o
-	gcc -o main main.o core.o permutations.o
+	gcc -o main main.o core.o permutations.o --verbose
 
 main.o: main.c core.o permutations.o
 	gcc -c main.c
