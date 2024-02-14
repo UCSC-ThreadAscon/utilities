@@ -29,6 +29,17 @@ int main() {
   printf("Ciphertext created by encryption %s\n", (char *) ciphertext);
   printf("Ciphertext length %llu\n\n", cipherLen);
 
+  void* decrypted;
+  unsigned long long decryptedLen;
+  crypto_aead_decrypt(decrypted, &decryptedLen,
+                      NULL, ciphertext,
+                      cipherLen, &tag,
+                      sizeof(const unsigned char), &nonce,
+                      &key);
+
+  printf("Decrypted ciphertext %s\n", (char *) decrypted);
+  printf("Decrypted ciphertext length %llu\n\n", decryptedLen);
+
   free(plaintext);
   return 0;
 }
