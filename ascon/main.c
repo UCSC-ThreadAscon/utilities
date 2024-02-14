@@ -20,25 +20,27 @@ int main() {
 
   void* ciphertext;
   unsigned long long cipherLen;
-  crypto_aead_encrypt(ciphertext, &cipherLen,
+  int ret = crypto_aead_encrypt(ciphertext, &cipherLen,
                       plaintext, plaintextLen,
                       &tag, sizeof(const unsigned char),
                       NULL, &nonce,
                       &key);
 
-  printf("Ciphertext created by encryption %s\n", (char *) ciphertext);
-  printf("Ciphertext length %llu\n\n", cipherLen);
+  printf("Ciphertext created by encryption: %s\n", (char *) ciphertext);
+  printf("Ciphertext length: %llu\n", cipherLen);
+  printf("Return status: %d\n\n", ret);
 
   void* decrypted;
   unsigned long long decryptedLen;
-  crypto_aead_decrypt(decrypted, &decryptedLen,
+  ret = crypto_aead_decrypt(decrypted, &decryptedLen,
                       NULL, ciphertext,
                       cipherLen, &tag,
                       sizeof(const unsigned char), &nonce,
                       &key);
 
   printf("Decrypted ciphertext: %s\n", (char *) decrypted);
-  printf("Decrypted ciphertext length: %llu\n\n", decryptedLen);
+  printf("Decrypted ciphertext length: %llu\n", decryptedLen);
+  printf("Return status: %d\n\n", ret);
 
   free(plaintext);
   return 0;
