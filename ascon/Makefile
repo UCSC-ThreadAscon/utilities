@@ -1,13 +1,19 @@
 all: main
 
-main: main.o core.o permutations.o
-	gcc -o main main.o core.o permutations.o --verbose
+main: main.o core.o permutations.o encrypt.o decrypt.o
+	gcc -o main main.o core.o permutations.o encrypt.o decrypt.o --verbose
 
-main.o: main.c core.o permutations.o
+main.o: main.c
 	gcc -c main.c
 
-core.o: core.h core.c encrypt.c decrypt.c
-	gcc -c core.c encrypt.c decrypt.c
+core.o: core.h core.c
+	gcc -c core.c
+
+encrypt.o: core.h encrypt.c
+	gcc -c encrypt.c
+
+decrypt.o: core.h decrypt.c
+	gcc -c decrypt.c
 permutations.o: permutations.c permutations.h endian.h
 	gcc -c permutations.c
 
