@@ -1,17 +1,15 @@
-all: core
+all: main
 
-core: core.o
-	gcc -O -o core core.o decrypt.o encrypt.o permutations.o
+main: main.o core.o permutations.o
+	gcc -o main main.o core.o permutations.o
 
-core.o: decrypt.o encrypt.o
-	gcc -O -c core.c
+main.o: main.c core.o permutations.o
+	gcc -c main.c
 
-decrypt.o: permutations.o decrypt.c
-	gcc -O -c decrypt.c
-encrypt.o: permutations.o encrypt.c
-	gcc -O -c encrypt.c
-permutations.o: permutations.c permutations.h endian.h api.h
-	gcc -O -c permutations.c
+core.o: core.h
+	gcc -c core.c
+permutations.o: permutations.c permutations.h endian.h
+	gcc -c permutations.c
 
 clean:
 	rm -r -f *.o
