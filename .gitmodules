@@ -1,3 +1,6 @@
 [submodule "python-ascon/pyascon"]
 	path = python-ascon/pyascon
 	url = git@github.com:meichlseder/pyascon.git
+[submodule "LibAscon"]
+	path = LibAscon
+	url = git@github.com:UCSC-CSE299A/LibAscon.git
