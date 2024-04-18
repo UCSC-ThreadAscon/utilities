@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 txpower = ("20 dBm", "0dBm", "-9 dBm")
-penguin_means = {
+mean_energy_usage = {
     'AES-CCM': (18.35, 18.43, 14.98),
     'ASCON-128a': (38.79, 48.83, 47.50),
     'ASCON-128': (189.95, 195.82, 217.19),
@@ -14,7 +14,7 @@ multiplier = 0
 
 fig, ax = plt.subplots(layout='constrained')
 
-for attribute, measurement in penguin_means.items():
+for attribute, measurement in mean_energy_usage.items():
     offset = width * multiplier
     rects = ax.bar(x + offset, measurement, width, label=attribute)
     ax.bar_label(rects, padding=3)
