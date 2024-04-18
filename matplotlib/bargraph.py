@@ -21,7 +21,7 @@ for attribute, measurement in mean_energy_usage.items():
     multiplier += 1
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
-ax.set_ylabel('Average Energy Consumption (mA) ')
+ax.set_ylabel('Average Energy Consumption (mA)')
 ax.set_title('Front Door ESP32-H2')
 ax.set_xticks(x + width, txpower)
 ax.legend(loc='upper left', ncols=3)
