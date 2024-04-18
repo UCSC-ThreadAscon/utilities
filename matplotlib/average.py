@@ -22,8 +22,13 @@ def getAverageMicroAmps(microAmpsList):
   average = listSum / length
   return average
 
+def getMilliAmps(microAmps):
+  # According to Google `1 micro amp` === `0.001 milli amp`
+  return microAmps * 0.001
+
 if __name__ == '__main__':
   filename = 'aes-0dbm-frontdoor-sample.csv'
   microAmpsList = getMicroAmpsList(filename)
   averageMicroAmps = getAverageMicroAmps(microAmpsList)
-  print(averageMicroAmps)
+  averageMilliAmps = getMilliAmps(averageMicroAmps)
+  print(averageMilliAmps)
