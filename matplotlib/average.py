@@ -11,7 +11,8 @@ def getMicroAmpsList(filename):
   with open(filename) as file:
     reader = csv.DictReader(file)
     for row in reader:
-      microAmpsList.append(row['Current(uA)'])
+      microAmpCurrent = float(row['Current(uA)'])
+      microAmpsList.append(microAmpCurrent)
 
   return microAmpsList
 
