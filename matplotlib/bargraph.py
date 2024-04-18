@@ -4,9 +4,9 @@ import numpy as np
 files = {
     "front-door": {
         "aes": {
-            "0dbm": "",
-            "20dbm": "",
-            "-9dbm": ""
+            "0dbm": "aes-0dbm-frontdoor-sample.csv",
+            "20dbm": "aes-20dbm-frontdoor-sample.csv",
+            "-9dbm": "aes-neg9dbm-frontdoor-sample.csv"
         },
         "ascon128a": {
             "0dbm": "",

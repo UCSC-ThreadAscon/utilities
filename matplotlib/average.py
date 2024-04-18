@@ -26,9 +26,11 @@ def getMilliAmps(microAmps):
   # According to Google `1 micro amp` === `0.001 milli amps`
   return microAmps * 0.001
 
-if __name__ == '__main__':
-  filename = 'aes-0dbm-frontdoor-sample.csv'
+def getAverageMilliAmpsFromFile(filename):
   microAmpsList = getMicroAmpsList(filename)
   averageMicroAmps = getAverageMicroAmps(microAmpsList)
-  averageMilliAmps = getMilliAmps(averageMicroAmps)
-  print(averageMilliAmps)
+  return getMilliAmps(averageMicroAmps)
+
+if __name__ == '__main__':
+  filename = 'aes-0dbm-frontdoor-sample.csv'
+  print(getAverageMilliAmpsFromFile(filename))
