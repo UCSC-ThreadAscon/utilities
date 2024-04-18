@@ -1,6 +1,60 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+files = {
+    "front-door": {
+        "aes": {
+            "0dbm": "",
+            "20dbm": "",
+            "-9dbm": ""
+        },
+        "ascon128a": {
+            "0dbm": "",
+            "20dbm": "",
+            "-9dbm": ""
+        },
+        "ascon128": {
+            "0dbm": "",
+            "20dbm": "",
+            "-9dbm": ""
+        }
+    },
+    "washing-machine": {
+        "aes": {
+            "0dbm": "",
+            "20dbm": "",
+            "-9dbm": ""
+        },
+        "ascon128a": {
+            "0dbm": "",
+            "20dbm": "",
+            "-9dbm": ""
+        },
+        "ascon128": {
+            "0dbm": "",
+            "20dbm": "",
+            "-9dbm": ""
+        }
+    },
+    "second-story": {
+        "aes": {
+            "0dbm": "",
+            "20dbm": "",
+            "-9dbm": ""
+        },
+        "ascon128a": {
+            "0dbm": "",
+            "20dbm": "",
+            "-9dbm": ""
+        },
+        "ascon128": {
+            "0dbm": "",
+            "20dbm": "",
+            "-9dbm": ""
+        }
+    }
+}
+
 txpower = ("20 dBm", "0dBm", "-9 dBm")
 mean_energy_usage = {
     'AES-CCM': (18.35, 18.43, 14.98),

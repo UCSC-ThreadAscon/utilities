@@ -23,7 +23,7 @@ def getAverageMicroAmps(microAmpsList):
   return average
 
 def getMilliAmps(microAmps):
-  # According to Google `1 micro amp` === `0.001 milli amp`
+  # According to Google `1 micro amp` === `0.001 milli amps`
   return microAmps * 0.001
 
 if __name__ == '__main__':
