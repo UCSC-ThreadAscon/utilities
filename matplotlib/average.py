@@ -16,4 +16,14 @@ def getMicroAmpsList(filename):
 
   return microAmpsList
 
-print(getMicroAmpsList('aes-0dbm-frontdoor-sample.csv'))
+def getAverageMicroAmps(microAmpsList):
+  length = len(microAmpsList)
+  listSum = sum(microAmpsList)
+  average = listSum / length
+  return average
+
+if __name__ == '__main__':
+  filename = 'aes-0dbm-frontdoor-sample.csv'
+  microAmpsList = getMicroAmpsList(filename)
+  averageMicroAmps = getAverageMicroAmps(microAmpsList)
+  print(averageMicroAmps)
