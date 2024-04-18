@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+from average import *
+
 files = {
     "front-door": {
         "aes": {
@@ -57,9 +59,11 @@ files = {
 
 txpower = ("20 dBm", "0dBm", "-9 dBm")
 mean_energy_usage = {
-    'AES-CCM': (18.35, 18.43, 14.98),
-    'ASCON-128a': (38.79, 48.83, 47.50),
-    'ASCON-128': (189.95, 195.82, 217.19),
+    'AES-CCM': (getAvgMa(files["front-door"]["aes"]["20dbm"]),
+                getAvgMa(files["front-door"]["aes"]["0dbm"]),
+                getAvgMa(files["front-door"]["aes"]["-9dbm"])),
+    'ASCON-128a': (0, 0, 0),
+    'ASCON-128': (0, 0, 0),
 }
 
 x = np.arange(len(txpower))  # the label locations
@@ -79,6 +83,6 @@ ax.set_ylabel('Average Energy Consumption (mA)')
 ax.set_title('Front Door ESP32-H2')
 ax.set_xticks(x + width, txpower)
 ax.legend(loc='upper left', ncols=3)
-ax.set_ylim(0, 250)
+ax.set_ylim(0, 4)
 
 plt.show()
