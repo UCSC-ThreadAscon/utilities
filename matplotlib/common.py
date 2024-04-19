@@ -2,7 +2,7 @@
 How long each experiment runs for in minutes, hours, and seconds.
 """
 EXPERIMENT_RUNTIME_MINUTES = 183
-EXPERIMENT_RUNTIME_HOURS = 183 / 60
+EXPERIMENT_RUNTIME_HOURS = EXPERIMENT_RUNTIME_MINUTES / 60
 
 files = {
     "front-door": {
