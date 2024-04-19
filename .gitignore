@@ -4,3 +4,6 @@ data/
 __pycache__
 *.o
 main
+test-encrypt
+test-decrypt
+example

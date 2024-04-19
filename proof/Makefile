@@ -2,6 +2,7 @@ CC = clang
 CFLAGS = -Wall -Werror -Wextra -Wpedantic
 HEADERS = ascon.h ascon_internal.h
 OBJECTS = ascon_permutations.o ascon_hash.o ascon_buffering.o ascon_aead128a.o ascon_aead128.o ascon_aead80pq.o ascon_aead_common.o example.o
+BINARIES = example test-encrypt test-decrypt
 
 all: example
 
@@ -33,4 +34,4 @@ ascon_permutations.o: $(HEADERS) ascon_permutations.c
 	$(CC) $(CFLAGS) -c ascon_permutations.c
 
 clean:
-	rm -r -f $(wildcard *.o)
+	rm -r -f $(wildcard *.o) $(BINARIES)
