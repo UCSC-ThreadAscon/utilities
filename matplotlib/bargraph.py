@@ -4,17 +4,17 @@ import numpy as np
 from average import *
 from common import *
 
-txpower = ("20 dBm", "0dBm", "-9 dBm")
+txpower = ("-9 dBm", "0dBm", "20 dBm")
 mean_energy_usage = {
-    'AES-CCM': (getAvgMAh(files["front-door"]["aes"]["20dbm"]),
+    'AES-CCM': (getAvgMAh(files["front-door"]["aes"]["-9dbm"]),
                 getAvgMAh(files["front-door"]["aes"]["0dbm"]),
-                getAvgMAh(files["front-door"]["aes"]["-9dbm"])),
-    'ASCON-128a': (getAvgMAh(files["front-door"]["ascon128a"]["20dbm"]),
+                getAvgMAh(files["front-door"]["aes"]["20dbm"])),
+    'ASCON-128a': (getAvgMAh(files["front-door"]["ascon128a"]["-9dbm"]),
                    getAvgMAh(files["front-door"]["ascon128a"]["0dbm"]),
-                   getAvgMAh(files["front-door"]["ascon128a"]["-9dbm"])),
-    'ASCON-128': (getAvgMAh(files["front-door"]["ascon128"]["20dbm"]),
+                   getAvgMAh(files["front-door"]["ascon128a"]["20dbm"])),
+    'ASCON-128': (0,
                   getAvgMAh(files["front-door"]["ascon128"]["0dbm"]),
-                  7.22543543),
+                  getAvgMAh(files["front-door"]["ascon128"]["20dbm"])),
 }
 
 x = np.arange(len(txpower))  # the label locations
