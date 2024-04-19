@@ -1,9 +1,9 @@
 files = {
     "front-door": {
         "aes": {
-            "0dbm": "aes-0dbm-frontdoor-sample.csv",
-            "20dbm": "aes-20dbm-frontdoor-sample.csv",
-            "-9dbm": "aes-neg9dbm-frontdoor-sample.csv"
+            "0dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/aes-0dbm-frontdoor-sample.csv",
+            "20dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/aes-20dbm-frontdoor-sample.csv",
+            "-9dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/aes-neg9dbm-frontdoor-sample.csv"
         },
         "ascon128a": {
             "0dbm": "",
