@@ -24,7 +24,6 @@ multiplier = 0
 fig, ax = plt.subplots(layout='constrained')
 
 for attribute, measurement in mean_energy_usage.items():
-  print(attribute)
   offset = width * multiplier
   rects = ax.bar(x + offset, measurement, width, label=attribute,
                  color=cipherToColor[attribute])
@@ -41,5 +40,5 @@ ax.set_yticks(np.arange(0, y_lim, 0.5))
 ax.legend(loc='upper right', ncols=3)
 ax.set_ylim(0, y_lim)
 
-plt.savefig('bargraph.pgf')
+plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'bargraph.pgf'))
 # plt.show()

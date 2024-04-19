@@ -1,4 +1,5 @@
 import matplotlib
+import os
 
 matplotlib.use("pgf")
 matplotlib.rcParams.update({
@@ -7,6 +8,8 @@ matplotlib.rcParams.update({
     'text.usetex': True,
     'pgf.rcfonts': False,
 })
+
+THESIS_FIGURES_PATH = '/Users/simeon/Desktop/Repositories/ThesisWriteup/images/pgfs'
 
 """
 How long each experiment runs for in minutes, hours, and seconds.

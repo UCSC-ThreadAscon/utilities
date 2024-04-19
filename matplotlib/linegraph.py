@@ -28,5 +28,5 @@ ax.set_title('Front Door ESP32-H2')
 
 plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
-plt.savefig('bargraph.pgf')
+plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'linegraph.pgf'))
 # plt.show()
