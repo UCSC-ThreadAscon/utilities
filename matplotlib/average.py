@@ -8,6 +8,7 @@
   fields.
 """
 import csv
+from common import *
 
 def getMicroAmpsList(filename):
   microAmpsList = []
@@ -34,6 +35,13 @@ def getAvgMa(filename):
   microAmpsList = getMicroAmpsList(filename)
   averageMicroAmps = getAverageMicroAmps(microAmpsList)
   return getMilliAmps(averageMicroAmps)
+
+def getMAh(mA, hours):
+  return mA * hours
+
+def getAvgMAh(filename):
+  return getMAh(getAvgMa(filename), EXPERIMENT_RUNTIME_HOURS)
+
 
 if __name__ == '__main__':
   filename = 'aes-0dbm-frontdoor-sample.csv'
