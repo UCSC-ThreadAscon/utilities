@@ -14,7 +14,7 @@ mean_energy_usage = {
                    getAvgMAh(files["front-door"]["ascon128a"]["-9dbm"])),
     'ASCON-128': (getAvgMAh(files["front-door"]["ascon128"]["20dbm"]),
                   getAvgMAh(files["front-door"]["ascon128"]["0dbm"]),
-                  2.22543543),
+                  7.22543543),
 }
 
 x = np.arange(len(txpower))  # the label locations
@@ -30,12 +30,12 @@ for attribute, measurement in mean_energy_usage.items():
     multiplier += 1
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
-ax.set_ylabel('Average Energy Consumption (mA)')
+ax.set_ylabel('Average Energy Consumption (mAh)')
 ax.set_title('Front Door ESP32-H2')
 ax.set_xticks(x + width, txpower)
 
 y_lim = 10
-ax.set_yticks(np.arange(0, y_lim, 0.3))
+ax.set_yticks(np.arange(0, y_lim, 0.5))
 ax.legend(loc='upper right', ncols=3)
 ax.set_ylim(0, y_lim)
 
