@@ -10,10 +10,10 @@ y_interval = 5
 
 fig, ax = plt.subplots()
 
-ascon128a_lines = plt.plot(tx_powers, [-8, -1, 13], 'o:b',
+ascon128a_lines = plt.plot(tx_powers, [-8, -1, 13], 'o:',
                            color=cipherToColor['ASCON-128a'],
                            label='ASCON-128a')
-ascion128_lines = plt.plot(tx_powers, [-9, -2, 12], 'o-.g',
+ascion128_lines = plt.plot(tx_powers, [-9, -2, 12], 'o-.',
                            color=cipherToColor['ASCON-128'],
                            label='ASCON-128')
 
@@ -28,4 +28,5 @@ ax.set_title('Front Door ESP32-H2')
 
 plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
-plt.show()
+plt.savefig('bargraph.pgf')
+# plt.show()

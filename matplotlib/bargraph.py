@@ -41,4 +41,5 @@ ax.set_yticks(np.arange(0, y_lim, 0.5))
 ax.legend(loc='upper right', ncols=3)
 ax.set_ylim(0, y_lim)
 
-plt.show()
+plt.savefig('bargraph.pgf')
+# plt.show()

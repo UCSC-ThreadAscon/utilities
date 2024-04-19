@@ -1,3 +1,13 @@
+import matplotlib
+
+matplotlib.use("pgf")
+matplotlib.rcParams.update({
+    "pgf.texsystem": "pdflatex",
+    'font.family': 'serif',
+    'text.usetex': True,
+    'pgf.rcfonts': False,
+})
+
 """
 How long each experiment runs for in minutes, hours, and seconds.
 """
