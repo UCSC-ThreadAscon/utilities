@@ -1,18 +1,18 @@
 files = {
     "front-door": {
         "aes": {
-            "0dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/aes-0dbm-frontdoor-sample.csv",
-            "20dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/aes-20dbm-frontdoor-sample.csv",
-            "-9dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/aes-neg9dbm-frontdoor-sample.csv"
+            "0dbm": "samples/aes-0dbm-frontdoor-sample.csv",
+            "20dbm": "samples/aes-20dbm-frontdoor-sample.csv",
+            "-9dbm": "samples/aes-neg9dbm-frontdoor-sample.csv"
         },
         "ascon128a": {
-            "0dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/libascon128a-0dbm-frontdoor.csv",
-            "20dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/libascon128a-20dbm-frontdoor.csv",
-            "-9dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/libascon128a-neg9dbm-frontdoor.csv"
+            "0dbm": "samples/libascon128a-0dbm-frontdoor.csv",
+            "20dbm": "samples/libascon128a-20dbm-frontdoor.csv",
+            "-9dbm": "samples/libascon128a-neg9dbm-frontdoor.csv"
         },
         "ascon128": {
-            "0dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/libascon128-0dbm-frontdoor.csv",
-            "20dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/libascon128-20dbm-frontdoor-sample.csv",
+            "0dbm": "samples/libascon128-0dbm-frontdoor.csv",
+            "20dbm": "samples/libascon128-20dbm-frontdoor-sample.csv",
             "-9dbm": ""
         }
     },
