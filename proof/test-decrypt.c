@@ -11,8 +11,20 @@
 #include "ascon.h"
 #include "common.h"
 
-createAssocData(void* dstAddrBytes, void* srcAddrBytes, void* assocData) {
-  
+void* createAssocData(void* dstAddrBytes, void* srcAddrBytes,
+                      size_t dstAddrSize, size_t srcAddrSize)
+{
+  void* assocData = calloc(1, CRYPTO_ABYTES);
+
+  uint16_t offset = (uint16_t) assocData;
+
+  memcpy(offset, dstAddrBytes, dstAddrSize);
+  offset += dstAddrSize;
+
+  memcpy(offset, srcAddrBytes, srcAddrSize);
+  offset += srcAddrSize;
+
+  return assocData;
 }
 
 int main() {
