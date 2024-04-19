@@ -28,7 +28,6 @@ def getAverageMicroAmps(microAmpsList):
   return average
 
 def getMilliAmps(microAmps):
-  # According to Google `1 micro amp` === `0.001 milli amps`
   return microAmps * 0.001
 
 def getAvgMa(filename):
@@ -41,7 +40,6 @@ def getMAh(mA, hours):
 
 def getAvgMAh(filename):
   return getMAh(getAvgMa(filename), EXPERIMENT_RUNTIME_HOURS)
-
 
 if __name__ == '__main__':
   filename = 'aes-0dbm-frontdoor-sample.csv'
