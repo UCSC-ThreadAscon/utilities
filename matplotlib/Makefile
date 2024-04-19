@@ -1,4 +1,7 @@
-all: frontdoor
+all: bar line
 
-frontdoor:
+bar:
 	python3 ./bargraph.py
+
+line:
+	python3 ./linegraph.py
