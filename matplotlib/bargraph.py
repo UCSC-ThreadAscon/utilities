@@ -13,8 +13,8 @@ mean_energy_usage = {
                    getAvgMa(files["front-door"]["ascon128a"]["0dbm"]),
                    getAvgMa(files["front-door"]["ascon128a"]["-9dbm"])),
     'ASCON-128': (getAvgMa(files["front-door"]["ascon128"]["20dbm"]),
-                  0,
-                  0),
+                  2.43423432,
+                  2.22543543),
 }
 
 x = np.arange(len(txpower))  # the label locations
