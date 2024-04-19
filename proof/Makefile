@@ -8,7 +8,7 @@ all: main
 main: $(HEADERS) $(OBJECTS) main.o
 	$(CC) $(OBJECTS) -o main -g
 
-main: main.c
+main.o: main.c
 	$(CC) $(CFLAGS) -c main.c -g
 
 ascon_aead_common.o: $(HEADERS) ascon_aead_common.c
