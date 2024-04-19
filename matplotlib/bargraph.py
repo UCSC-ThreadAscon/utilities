@@ -23,7 +23,7 @@ multiplier = 0
 
 fig, ax = plt.subplots(layout='constrained')
 
-fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 3)
+fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
 fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
 for attribute, measurement in mean_energy_usage.items():
@@ -40,7 +40,7 @@ ax.set_xticks(x + width, txpower)
 
 y_lim = 10
 ax.set_yticks(np.arange(0, y_lim, 0.5))
-ax.legend(loc='upper right', ncols=3)
+ax.legend(loc='best', ncols=3)
 ax.set_ylim(0, y_lim)
 
 plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'bargraph.pgf'))

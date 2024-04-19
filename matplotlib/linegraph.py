@@ -10,7 +10,7 @@ y_interval = 5
 
 fig, ax = plt.subplots()
 
-fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 3)
+fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
 fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
 ascon128a_lines = plt.plot(tx_powers, [-8, -1, 13], 'o:',
@@ -24,7 +24,7 @@ ax.set_yticks(np.arange(y_min, y_lim + 15, y_interval))
 ax.set_xticks([-9, 0, 20])
 ax.set_ylim(y_min, y_lim)
 
-ax.legend(loc='upper right', ncols=3)
+ax.legend(loc='best', ncols=3)
 ax.set_ylabel('Energy Consumption Change from AES (%)')
 ax.set_xlabel('TX Power (dBm)')
 ax.set_title('Front Door ESP32-H2')
