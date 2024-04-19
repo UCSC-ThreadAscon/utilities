@@ -23,6 +23,9 @@ multiplier = 0
 
 fig, ax = plt.subplots(layout='constrained')
 
+fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 3)
+fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+
 for attribute, measurement in mean_energy_usage.items():
   offset = width * multiplier
   rects = ax.bar(x + offset, measurement, width, label=attribute,

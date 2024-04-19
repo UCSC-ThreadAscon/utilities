@@ -10,6 +10,9 @@ y_interval = 5
 
 fig, ax = plt.subplots()
 
+fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 3)
+fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+
 ascon128a_lines = plt.plot(tx_powers, [-8, -1, 13], 'o:',
                            color=cipherToColor['ASCON-128a'],
                            label='ASCON-128a')
