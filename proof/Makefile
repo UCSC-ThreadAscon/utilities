@@ -1,8 +1,8 @@
 CC = clang 
 CFLAGS = -Wall -Werror -Wextra -Wpedantic
 
-ascon_permutations.o: libascon/src/ascon_internal.h libascon/src/ascon_permutations.c
-	$(CC) $(CFLAGS) -c libascon/src/ascon_permutations.c -g
+ascon_permutations.o: ascon.h ascon_internal.h ascon_permutations.c
+	$(CC) $(CFLAGS) -c ascon_permutations.c -g
 
 clean:
 	rm -r -f $(wildcard *.o)
