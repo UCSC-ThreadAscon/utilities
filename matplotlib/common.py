@@ -11,7 +11,7 @@ files = {
             "-9dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/libascon128a-neg9dbm-frontdoor.csv"
         },
         "ascon128": {
-            "0dbm": "",
+            "0dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/libascon128-0dbm-frontdoor.csv",
             "20dbm": "/Users/simeon/Desktop/Repositories/utilities/matplotlib/data/examples/libascon128-20dbm-frontdoor-sample.csv",
             "-9dbm": ""
         }

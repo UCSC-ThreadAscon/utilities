@@ -2,6 +2,10 @@
   Given a CSV file generated from a PPK2 file, this file
   will return the average energy consumption in both
   mA and mAh.
+
+  For this file to work, the minimum that needs to be save
+  from the exported PPK2 CSV are the "timestamp" AND "Current(uA)"
+  fields.
 """
 import csv
 
