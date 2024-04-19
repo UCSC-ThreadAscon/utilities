@@ -59,7 +59,7 @@ files = {
 }
 
 cipherToColor = {
-  'AES-CCM': '#39f7e4',       # cyan
-  'ASCON-128a': '#41de3c',    # light green
-  'ASCON-128': '#665cf7'      # light purple
+  'AES-CCM': 'deepskyblue',
+  'ASCON-128a': 'plum',
+  'ASCON-128': 'orange' 
 }
