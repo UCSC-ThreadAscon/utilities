@@ -9,8 +9,12 @@ mean_energy_usage = {
     'AES-CCM': (getAvgMa(files["front-door"]["aes"]["20dbm"]),
                 getAvgMa(files["front-door"]["aes"]["0dbm"]),
                 getAvgMa(files["front-door"]["aes"]["-9dbm"])),
-    'ASCON-128a': (0, 0, 0),
-    'ASCON-128': (0, 0, 0),
+    'ASCON-128a': (getAvgMa(files["front-door"]["ascon128a"]["20dbm"]),
+                   getAvgMa(files["front-door"]["ascon128a"]["0dbm"]),
+                   getAvgMa(files["front-door"]["ascon128a"]["-9dbm"])),
+    'ASCON-128': (getAvgMa(files["front-door"]["ascon128"]["20dbm"]),
+                  0,
+                  0),
 }
 
 x = np.arange(len(txpower))  # the label locations
