@@ -57,3 +57,9 @@ files = {
         }
     }
 }
+
+cipherToColor = {
+  'AES-CCM': 'red',
+  'ASCON-128a': 'green',
+  'ASCON-128': 'blue'
+}

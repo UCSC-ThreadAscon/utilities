@@ -6,15 +6,15 @@ from common import *
 
 txpower = ("-9 dBm", "0dBm", "20 dBm")
 mean_energy_usage = {
-    'AES-CCM': (getAvgMAh(files["front-door"]["aes"]["-9dbm"]),
-                getAvgMAh(files["front-door"]["aes"]["0dbm"]),
-                getAvgMAh(files["front-door"]["aes"]["20dbm"])),
-    'ASCON-128a': (getAvgMAh(files["front-door"]["ascon128a"]["-9dbm"]),
-                   getAvgMAh(files["front-door"]["ascon128a"]["0dbm"]),
-                   getAvgMAh(files["front-door"]["ascon128a"]["20dbm"])),
-    'ASCON-128': (0,
-                  getAvgMAh(files["front-door"]["ascon128"]["0dbm"]),
-                  getAvgMAh(files["front-door"]["ascon128"]["20dbm"])),
+  'AES-CCM': (getAvgMAh(files["front-door"]["aes"]["-9dbm"]),
+              getAvgMAh(files["front-door"]["aes"]["0dbm"]),
+              getAvgMAh(files["front-door"]["aes"]["20dbm"])),
+  'ASCON-128a': (getAvgMAh(files["front-door"]["ascon128a"]["-9dbm"]),
+                  getAvgMAh(files["front-door"]["ascon128a"]["0dbm"]),
+                  getAvgMAh(files["front-door"]["ascon128a"]["20dbm"])),
+  'ASCON-128': (0,
+                getAvgMAh(files["front-door"]["ascon128"]["0dbm"]),
+                getAvgMAh(files["front-door"]["ascon128"]["20dbm"])),
 }
 
 x = np.arange(len(txpower))  # the label locations
@@ -24,10 +24,12 @@ multiplier = 0
 fig, ax = plt.subplots(layout='constrained')
 
 for attribute, measurement in mean_energy_usage.items():
-    offset = width * multiplier
-    rects = ax.bar(x + offset, measurement, width, label=attribute)
-    ax.bar_label(rects, padding=4)
-    multiplier += 1
+  print(attribute)
+  offset = width * multiplier
+  rects = ax.bar(x + offset, measurement, width, label=attribute,
+                 color=cipherToColor[attribute])
+  ax.bar_label(rects, padding=4)
+  multiplier += 1
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Average Energy Consumption (mAh)')
