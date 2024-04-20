@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <inttypes.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #include "ascon.h"
 #include "common.h"
@@ -51,6 +52,9 @@ void* createNonce(uint8_t *seqNum, uint8_t *keyId, uint32_t *frameCounter) {
 }
 
 int main(void) {
+  /**
+   * The current cipher suite is LibAscon-128.
+  */
   uint8_t key[] = {0x53, 0x08, 0x9a, 0x00, 0x90, 0x04, 0x52, 0xca,
                    0xad, 0xc9, 0x65, 0xdd, 0x85, 0xa8, 0x81, 0x1c};
 
