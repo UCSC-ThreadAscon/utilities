@@ -79,8 +79,10 @@ int main(void) {
     0xe4, 0xf8, 0xab, 0xa4, 0x7a
   };
 
+  size_t payloadLenNoTag = sizeof(payload) - sizeof(tag);
+
   bool status = ascon_aead128_decrypt(payload, key, nonce, assocData, payload,
-                                      tag, CRYPTO_ABYTES, sizeof(payload),
+                                      tag, CRYPTO_ABYTES, payloadLenNoTag,
                                       sizeof(tag));
   if (status == ASCON_TAG_OK) {
     printf("ASCON decryption success!");
