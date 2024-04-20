@@ -35,7 +35,6 @@ int main(void) {
   uint8_t source[] = { 0x10, 0x68 };
   void *assocData = createAssocData(destination, source,
                                     sizeof(destination), sizeof(source));
-
   free(assocData);
   return 0;
 }

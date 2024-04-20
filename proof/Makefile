@@ -41,3 +41,6 @@ ascon_permutations.o: $(HEADERS) ascon_permutations.c
 
 clean:
 	rm -r -f $(wildcard *.o) $(BINARIES)
+
+check-decrypt:
+	leaks --atExit -- ./test-decrypt
