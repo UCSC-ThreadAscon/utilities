@@ -61,6 +61,8 @@ int main(void) {
   uint8_t seqNum[] = { 0x1e };
   void *nonce = createNonce(seqNum, keyId, frameCounter);
 
+  uint8_t tag[] = { 0xfd, 0x65, 0x95, 0xc2 };
+
   free(assocData);
   free(nonce);
   return 0;
