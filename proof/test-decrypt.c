@@ -42,6 +42,7 @@ void* createNonce(uint8_t *seqNum, uint8_t *keyId, uint32_t *frameCounter) {
   memcpy(offset, seqNum, sizeof(uint8_t));
   offset += sizeof(uint8_t);
 
+  // This is called the KEY INDEX in Wireshark.
   memcpy(offset, keyId, sizeof(uint8_t));
   offset += sizeof(uint8_t);
 
@@ -54,6 +55,13 @@ int main(void) {
   uint8_t source[] = { 0x10, 0x68 };
   void *assocData = createAssocData(destination, source,
                                     sizeof(destination), sizeof(source));
+
+  uint32_t frameCounter[] = { 0xb3, 0x00, 0x00, 0x00 };
+  uint8_t keyId[] = { 0xff };
+  uint8_t seqNum[] = { 0x1e };
+  void *nonce = createNonce(seqNum, keyId, frameCounter);
+
   free(assocData);
+  free(nonce);
   return 0;
 }
