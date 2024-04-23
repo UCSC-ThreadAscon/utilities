@@ -23,7 +23,7 @@ EXPERIMENT_RUNTIME_HOURS = EXPERIMENT_RUNTIME_MINUTES / 60
 files = {
     "front-door": {
         "aes": {
-            "0dbm": "samples/aes-0dbm-frontdoor-sample.csv",
+            "0dbm": "csv/front-door/front-door-aes-0dbm.csv",
             "20dbm": "samples/aes-20dbm-frontdoor-sample.csv",
             "-9dbm": "samples/aes-neg9dbm-frontdoor-sample.csv"
         },

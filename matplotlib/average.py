@@ -42,5 +42,5 @@ def getAvgMAh(filename):
   return getMAh(getAvgMa(filename), EXPERIMENT_RUNTIME_HOURS)
 
 if __name__ == '__main__':
-  filename = 'aes-0dbm-frontdoor-sample.csv'
-  print(getAvgMa(filename))
+  mA = getAvgMa(files["front-door"]["aes"]["0dbm"])
+  print(f"The average mA for front door AES @ 0dBm is {mA}")
