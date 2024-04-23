@@ -47,7 +47,7 @@ files = {
         "ascon128a": {
             "0dbm": "csv/washingmachine/washingmachine-ascon128a-0dbm.csv",
             "20dbm": "csv/washingmachine/washingmachine-ascon128a-20dbm.csv",
-            "9dbm": "csv/washingmachine/washingmachine-ascon12a8-9dbm.csv"
+            "9dbm": "csv/washingmachine/washingmachine-ascon128a-9dbm.csv"
         },
         "ascon128": {
             "0dbm": "csv/washingmachine/washingmachine-ascon128-0dbm.csv",
@@ -64,7 +64,7 @@ files = {
         "ascon128a": {
             "0dbm": "csv/secondstory/secondstory-ascon128a-0dbm.csv",
             "20dbm": "csv/secondstory/secondstory-ascon128a-20dbm.csv",
-            "9dbm": "csv/secondstory-ascon128-9dbm.csv"
+            "9dbm": "csv/secondstory/secondstory-ascon128-9dbm.csv"
         },
         "ascon128": {
             "0dbm": "csv/secondstory/secondstory-ascon128-0dbm.csv",

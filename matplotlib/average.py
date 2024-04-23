@@ -42,11 +42,11 @@ def getAvgMAh(filename):
   return getMAh(getAvgMa(filename), EXPERIMENT_RUNTIME_HOURS)
 
 def printAvgMa(location, cipher):
-  mA = getAvgMa(files[location][cipher]["0dbm"])
-  print(f"The average mA for {location} {cipher} @ 0dBm is {mA} mA")
-
   mA = getAvgMa(files[location][cipher]["9dbm"])
   print(f"The average mA for {location} {cipher} @ 9dBm is {mA} mA")
+
+  mA = getAvgMa(files[location][cipher]["0dbm"])
+  print(f"The average mA for {location} {cipher} @ 0dBm is {mA} mA")
 
   mA = getAvgMa(files[location][cipher]["20dbm"])
   print(f"The average mA for {location} {cipher} @ 20dBm is {mA} mA")
@@ -54,13 +54,13 @@ def printAvgMa(location, cipher):
   return
 
 if __name__ == '__main__':
-  printAvgMa("second-story", "aes")
-  printAvgMa("second-story", "ascon128a")
-  printAvgMa("second-story", "ascon128")
-
-  printAvgMa("washing-machine", "aes")
   printAvgMa("washing-machine", "ascon128a")
   printAvgMa("washing-machine", "ascon128")
+  printAvgMa("washing-machine", "aes")
+
+  printAvgMa("second-story", "ascon128a")
+  printAvgMa("second-story", "ascon128")
+  printAvgMa("second-story", "aes")
 
   printAvgMa("front-door", "aes")
   printAvgMa("front-door", "ascon128a")
