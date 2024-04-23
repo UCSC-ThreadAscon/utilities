@@ -24,52 +24,52 @@ files = {
     "front-door": {
         "aes": {
             "0dbm": "csv/front-door/front-door-aes-0dbm.csv",
-            "20dbm": "samples/aes-20dbm-frontdoor-sample.csv",
-            "-9dbm": "samples/aes-neg9dbm-frontdoor-sample.csv"
+            "20dbm": "csv/front-door/front-door-aes-20dbm.csv",
+            "9dbm": "csv/front-door/front-door-aes-9dbm.csv"
         },
         "ascon128a": {
-            "0dbm": "samples/libascon128a-0dbm-frontdoor.csv",
-            "20dbm": "samples/libascon128a-20dbm-frontdoor.csv",
-            "-9dbm": "samples/libascon128a-neg9dbm-frontdoor.csv"
+            "0dbm": "csv/front-door/front-door-ascon128a-0dbm.csv",
+            "20dbm": "csv/front-door/front-door-ascon128a-20dbm.csv",
+            "9dbm": "csv/front-door/front-door-ascon128a-9dbm.csv"
         },
         "ascon128": {
-            "0dbm": "samples/libascon128-0dbm-frontdoor.csv",
-            "20dbm": "samples/libascon128-20dbm-frontdoor-sample.csv",
-            "-9dbm": ""
+            "0dbm": "csv/front-door/front-door-ascon128-0dbm.csv",
+            "20dbm": "csv/front-door/front-door-ascon128-20dbm.csv",
+            "9dbm": "csv/front-door/front-door-ascon128-9dbm.csv"
         }
     },
     "washing-machine": {
         "aes": {
             "0dbm": "",
             "20dbm": "",
-            "-9dbm": ""
+            "9dbm": ""
         },
         "ascon128a": {
             "0dbm": "",
             "20dbm": "",
-            "-9dbm": ""
+            "9dbm": ""
         },
         "ascon128": {
             "0dbm": "",
             "20dbm": "",
-            "-9dbm": ""
+            "9dbm": ""
         }
     },
     "second-story": {
         "aes": {
             "0dbm": "",
             "20dbm": "",
-            "-9dbm": ""
+            "9dbm": ""
         },
         "ascon128a": {
             "0dbm": "",
             "20dbm": "",
-            "-9dbm": ""
+            "9dbm": ""
         },
         "ascon128": {
             "0dbm": "",
             "20dbm": "",
-            "-9dbm": ""
+            "9dbm": ""
         }
     }
 }
