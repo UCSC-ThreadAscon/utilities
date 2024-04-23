@@ -40,36 +40,36 @@ files = {
     },
     "washing-machine": {
         "aes": {
-            "0dbm": "",
-            "20dbm": "",
-            "9dbm": ""
+            "0dbm": "csv/washingmachine/washingmachine-aes-0dbm.csv",
+            "20dbm": "csv/washingmachine/washingmachine-aes-20dbm.csv",
+            "9dbm": "csv/washingmachine/washingmachine-aes-9dbm.csv"
         },
         "ascon128a": {
-            "0dbm": "",
-            "20dbm": "",
-            "9dbm": ""
+            "0dbm": "csv/washingmachine/washingmachine-ascon128a-0dbm.csv",
+            "20dbm": "csv/washingmachine/washingmachine-ascon128a-20dbm.csv",
+            "9dbm": "csv/washingmachine/washingmachine-ascon12a8-9dbm.csv"
         },
         "ascon128": {
-            "0dbm": "",
-            "20dbm": "",
-            "9dbm": ""
+            "0dbm": "csv/washingmachine/washingmachine-ascon128-0dbm.csv",
+            "20dbm": "csv/washingmachine/washingmachine-ascon128-20dbm.csv",
+            "9dbm": "csv/washingmachine/washingmachine-ascon128-9dbm.csv"
         }
     },
     "second-story": {
         "aes": {
-            "0dbm": "",
-            "20dbm": "",
-            "9dbm": ""
+            "0dbm": "csv/secondstory/secondstory-aes-0dbm.csv",
+            "20dbm": "csv/secondstory/secondstory-aes-20dbm.csv",
+            "9dbm": "csv/secondstory/secondstory-aes-9dbm.csv"
         },
         "ascon128a": {
-            "0dbm": "",
-            "20dbm": "",
-            "9dbm": ""
+            "0dbm": "csv/secondstory/secondstory-ascon128a-0dbm.csv",
+            "20dbm": "csv/secondstory/secondstory-ascon128a-20dbm.csv",
+            "9dbm": "csv/secondstory-ascon12a8-9dbm.csv"
         },
         "ascon128": {
-            "0dbm": "",
-            "20dbm": "",
-            "9dbm": ""
+            "0dbm": "csv/secondstory/secondstory-ascon128-0dbm.csv",
+            "20dbm": "csv/secondstory/secondstory-ascon128-20dbm.csv",
+            "9dbm": "csv/secondstory/secondstory-ascon128-9dbm.csv"
         }
     }
 }
