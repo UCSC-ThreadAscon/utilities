@@ -54,6 +54,14 @@ def printAvgMa(location, cipher):
   return
 
 if __name__ == '__main__':
+  printAvgMa("seecond-story", "aes")
+  printAvgMa(("seecond-story", "ascon128a")
+  printAvgMa(("seecond-story", "ascon128")
+
+  printAvgMa("washing-machine", "aes")
+  printAvgMa("washing-machine", "ascon128a")
+  printAvgMa("washing-machine", "ascon128")
+
   printAvgMa("front-door", "aes")
   printAvgMa("front-door", "ascon128a")
   printAvgMa("front-door", "ascon128")
