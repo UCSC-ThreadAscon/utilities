@@ -64,7 +64,7 @@ files = {
         "ascon128a": {
             "0dbm": "csv/secondstory/secondstory-ascon128a-0dbm.csv",
             "20dbm": "csv/secondstory/secondstory-ascon128a-20dbm.csv",
-            "9dbm": "csv/secondstory-ascon12a8-9dbm.csv"
+            "9dbm": "csv/secondstory-ascon128-9dbm.csv"
         },
         "ascon128": {
             "0dbm": "csv/secondstory/secondstory-ascon128-0dbm.csv",
