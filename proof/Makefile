@@ -6,6 +6,12 @@ BINARIES = example test-encrypt decrypt-mac-ascon128
 
 all: example decrypt-mac-ascon128 decrypt-mac-ascon128a decrypt-mle-ascon128a decrypt-mle-ascon128
 
+test:
+	./decrypt-mac-ascon128
+	./decrypt-mac-ascon128a
+	./decrypt-mle-ascon128a
+	./decrypt-mle-ascon128
+
 decrypt-mle-ascon128: decrypt-mle-ascon128.o
 	$(CC) $(OBJECTS) decrypt-mle-ascon128.o -o decrypt-mle-ascon128 -g
 
