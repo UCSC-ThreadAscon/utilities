@@ -6,7 +6,7 @@ bar:
 
 throughput:
 	python3 ./throughput.py
-	python3 ./ratio.py
+	python3 ./throughput-ratio.py
 
 line:
 	python3 ./linegraph.py
