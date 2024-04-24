@@ -12,3 +12,7 @@ decrypt-mac-ascon128
 decrypt-mac-ascon128a
 encrypt-mac-ascon128
 encrypt-mac-ascon128a
+decrypt-mle-ascon128
+decrypt-mle-ascon128a
+encrypt-mle-ascon128
+encrypt-mle-ascon128a
