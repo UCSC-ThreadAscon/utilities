@@ -1,6 +1,7 @@
 /**
  * This file DECRYPTS can decrypt any packet shown in
- * "ascon128-mac-decrypt-test.txt".
+ * "ascon128-mac-decrypt-test1.txt" or
+ * "ascon128-mac-decrypt-test2.txt".
 */
 #include <stdio.h>
 #include <string.h>
