@@ -52,7 +52,7 @@ def bargraph(location, title):
 
   ax.set_yticks(ticks)
 
-  ax.legend(loc='best', ncols=3)
+  ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 
   plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
