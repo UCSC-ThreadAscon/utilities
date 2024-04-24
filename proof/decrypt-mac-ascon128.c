@@ -47,19 +47,47 @@ void test1(void) {
                                       tag, CRYPTO_ABYTES, sizeof(payload),
                                       sizeof(tag));
   if (status == ASCON_TAG_OK) {
-    printf("ASCON decryption success!");
+    printf("Test 1 ASCON decryption success!\n");
   }
   else {
-    printf("ASCON decryption failure.");
+    printf("Test 1 ASCON decryption failure.\n");
   }
 }
 
 /**
  * From the file "ascon128-mac-decrypt-test2.txt".
 */
-void test2(void) {}
+void test2(void) {
+  uint8_t key[] = {0x30, 0xB9, 0x7A, 0x04, 0xA0, 0x2B, 0x0E, 0xA0,
+                   0x80, 0xDF, 0x63, 0xFC, 0x97, 0xA5, 0x7D, 0x7F};
+
+  uint8_t nonce[] = {0xB9, 0x01, 0x00, 0x09, 0x83, 0x5A, 0x00, 0x00,
+                     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+
+  uint8_t assocData[] = {0x00, 0xBC, 0x00, 0x7C, 0x00, 0x00, 0x00, 0x00,
+                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+  uint8_t tag[] = {0x65, 0x2A, 0x15, 0x30};
+
+  uint8_t payload[] = { 0x3A, 0x1D, 0x27, 0x36, 0x9D, 0x8C, 0xC1, 0x7F,
+                        0xB0, 0xF9, 0x87, 0x3E, 0x1D, 0x02, 0xB2, 0xB1,
+                        0xFF, 0xF4, 0xB2, 0x6B, 0x54, 0xEB, 0xC3, 0xEF,
+                        0xEF, 0x17, 0x3E, 0x49, 0x4C, 0xD8, 0x5F, 0x69,
+                        0xF6, 0x9E };
+
+  bool status = ascon_aead128_decrypt(payload, key, nonce, assocData, payload,
+                                      tag, CRYPTO_ABYTES, sizeof(payload),
+                                      sizeof(tag));
+  if (status == ASCON_TAG_OK) {
+    printf("Test 2 ASCON decryption success!\n");
+  }
+  else {
+    printf("Test 2 ASCON decryption failure.\n");
+  }
+}
 
 int main(void) {
   test1();
+  test2();
   return 0;
 }
