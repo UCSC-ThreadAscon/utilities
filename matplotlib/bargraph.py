@@ -4,44 +4,55 @@ import numpy as np
 from average import *
 from common import *
 
-txpower = ("0 dBm", "9dBm", "20 dBm")
-mean_energy_usage = {
-  'AES-CCM': (getAvgMAh(prelimData["front-door"]["aes"]["0dbm"]),
-              getAvgMAh(prelimData["front-door"]["aes"]["9dbm"]),
-              getAvgMAh(prelimData["front-door"]["aes"]["20dbm"])),
-  'ASCON-128a': (getAvgMAh(prelimData["front-door"]["ascon128a"]["0dbm"]),
-                  getAvgMAh(prelimData["front-door"]["ascon128a"]["9dbm"]),
-                  getAvgMAh(prelimData["front-door"]["ascon128a"]["20dbm"])),
-  'ASCON-128': (getAvgMAh(prelimData["front-door"]["ascon128"]["9dbm"]),
-                getAvgMAh(prelimData["front-door"]["ascon128"]["9dbm"]),
-                getAvgMAh(prelimData["front-door"]["ascon128"]["20dbm"])),
-}
+def bargraph(location, title):
+  txpower = ("0 dBm", "9dBm", "20 dBm")
+  mean_energy_usage = {
+    'AES-CCM': (getAvgMAh(prelimData[location]["aes"]["0dbm"]),
+                getAvgMAh(prelimData[location]["aes"]["9dbm"]),
+                getAvgMAh(prelimData[location]["aes"]["20dbm"])),
+    'ASCON-128a': (getAvgMAh(prelimData[location]["ascon128a"]["0dbm"]),
+                    getAvgMAh(prelimData[location]["ascon128a"]["9dbm"]),
+                    getAvgMAh(prelimData[location]["ascon128a"]["20dbm"])),
+    'ASCON-128': (getAvgMAh(prelimData[location]["ascon128"]["9dbm"]),
+                  getAvgMAh(prelimData[location]["ascon128"]["9dbm"]),
+                  getAvgMAh(prelimData[location]["ascon128"]["20dbm"])),
+  }
 
-x = np.arange(len(txpower))  # the label locations
-width = 0.25  # the width of the bars
-multiplier = 0
+  x = np.arange(len(txpower))  # the label locations
+  width = 0.25  # the width of the bars
+  multiplier = 0
 
-fig, ax = plt.subplots(layout='constrained')
+  fig, ax = plt.subplots(layout='constrained')
 
-fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+  fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+  fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-for attribute, measurement in mean_energy_usage.items():
-  offset = width * multiplier
-  rects = ax.bar(x + offset, measurement, width, label=attribute,
-                 color=cipherToColor[attribute])
-  ax.bar_label(rects, padding=4)
-  multiplier += 1
+  for attribute, measurement in mean_energy_usage.items():
+    offset = width * multiplier
+    rects = ax.bar(x + offset, measurement, width, label=attribute,
+                  color=cipherToColor[attribute])
+    # ax.bar_label(rects, padding=4)
+    multiplier += 1
 
-# Add some text for labels, title and custom x-axis tick labels, etc.
-ax.set_ylabel('Average Energy Consumption (mAh)')
-ax.set_title('Front Door ESP32-H2')
-ax.set_xticks(x + width, txpower)
+  # Add some text for labels, title and custom x-axis tick labels, etc.
+  ax.set_ylabel('Average Energy Consumption (mAh)')
+  ax.set_title(title)
+  ax.set_xticks(x + width, txpower)
 
-y_lim = 10
-ax.set_yticks(np.arange(0, y_lim, 0.5))
-ax.legend(loc='best', ncols=3)
-ax.set_ylim(0, y_lim)
+  y_min = 7
+  y_lim = 8
+  num_ticks = abs(y_lim - y_min) / 10
 
-# plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'bargraph.pgf'))
-plt.show()
+  ticks = np.arange(0, y_lim, num_ticks)
+  ticks = np.append(ticks, [y_lim])
+  ax.set_yticks(ticks)
+
+  ax.legend(loc='best', ncols=3)
+  ax.set_ylim(y_min, y_lim)
+
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'bargraph.pgf'))
+  plt.show()
+  return
+
+if __name__ == "__main__":
+  bargraph("front-door", "Front Door ESP32-H2")
