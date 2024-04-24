@@ -31,7 +31,7 @@ def bargraph(location, title):
     offset = width * multiplier
     rects = ax.bar(x + offset, measurement, width, label=attribute,
                   color=cipherToColor[attribute])
-    ax.bar_label(rects, padding=4)
+    # ax.bar_label(rects, padding=4)
     multiplier += 1
 
   # Add some text for labels, title and custom x-axis tick labels, etc.
