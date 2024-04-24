@@ -4,7 +4,7 @@ import numpy as np
 from average import *
 from common import *
 
-txpower = ("-9 dBm", "0dBm", "20 dBm")
+txpower = ("0 dBm", "9dBm", "20 dBm")
 mean_energy_usage = {
   'AES-CCM': (getAvgMAh(prelimData["front-door"]["aes"]["0dbm"]),
               getAvgMAh(prelimData["front-door"]["aes"]["9dbm"]),
