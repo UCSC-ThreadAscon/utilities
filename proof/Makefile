@@ -4,7 +4,13 @@ HEADERS = ascon.h ascon_internal.h
 OBJECTS = ascon_permutations.o ascon_hash.o ascon_buffering.o ascon_aead128a.o ascon_aead128.o ascon_aead80pq.o ascon_aead_common.o
 BINARIES = example test-encrypt decrypt-mac-ascon128
 
-all: example decrypt-mac-ascon128
+all: example decrypt-mac-ascon128 decrypt-mac-ascon128a
+
+decrypt-mac-ascon128a: decrypt-mac-ascon128a.o
+	$(CC) $(OBJECTS) decrypt-mac-ascon128a.o -o decrypt-mac-ascon128a -g
+
+decrypt-mac-ascon128a.o: $(HEADERS) $(OBJECTS) decrypt-mac-ascon128a.c
+	$(CC) $(CFLAGS) -c decrypt-mac-ascon128a.c -g
 
 decrypt-mac-ascon128: decrypt-mac-ascon128.o
 	$(CC) $(OBJECTS) decrypt-mac-ascon128.o -o decrypt-mac-ascon128 -g

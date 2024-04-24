@@ -8,3 +8,7 @@ test-encrypt
 test-decrypt
 example
 csv/
+decrypt-mac-ascon128
+decrypt-mac-ascon128a
+encrypt-mac-ascon128
+encrypt-mac-ascon128a
