@@ -154,19 +154,19 @@ averageRTTs = {
     },
     "second-story": {
         "aes": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
+            "0dbm": 55.393,
+            "9dbm": 41.183,
+            "20dbm": 41.916
         },
         "ascon128": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
+            "0dbm": 42.313,
+            "9dbm": 41.673,
+            "20dbm": 45.536
         },
         "ascon128a": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
+            "0dbm": 46.590,
+            "9dbm": 45.346,
+            "20dbm": 41.440
         }
     },
     "front-door": {
