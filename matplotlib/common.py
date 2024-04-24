@@ -133,3 +133,57 @@ cipherToColor = {
   'ASCON-128a': 'plum',
   'ASCON-128': 'orange' 
 }
+
+averageRTTs = {
+    "washing-machine": {
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        }
+    },
+    "second-story": {
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        }
+    },
+    "front-door": {
+        "aes": {
+            "0dbm": 50.531,
+            "9dbm": 44.313,
+            "20dbm": 44.126
+        },
+        "ascon128": {
+            "0dbm": 52.929,
+            "9dbm": 46.973,
+            "20dbm": 42.586
+        },
+        "ascon128a": {
+            "0dbm": 46.736,
+            "9dbm": 43.943,
+            "20dbm": 49.860
+        }
+    }
+}
