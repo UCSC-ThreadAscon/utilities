@@ -38,8 +38,11 @@ def getAvgMa(filename):
 def getMAh(mA, hours):
   return mA * hours
 
-def getAvgMAh(filename):
+def getAvgMAhFromFile(filename):
   return getMAh(getAvgMa(filename), EXPERIMENT_RUNTIME_HOURS)
+
+def getAvgMAh(mA):
+  return getMAh(mA, EXPERIMENT_RUNTIME_HOURS)
 
 def printAvgMa(location, cipher):
   mA = getAvgMa(files[location][cipher]["0dbm"])

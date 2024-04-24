@@ -6,15 +6,15 @@ from common import *
 
 txpower = ("-9 dBm", "0dBm", "20 dBm")
 mean_energy_usage = {
-  'AES-CCM': (getAvgMAh(files["front-door"]["aes"]["-9dbm"]),
-              getAvgMAh(files["front-door"]["aes"]["0dbm"]),
-              getAvgMAh(files["front-door"]["aes"]["20dbm"])),
-  'ASCON-128a': (getAvgMAh(files["front-door"]["ascon128a"]["-9dbm"]),
-                  getAvgMAh(files["front-door"]["ascon128a"]["0dbm"]),
-                  getAvgMAh(files["front-door"]["ascon128a"]["20dbm"])),
-  'ASCON-128': (0,
-                getAvgMAh(files["front-door"]["ascon128"]["0dbm"]),
-                getAvgMAh(files["front-door"]["ascon128"]["20dbm"])),
+  'AES-CCM': (getAvgMAh(prelimData["front-door"]["aes"]["0dbm"]),
+              getAvgMAh(prelimData["front-door"]["aes"]["9dbm"]),
+              getAvgMAh(prelimData["front-door"]["aes"]["20dbm"])),
+  'ASCON-128a': (getAvgMAh(prelimData["front-door"]["ascon128a"]["0dbm"]),
+                  getAvgMAh(prelimData["front-door"]["ascon128a"]["9dbm"]),
+                  getAvgMAh(prelimData["front-door"]["ascon128a"]["20dbm"])),
+  'ASCON-128': (getAvgMAh(prelimData["front-door"]["ascon128"]["9dbm"]),
+                getAvgMAh(prelimData["front-door"]["ascon128"]["9dbm"]),
+                getAvgMAh(prelimData["front-door"]["ascon128"]["20dbm"])),
 }
 
 x = np.arange(len(txpower))  # the label locations
@@ -43,5 +43,5 @@ ax.set_yticks(np.arange(0, y_lim, 0.5))
 ax.legend(loc='best', ncols=3)
 ax.set_ylim(0, y_lim)
 
-plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'bargraph.pgf'))
-# plt.show()
+# plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'bargraph.pgf'))
+plt.show()
