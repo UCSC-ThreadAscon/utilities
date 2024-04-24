@@ -13,7 +13,7 @@ def bargraph(location, title):
     'ASCON-128a': (prelimData[location]["ascon128a"]["0dbm"],
                    prelimData[location]["ascon128a"]["9dbm"],
                    prelimData[location]["ascon128a"]["20dbm"]),
-    'ASCON-128': (prelimData[location]["ascon128"]["9dbm"],
+    'ASCON-128': (prelimData[location]["ascon128"]["0dbm"],
                   prelimData[location]["ascon128"]["9dbm"],
                   prelimData[location]["ascon128"]["20dbm"]),
   }
@@ -55,11 +55,11 @@ def bargraph(location, title):
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph-mA.pgf'))
   return
 
 if __name__ == "__main__":
   bargraph("front-door", "Front Door Sleepy End Device")
   bargraph("washing-machine", "Washing Machine Sleepy End Device")
   bargraph("second-story", "Second Story Sleepy End Device")
-  plt.show()
+  # plt.show()

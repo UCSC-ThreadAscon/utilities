@@ -13,7 +13,7 @@ def bargraph(location, title):
     'ASCON-128a': (getAvgMAh(prelimData[location]["ascon128a"]["0dbm"]),
                     getAvgMAh(prelimData[location]["ascon128a"]["9dbm"]),
                     getAvgMAh(prelimData[location]["ascon128a"]["20dbm"])),
-    'ASCON-128': (getAvgMAh(prelimData[location]["ascon128"]["9dbm"]),
+    'ASCON-128': (getAvgMAh(prelimData[location]["ascon128"]["0dbm"]),
                   getAvgMAh(prelimData[location]["ascon128"]["9dbm"]),
                   getAvgMAh(prelimData[location]["ascon128"]["20dbm"])),
   }
