@@ -12,7 +12,7 @@
 #include "ascon.h"
 #include "common.h"
 
-int main(void) {
+void test1(void) {
   uint8_t key[] = {0x30, 0xB9, 0x7A, 0x04, 0xA0, 0x2B, 0x0E, 0xA0,
                    0x80, 0xDF, 0x63, 0xFC, 0x97, 0xA5, 0x7D, 0x7F};
 
@@ -48,6 +48,9 @@ int main(void) {
   else {
     printf("ASCON decryption failure.");
   }
+}
 
+int main(void) {
+  test1();
   return 0;
 }
