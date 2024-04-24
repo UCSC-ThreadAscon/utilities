@@ -7,15 +7,15 @@ from common import *
 def bargraph(location, title):
   txpower = ("0 dBm", "9 dBm", "20 dBm")
   mean_energy_usage = {
-    'AES-CCM': (getAvgMAh(prelimData[location]["aes"]["0dbm"]),
-                getAvgMAh(prelimData[location]["aes"]["9dbm"]),
-                getAvgMAh(prelimData[location]["aes"]["20dbm"])),
-    'ASCON-128a': (getAvgMAh(prelimData[location]["ascon128a"]["0dbm"]),
-                    getAvgMAh(prelimData[location]["ascon128a"]["9dbm"]),
-                    getAvgMAh(prelimData[location]["ascon128a"]["20dbm"])),
-    'ASCON-128': (getAvgMAh(prelimData[location]["ascon128"]["9dbm"]),
-                  getAvgMAh(prelimData[location]["ascon128"]["9dbm"]),
-                  getAvgMAh(prelimData[location]["ascon128"]["20dbm"])),
+    'AES-CCM': (prelimData[location]["aes"]["0dbm"],
+                prelimData[location]["aes"]["9dbm"],
+                prelimData[location]["aes"]["20dbm"]),
+    'ASCON-128a': (prelimData[location]["ascon128a"]["0dbm"],
+                   prelimData[location]["ascon128a"]["9dbm"],
+                   prelimData[location]["ascon128a"]["20dbm"]),
+    'ASCON-128': (prelimData[location]["ascon128"]["9dbm"],
+                  prelimData[location]["ascon128"]["9dbm"],
+                  prelimData[location]["ascon128"]["20dbm"]),
   }
 
   x = np.arange(len(txpower))  # the label locations
@@ -35,7 +35,7 @@ def bargraph(location, title):
     multiplier += 1
 
   # Add some text for labels, title and custom x-axis tick labels, etc.
-  ax.set_ylabel('Average (mAh)')
+  ax.set_ylabel('Average (mA)')
   ax.set_title(title)
   ax.set_xticks(x + width, txpower)
 
