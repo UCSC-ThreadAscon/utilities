@@ -41,7 +41,7 @@ def bargraph(location, title):
 
   y_values = []
   for cipher in ["aes", "ascon128a", "ascon128"]:
-    for tx in "0dbm", "9dbm", "20dbm":
+    for tx in ["0dbm", "9dbm", "20dbm"]:
       y_values.append(getAvgMAh(prelimData[location][cipher][tx]))
 
   y_min = 4
