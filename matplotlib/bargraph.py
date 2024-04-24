@@ -55,11 +55,11 @@ def bargraph(location, title):
   ax.legend(loc='best', ncols=3)
   ax.set_ylim(y_min, y_lim)
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'bargraph.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
   bargraph("front-door", "Front Door Sleepy End Device")
   bargraph("washing-machine", "Washing Machine Sleepy End Device")
   bargraph("second-story", "Second Story Sleepy End Device")
-  plt.show()
+  # plt.show()
