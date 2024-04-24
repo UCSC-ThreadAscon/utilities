@@ -3,26 +3,25 @@ import numpy as np
 
 from common import *
 from average import *
+from throughput import *
 
-TX_POWERS = ["0dbm", "9dbm", "20dbm"]
-
-def get_ratios(location, cipher):
+def get_throughput_ratios(location, cipher):
   ratios = []
   for tx in TX_POWERS:
-    value_cipher = getAvgMAh(prelimData[location][cipher][tx])
-    value_aes = getAvgMAh(prelimData[location]["aes"][tx])
-    ratio = 1 - (value_cipher / value_aes)
+    throughput_cipher = averageRTTs[location][cipher][tx]
+    throughput_aes = averageRTTs[location]["aes"][tx]
+
+    ratio = 1 - (throughput_cipher / throughput_aes)
     ratio *= 100
     ratio *= -1
     ratios.append(ratio)
   return ratios
 
+def throughput(location, title):
+  ascon128 = get_throughput_ratios(location, 'ascon128')
+  ascon128a = get_throughput_ratios(location, 'ascon128a')
 
-def linegraph(location, title):
-  ascon128a_ratios = get_ratios(location, "ascon128a")
-  ascon128_ratios = get_ratios(location, "ascon128")
-
-  all_ratios = ascon128a_ratios + ascon128_ratios
+  all_ratios = ascon128 + ascon128a
   y_interval = 1.5
   y_lim = max(all_ratios) + y_interval
   y_min = min(all_ratios) - y_interval
@@ -32,10 +31,10 @@ def linegraph(location, title):
   # fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
   # fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  ascon128a_lines = plt.plot(TX_POWERS, ascon128a_ratios, 'o:',
+  ascon128a_lines = plt.plot(TX_POWERS, ascon128a, 'o:',
                             color=cipherToColor['ASCON-128a'],
                             label='ASCON-128a')
-  ascion128_lines = plt.plot(TX_POWERS, ascon128_ratios, 'o-.',
+  ascion128_lines = plt.plot(TX_POWERS, ascon128, 'o-.',
                             color=cipherToColor['ASCON-128'],
                             label='ASCON-128')
 
@@ -44,16 +43,17 @@ def linegraph(location, title):
   ax.set_ylim(y_min, y_lim)
 
   ax.legend(loc='best', ncols=3)
-  ax.set_ylabel('mAh difference between AES (%)')
+  ax.set_ylabel('Throughput difference between AES (%)')
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-sed.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-throughput.pgf'))
+
 
 if __name__ == "__main__":
-  linegraph('front-door', 'Front Door Sleepy End Device')
-  linegraph('washing-machine', 'Washing Machine Sleepy End Device')
-  linegraph('second-story', 'Second Story Sleepy End Device')
+  throughput("front-door", "Front Door Full Thread Device")
+  throughput("second-story", "Second Story Full Thread Device")
+  throughput("washing-machine", "Washing Machine Full Thread Device")
   # plt.show()
