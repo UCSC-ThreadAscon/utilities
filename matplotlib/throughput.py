@@ -4,6 +4,15 @@ import numpy as np
 from common import *
 from average import *
 
+"""
+  x bytes        ? bytes
+  -------  ===  -------
+   y ms          1 ms  
+
+  x / y              bytes / ms  
+  (x / y) * 1000     bytes / second
+"""
+
 TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 
 PACKET_SIZE = 50
@@ -11,7 +20,7 @@ PACKET_SIZE = 50
 def get_throughputs(location, cipher):
   throughputs = []
   for tx in TX_POWERS:
-    throughput = averageRTTs[location][cipher][tx]
+    throughput = (averageRTTs[location][cipher][tx] / PACKET_SIZE) * 1000
     throughputs.append(throughput)
   return throughputs
 
@@ -22,7 +31,7 @@ def throughput(location, title):
   ascon128a = get_throughputs(location, 'ascon128a')
 
   all_ratios = aes + ascon128 + ascon128a
-  y_interval = 10
+  y_interval = 15
   y_lim = max(all_ratios) + y_interval
   y_min = min(all_ratios) - y_interval
 
@@ -46,7 +55,7 @@ def throughput(location, title):
   ax.set_ylim(y_min, y_lim)
 
   ax.legend(loc='best', ncols=3)
-  ax.set_ylabel('Throughput (bytes / ms)')
+  ax.set_ylabel('Throughput (bytes/second)')
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
@@ -54,5 +63,7 @@ def throughput(location, title):
 
 if __name__ == "__main__":
   throughput('front-door', 'Front Door Full Thread Device')
+  throughput('second-story', 'Second Story Full Thread Device')
+  throughput('washing-machine', 'Washing Machine Full Thread Device')
   plt.show()
   pass
