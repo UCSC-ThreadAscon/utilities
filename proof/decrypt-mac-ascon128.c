@@ -1,3 +1,7 @@
+/**
+ * This file DECRYPTS can decrypt any packet shown in
+ * "ascon128-mac-decrypt-test.txt".
+*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -7,37 +11,6 @@
 
 #include "ascon.h"
 #include "common.h"
-
-void* createAssocData(void* dstAddrBytes, void* srcAddrBytes,
-                      size_t dstAddrSize, size_t srcAddrSize)
-{
-  void* assocData = calloc(1, CRYPTO_ABYTES);
-
-  uint16_t *offset = (uint16_t *) assocData;
-
-  memcpy(offset, dstAddrBytes, dstAddrSize);
-  offset += dstAddrSize;
-
-  memcpy(offset, srcAddrBytes, srcAddrSize);
-  offset += srcAddrSize;
-
-  return assocData;
-}
-
-void* createNonce(uint8_t *seqNum, uint8_t *keyId, uint32_t *frameCounter) {
-  void *nonce = calloc(1, ASCON_AEAD_NONCE_LEN);
-  uint8_t *offset = (uint8_t *) nonce;
-
-  memcpy(offset, seqNum, sizeof(uint8_t));
-  offset += sizeof(uint8_t);
-
-  // This is called the KEY INDEX in Wireshark.
-  memcpy(offset, keyId, sizeof(uint8_t));
-  offset += sizeof(uint8_t);
-
-  memcpy(offset, frameCounter, sizeof(uint32_t));
-  return nonce;
-}
 
 int main(void) {
   uint8_t key[] = {0x30, 0xB9, 0x7A, 0x04, 0xA0, 0x2B, 0x0E, 0xA0,
