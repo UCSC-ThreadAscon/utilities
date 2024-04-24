@@ -137,19 +137,19 @@ cipherToColor = {
 averageRTTs = {
     "washing-machine": {
         "aes": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
+            "0dbm": 42.743,
+            "9dbm": 41.800,
+            "20dbm": 41.116
         },
         "ascon128": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
+            "0dbm": 58.244,
+            "9dbm": 41.23,
+            "20dbm": 40.463
         },
         "ascon128a": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
+            "0dbm": 53.410,
+            "9dbm": 42.166,
+            "20dbm": 40.555
         }
     },
     "second-story": {
