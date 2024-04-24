@@ -11,9 +11,9 @@ def get_ratios(location, cipher):
   for tx in TX_POWERS:
     value_cipher = getAvgMAh(prelimData[location][cipher][tx])
     value_aes = getAvgMAh(prelimData[location]["aes"][tx])
+    print(f"{cipher} and aes at {tx} has ratio {value_cipher / value_aes}")
     ratio = 1 - (value_cipher / value_aes)
     ratio *= 100
-    print(ratio)
     ratios.append(ratio)
   return ratios
 
@@ -30,8 +30,8 @@ print(y_lim)
 
 fig, ax = plt.subplots()
 
-fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+# fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+# fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
 ascon128a_lines = plt.plot(TX_POWERS, ascon128a_ratios, 'o:',
                            color=cipherToColor['ASCON-128a'],
