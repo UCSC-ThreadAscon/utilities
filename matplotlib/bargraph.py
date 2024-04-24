@@ -5,7 +5,7 @@ from average import *
 from common import *
 
 def bargraph(location, title):
-  txpower = ("0 dBm", "9dBm", "20 dBm")
+  txpower = ("0 dBm", "9 dBm", "20 dBm")
   mean_energy_usage = {
     'AES-CCM': (getAvgMAh(prelimData[location]["aes"]["0dbm"]),
                 getAvgMAh(prelimData[location]["aes"]["9dbm"]),
@@ -39,20 +39,27 @@ def bargraph(location, title):
   ax.set_title(title)
   ax.set_xticks(x + width, txpower)
 
-  y_min = 7
-  y_lim = 8
-  num_ticks = abs(y_lim - y_min) / 10
+  y_values = []
+  for cipher in ["aes", "ascon128a", "ascon128"]:
+    for tx in "0dbm", "9dbm", "20dbm":
+      y_values.append(getAvgMAh(prelimData[location][cipher][tx]))
 
+  y_min = 4
+  y_lim = max(y_values) + 0.5
+
+  num_ticks = abs(y_lim - y_min) / 10
   ticks = np.arange(0, y_lim, num_ticks)
-  ticks = np.append(ticks, [y_lim])
+
   ax.set_yticks(ticks)
 
   ax.legend(loc='best', ncols=3)
   ax.set_ylim(y_min, y_lim)
 
   # plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'bargraph.pgf'))
-  plt.show()
   return
 
 if __name__ == "__main__":
-  bargraph("front-door", "Front Door ESP32-H2")
+  bargraph("front-door", "Front Door Sleepy End Device")
+  bargraph("washing-machine", "Washing Machine Sleepy End Device")
+  bargraph("second-story", "Second Story Sleepy End Device")
+  plt.show()
