@@ -12,3 +12,5 @@ throughput:
 	python3 ./throughput_average.py
 	python3 ./throughput_ratio.py
 	python3 ./throughput_ratio_average.py
+	python3 ./packetloss.py
+	python3 ./averagepacketloss.py

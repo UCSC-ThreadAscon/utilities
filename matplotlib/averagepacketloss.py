@@ -3,21 +3,29 @@ import numpy as np
 
 from common import *
 from average import *
+from packetloss import *
 
 TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 
-def get_packet_losses(location, cipher):
-  packet_losses = []
-  for tx in TX_POWERS:
-    packet_loss = packetLossPercentagae[location][cipher][tx]
-    packet_losses.append(packet_loss)
-  return packet_losses
+def get_average_packet_losses(cipher):
+  average_packet_losses = [0, 0, 0]
+
+  for location in LOCATIONS:
+    packet_losses = get_packet_losses(location, cipher)
+
+    for i in range(0, 3):
+      average_packet_losses[i] += packet_losses[i]
+  
+  for i in range(0, 3):
+    average_packet_losses[i] /= 3
+
+  return average_packet_losses
 
 
-def packet_losses(location, title):
-  aes = get_packet_losses(location, 'aes')
-  ascon128 = get_packet_losses(location, 'ascon128')
-  ascon128a = get_packet_losses(location, 'ascon128a')
+def average_packet_losses(title):
+  aes = get_average_packet_losses('aes')
+  ascon128 = get_average_packet_losses('ascon128')
+  ascon128a = get_average_packet_losses('ascon128a')
 
   all_ratios = aes + ascon128 + ascon128a
   # y_interval = 15
@@ -55,11 +63,9 @@ def packet_losses(location, title):
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-packet-loss.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-packet-loss.pgf'))
 
 if __name__ == "__main__":
-  packet_losses('washing-machine', "Water Leakage Detector")
-  packet_losses('front-door', "Bedroom Smart Plug")
-  packet_losses('second-story', "Second Story Room Smart Plug")
+  average_packet_losses("All Full Thread Devices")
   # plt.show()
   pass
