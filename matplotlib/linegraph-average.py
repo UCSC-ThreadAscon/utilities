@@ -55,8 +55,8 @@ def linegraph_average(title):
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-sed.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-energy-ratio-sed.pgf'))
 
 if __name__ == "__main__":
   linegraph_average("All Sleepy End Devices")
-  plt.show()
+  # plt.show()
