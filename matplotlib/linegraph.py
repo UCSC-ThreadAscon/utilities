@@ -11,9 +11,18 @@ def get_ratios(location, cipher):
   for tx in TX_POWERS:
     value_cipher = getAvgMAh(prelimData[location][cipher][tx])
     value_aes = getAvgMAh(prelimData[location]["aes"][tx])
+
+    if (value_cipher < value_aes): # % less energy used than AES
+      ratio = 1 - (value_cipher / value_aes)
+      ratio *= 100
+      ratio *= -1
+    else:                          # % more energy used than AES
+      ratio = 1 - (value_cipher / value_aes)
+      ratio *= 100
+
     ratio = 1 - (value_cipher / value_aes)
     ratio *= 100
-    ratio *= -1
+
     ratios.append(ratio)
   return ratios
 
@@ -23,9 +32,9 @@ def linegraph(location, title):
   ascon128_ratios = get_ratios(location, "ascon128")
 
   all_ratios = ascon128a_ratios + ascon128_ratios
-  y_interval = 1.5
-  y_lim = max(all_ratios) + y_interval
-  y_min = min(all_ratios) - y_interval
+  y_interval = 10
+  y_lim = 100
+  y_min = -10
 
   fig, ax = plt.subplots()
 
@@ -44,16 +53,16 @@ def linegraph(location, title):
   ax.set_ylim(y_min, y_lim)
 
   ax.legend(loc='best', ncols=3)
-  ax.set_ylabel('mAh difference between AES (%)')
+  ax.set_ylabel('mAh difference between AES-CCM (%)')
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-sed.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-sed.pgf'))
 
 if __name__ == "__main__":
-  linegraph('front-door', 'Front Door Sleepy End Device')
-  linegraph('washing-machine', 'Washing Machine Sleepy End Device')
-  linegraph('second-story', 'Second Story Sleepy End Device')
-  # plt.show()
+  linegraph('front-door', "Front Door Motion Sensor")
+  linegraph('washing-machine', "Air Quality Monitor")
+  linegraph('second-story', "Second Story Motion Sensor")
+  plt.show()
