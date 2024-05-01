@@ -57,5 +57,5 @@ def bargraph(location, title):
 if __name__ == "__main__":
   bargraph("front-door", "Front Door Motion Sensor")
   bargraph("washing-machine", "Air Quality Monitor")
-  bargraph("second-story", "Second Story Motion Sensor")
+  bargraph("second-story", "Second Story Door Motion Sensor")
   # plt.show()

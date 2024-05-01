@@ -57,5 +57,5 @@ def linegraph(location, title):
 if __name__ == "__main__":
   linegraph('front-door', "Front Door Motion Sensor")
   linegraph('washing-machine', "Air Quality Monitor")
-  linegraph('second-story', "Second Story Motion Sensor")
+  linegraph('second-story', "Second Story Door Motion Sensor")
   # plt.show()

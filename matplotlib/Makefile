@@ -1,4 +1,4 @@
-all: energy line throughput
+all: energy throughput
 
 energy:
 	python3 ./bargraph.py
