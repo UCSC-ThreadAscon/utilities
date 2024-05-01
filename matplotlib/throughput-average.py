@@ -72,9 +72,9 @@ def throughput_averages(title):
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-throughput.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-throughput.pgf'))
 
 if __name__ == "__main__":
   throughput_averages("All Full Thread Devices")
-  plt.show()
+  # plt.show()
   pass

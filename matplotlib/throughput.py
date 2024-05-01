@@ -66,11 +66,11 @@ def throughput(location, title):
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-throughput.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-throughput.pgf'))
 
 if __name__ == "__main__":
   throughput('washing-machine', "Water Leakage Detector")
   throughput('front-door', "Bedroom Smart Plug")
   throughput('second-story', "Second Story Room Smart Plug")
-  plt.show()
+  # plt.show()
   pass

@@ -9,4 +9,5 @@ energy:
 
 throughput:
 	python3 ./throughput.py
+	python3 ./throughput-average.py
 	python3 ./throughput-ratio.py
