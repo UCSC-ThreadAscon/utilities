@@ -51,11 +51,11 @@ def bargraph(location, title):
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
   bargraph("front-door", "Front Door Motion Sensor")
   bargraph("washing-machine", "Air Quality Monitor")
   bargraph("second-story", "Second Story Motion Sensor")
-  plt.show()
+  # plt.show()

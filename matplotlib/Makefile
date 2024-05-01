@@ -1,8 +1,9 @@
-all: bar line throughput
+all: energy line throughput
 
-bar:
+energy:
 	python3 ./bargraph.py
 	python3 ./bargraph-mA.py
+	python3 ./bargraph-average.py
 
 throughput:
 	python3 ./throughput.py
