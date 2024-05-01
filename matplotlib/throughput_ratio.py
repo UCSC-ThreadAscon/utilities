@@ -43,17 +43,17 @@ def throughput_ratios(location, title):
   ax.set_ylim(y_min, y_lim)
 
   ax.legend(loc='best', ncols=3)
-  ax.set_ylabel('Throughput difference between AES (%)')
+  ax.set_ylabel('Throughput difference between AES-CCM (%)')
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-throughput.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-throughput.pgf'))
 
 
 if __name__ == "__main__":
   throughput_ratios('washing-machine', "Water Leakage Detector")
   throughput_ratios('front-door', "Bedroom Smart Plug")
   throughput_ratios('second-story', "Second Story Room Smart Plug")
-  plt.show()
+  # plt.show()

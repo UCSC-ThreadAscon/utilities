@@ -11,3 +11,4 @@ throughput:
 	python3 ./throughput.py
 	python3 ./throughput_average.py
 	python3 ./throughput_ratio.py
+	python3 ./throughput_ratio_average.py

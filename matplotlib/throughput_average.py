@@ -55,7 +55,7 @@ def throughput_averages(title):
 
   aes_lines = plt.plot(TX_POWERS, aes, 'o--',
                       color=cipherToColor['AES-CCM'],
-                      label='AES')
+                      label='AES-CCM')
   ascon128a_lines = plt.plot(TX_POWERS, ascon128a, 'o:',
                             color=cipherToColor['ASCON-128a'],
                             label='ASCON-128a')
