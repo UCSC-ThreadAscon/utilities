@@ -189,3 +189,57 @@ averageRTTs = {
         }
     }
 }
+
+packetLossPercentagae = {
+    "washing-machine": {
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        }
+    },
+    "second-story": {
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        }
+    },
+    "front-door": {
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        }
+    }
+}
