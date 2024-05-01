@@ -1,13 +1,13 @@
 import matplotlib
 import os
 
-matplotlib.use("pgf")
-matplotlib.rcParams.update({
-    "pgf.texsystem": "pdflatex",
-    'font.family': 'serif',
-    'text.usetex': True,
-    'pgf.rcfonts': False,
-})
+# matplotlib.use("pgf")
+# matplotlib.rcParams.update({
+#     "pgf.texsystem": "pdflatex",
+#     'font.family': 'serif',
+#     'text.usetex': True,
+#     'pgf.rcfonts': False,
+# })
 
 THESIS_PAPER_WIDTH_IN = 5.75113
 THESIS_PAPER_HEIGHT_IN = 8.12659
@@ -198,14 +198,14 @@ packetLossPercentagae = {
             "20dbm": 0
         },
         "ascon128": {
-            "0dbm": 0,
+            "0dbm": 0.3,
             "9dbm": 0,
             "20dbm": 0
         },
         "ascon128a": {
             "0dbm": 0,
             "9dbm": 0,
-            "20dbm": 0
+            "20dbm": 0.3
         }
     },
     "second-story": {
@@ -227,12 +227,12 @@ packetLossPercentagae = {
     },
     "front-door": {
         "aes": {
-            "0dbm": 0,
+            "0dbm": 1.0,
             "9dbm": 0,
             "20dbm": 0
         },
         "ascon128": {
-            "0dbm": 0,
+            "0dbm": 1.0,
             "9dbm": 0,
             "20dbm": 0
         },
