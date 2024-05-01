@@ -45,10 +45,11 @@ def bargraph(location, title):
       y_values.append(getAvgMAh(prelimData[location][cipher][tx]))
 
   y_min = 0
-  y_lim = max(y_values) + 1
+  y_lim = 9
 
-  num_ticks = abs(y_lim - y_min) / 10
+  num_ticks = abs(y_lim - y_min) / 9
   ticks = np.arange(0, y_lim, num_ticks)
+  ticks = np.append(ticks, [9])
 
   ax.set_yticks(ticks)
 
