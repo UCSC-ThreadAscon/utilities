@@ -31,9 +31,16 @@ def throughput(location, title):
   ascon128a = get_throughputs(location, 'ascon128a')
 
   all_ratios = aes + ascon128 + ascon128a
-  y_interval = 15
-  y_lim = max(all_ratios) + y_interval
-  y_min = min(all_ratios) - y_interval
+  # y_interval = 15
+  # y_lim = max(all_ratios) + y_interval
+  # y_min = min(all_ratios) - y_interval
+
+  y_interval = 50
+  y_lim = 1200
+  y_min = 800
+
+  ticks = np.arange(y_min, y_lim, y_interval)
+  ticks = np.append(ticks, [y_lim])
 
   fig, ax = plt.subplots()
 
@@ -50,7 +57,7 @@ def throughput(location, title):
                             color=cipherToColor['ASCON-128'],
                             label='ASCON-128')
 
-  ax.set_yticks(np.arange(y_min, y_lim, y_interval))
+  ax.set_yticks(ticks)
   ax.set_xticks(TX_POWERS)
   ax.set_ylim(y_min, y_lim)
 
@@ -59,11 +66,11 @@ def throughput(location, title):
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-throughput.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-throughput.pgf'))
 
 if __name__ == "__main__":
-  throughput('front-door', 'Front Door Full Thread Device')
-  throughput('second-story', 'Second Story Full Thread Device')
-  throughput('washing-machine', 'Washing Machine Full Thread Device')
-  # plt.show()
+  throughput('washing-machine', "Water Leakage Detector")
+  throughput('front-door', "Bedroom Smart Plug")
+  throughput('second-story', "Second Story Room Smart Plug")
+  plt.show()
   pass
