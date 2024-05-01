@@ -14,7 +14,7 @@ def getAverageAll(cipher, tx_power):
   return sum / len(locations)
 
 
-def bargraph_average(location, title):
+def bargraph_average(title):
   txpower = ("0 dBm", "9 dBm", "20 dBm")
   # mean_energy_usage = {
   #   'AES-CCM': (getAvgMAh(prelimData[location]["aes"]["0dbm"]),
@@ -61,20 +61,20 @@ def bargraph_average(location, title):
   ax.set_xticks(x + width, txpower)
 
   y_min = 0
-  y_lim = 9
+  y_lim = 10
 
-  num_ticks = abs(y_lim - y_min) / 9
+  num_ticks = abs(y_lim - y_min) / 10
   ticks = np.arange(0, y_lim, num_ticks)
-  ticks = np.append(ticks, [9])
+  ticks = np.append(ticks, [10])
 
   ax.set_yticks(ticks)
 
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-energy-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
-  bargraph_average("front-door", "Energy Consumption of All Devices")
+  bargraph_average("All Sleepy End Devices")
   # plt.show()
