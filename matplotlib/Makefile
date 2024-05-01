@@ -5,6 +5,7 @@ energy:
 	python3 ./bargraph-mA.py
 	python3 ./bargraph-average.py
 	python3 ./linegraph.py
+	python3 ./linegraph-average.py
 
 throughput:
 	python3 ./throughput.py
