@@ -17,14 +17,14 @@ def get_throughput_ratios(location, cipher):
     ratios.append(ratio)
   return ratios
 
-def throughput(location, title):
+def throughput_ratios(location, title):
   ascon128 = get_throughput_ratios(location, 'ascon128')
   ascon128a = get_throughput_ratios(location, 'ascon128a')
 
   all_ratios = ascon128 + ascon128a
-  y_interval = 1.5
-  y_lim = max(all_ratios) + y_interval
-  y_min = min(all_ratios) - y_interval
+  y_interval = 10
+  y_lim = 100
+  y_min = -30
 
   fig, ax = plt.subplots()
 
@@ -49,11 +49,11 @@ def throughput(location, title):
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-throughput.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-throughput.pgf'))
 
 
 if __name__ == "__main__":
-  throughput("front-door", "Front Door Full Thread Device")
-  throughput("second-story", "Second Story Full Thread Device")
-  throughput("washing-machine", "Washing Machine Full Thread Device")
-  # plt.show()
+  throughput_ratios('washing-machine', "Water Leakage Detector")
+  throughput_ratios('front-door', "Bedroom Smart Plug")
+  throughput_ratios('second-story', "Second Story Room Smart Plug")
+  plt.show()
