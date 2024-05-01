@@ -39,11 +39,6 @@ def bargraph(location, title):
   ax.set_title(title)
   ax.set_xticks(x + width, txpower)
 
-  y_values = []
-  for cipher in ["aes", "ascon128a", "ascon128"]:
-    for tx in ["0dbm", "9dbm", "20dbm"]:
-      y_values.append(getAvgMAh(prelimData[location][cipher][tx]))
-
   y_min = 0
   y_lim = 9
 

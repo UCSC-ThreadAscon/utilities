@@ -4,18 +4,39 @@ import numpy as np
 from average import *
 from common import *
 
-def bargraph(location, title):
+def getAverageAll(cipher, tx_power):
+  sum = 0
+  locations = ["front-door", "washing-machine", "second-story"]
+
+  for location in locations:
+    sum += getAvgMAh(prelimData[location][cipher][tx_power])
+
+  return sum / len(locations)
+
+
+def bargraph_average(location, title):
   txpower = ("0 dBm", "9 dBm", "20 dBm")
+  # mean_energy_usage = {
+  #   'AES-CCM': (getAvgMAh(prelimData[location]["aes"]["0dbm"]),
+  #               getAvgMAh(prelimData[location]["aes"]["9dbm"]),
+  #               getAvgMAh(prelimData[location]["aes"]["20dbm"])),
+  #   'ASCON-128a': (getAvgMAh(prelimData[location]["ascon128a"]["0dbm"]),
+  #                   getAvgMAh(prelimData[location]["ascon128a"]["9dbm"]),
+  #                   getAvgMAh(prelimData[location]["ascon128a"]["20dbm"])),
+  #   'ASCON-128': (getAvgMAh(prelimData[location]["ascon128"]["0dbm"]),
+  #                 getAvgMAh(prelimData[location]["ascon128"]["9dbm"]),
+  #                 getAvgMAh(prelimData[location]["ascon128"]["20dbm"])),
+  # }
   mean_energy_usage = {
-    'AES-CCM': (getAvgMAh(prelimData[location]["aes"]["0dbm"]),
-                getAvgMAh(prelimData[location]["aes"]["9dbm"]),
-                getAvgMAh(prelimData[location]["aes"]["20dbm"])),
-    'ASCON-128a': (getAvgMAh(prelimData[location]["ascon128a"]["0dbm"]),
-                    getAvgMAh(prelimData[location]["ascon128a"]["9dbm"]),
-                    getAvgMAh(prelimData[location]["ascon128a"]["20dbm"])),
-    'ASCON-128': (getAvgMAh(prelimData[location]["ascon128"]["0dbm"]),
-                  getAvgMAh(prelimData[location]["ascon128"]["9dbm"]),
-                  getAvgMAh(prelimData[location]["ascon128"]["20dbm"])),
+    'AES-CCM': (getAverageAll("aes", "0dbm"),
+                getAverageAll("aes", "9dbm"),
+                getAverageAll("aes", "20dbm")),
+    'ASCON-128a': (getAverageAll("ascon128a", "0dbm"),
+                   getAverageAll("ascon128a", "9dbm"),
+                   getAverageAll("ascon128a", "20dbm")),
+    'ASCON-128': (getAverageAll("ascon128", "0dbm"),
+                  getAverageAll("ascon128", "9dbm"),
+                  getAverageAll("ascon128", "20dbm")),
   }
 
   x = np.arange(len(txpower))  # the label locations
@@ -39,11 +60,6 @@ def bargraph(location, title):
   ax.set_title(title)
   ax.set_xticks(x + width, txpower)
 
-  y_values = []
-  for cipher in ["aes", "ascon128a", "ascon128"]:
-    for tx in ["0dbm", "9dbm", "20dbm"]:
-      y_values.append(getAvgMAh(prelimData[location][cipher][tx]))
-
   y_min = 0
   y_lim = 9
 
@@ -60,7 +76,5 @@ def bargraph(location, title):
   return
 
 if __name__ == "__main__":
-  bargraph("front-door", "Front Door Sleepy End Device")
-  bargraph("washing-machine", "Washing Machine Sleepy End Device")
-  bargraph("second-story", "Second Story Sleepy End Device")
+  bargraph_average("front-door", "Energy Consumption of All Devices")
   plt.show()
