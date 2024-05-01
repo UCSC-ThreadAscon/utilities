@@ -44,8 +44,8 @@ def bargraph(location, title):
     for tx in ["0dbm", "9dbm", "20dbm"]:
       y_values.append(getAvgMAh(prelimData[location][cipher][tx]))
 
-  y_min = 6
-  y_lim = max(y_values) + 0.5
+  y_min = 0
+  y_lim = max(y_values) + 1
 
   num_ticks = abs(y_lim - y_min) / 10
   ticks = np.arange(0, y_lim, num_ticks)
@@ -55,11 +55,11 @@ def bargraph(location, title):
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
   bargraph("front-door", "Front Door Sleepy End Device")
   bargraph("washing-machine", "Washing Machine Sleepy End Device")
   bargraph("second-story", "Second Story Sleepy End Device")
-  # plt.show()
+  plt.show()
