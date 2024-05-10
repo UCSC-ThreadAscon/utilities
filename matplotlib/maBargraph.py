@@ -5,7 +5,7 @@ from average import *
 from common import *
 
 def maBargraph(location, title):
-  mean_energy_usage = {
+  energyUsageMa = {
     'AES-CCM': (prelimData[location]["aes"]["0dbm"],
                 prelimData[location]["aes"]["9dbm"],
                 prelimData[location]["aes"]["20dbm"]),
@@ -17,12 +17,8 @@ def maBargraph(location, title):
                   prelimData[location]["ascon128"]["20dbm"]),
   }
 
-  # the label locations
   x = np.arange(len(TX_POWERS))
-
-  # the width of the bars
   width = 0.25 
-
   multiplier = 0
 
   fig, ax = plt.subplots(layout='constrained')
@@ -30,7 +26,7 @@ def maBargraph(location, title):
   fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
   fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  for attribute, measurement in mean_energy_usage.items():
+  for attribute, measurement in energyUsageMa.items():
     offset = width * multiplier
     rects = ax.bar(x + offset, measurement, width, label=attribute,
                   color=cipherToColor[attribute])

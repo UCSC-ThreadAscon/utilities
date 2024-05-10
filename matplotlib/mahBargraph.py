@@ -5,8 +5,7 @@ from average import *
 from common import *
 
 def bargraph(location, title):
-  txpower = ("0 dBm", "9 dBm", "20 dBm")
-  mean_energy_usage = {
+  energyUsageMah = {
     'AES-CCM': (getAvgMAh(prelimData[location]["aes"]["0dbm"]),
                 getAvgMAh(prelimData[location]["aes"]["9dbm"]),
                 getAvgMAh(prelimData[location]["aes"]["20dbm"])),
@@ -18,8 +17,8 @@ def bargraph(location, title):
                   getAvgMAh(prelimData[location]["ascon128"]["20dbm"])),
   }
 
-  x = np.arange(len(txpower))  # the label locations
-  width = 0.25  # the width of the bars
+  x = np.arange(len(TX_POWERS))
+  width = 0.25
   multiplier = 0
 
   fig, ax = plt.subplots(layout='constrained')
@@ -27,17 +26,16 @@ def bargraph(location, title):
   fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
   fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  for attribute, measurement in mean_energy_usage.items():
+  for attribute, measurement in energyUsageMah.items():
     offset = width * multiplier
     rects = ax.bar(x + offset, measurement, width, label=attribute,
                   color=cipherToColor[attribute])
     # ax.bar_label(rects, padding=4)
     multiplier += 1
 
-  # Add some text for labels, title and custom x-axis tick labels, etc.
   ax.set_ylabel('Average (mAh)')
   ax.set_title(title)
-  ax.set_xticks(x + width, txpower)
+  ax.set_xticks(x + width, TX_POWERS)
 
   y_min = 0
   y_lim = 10
@@ -51,11 +49,11 @@ def bargraph(location, title):
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
   bargraph("front-door", "Front Door Motion Sensor")
-  bargraph("washing-machine", "Air Quality Monitor")
+  bargraph("air-quality", "Air Quality Monitor")
   bargraph("second-story", "Second Story Door Motion Sensor")
-  # plt.show()
+  plt.show()
