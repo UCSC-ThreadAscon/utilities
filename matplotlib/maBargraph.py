@@ -59,5 +59,5 @@ def maBargraph(location, title):
 if __name__ == "__main__":
   maBargraph("front-door", "Front Door Motion Sensor")
   maBargraph("air-quality", "Air Quality Monitor")
-  maBargraph("second-story", "Second StoryMotion Sensor")
+  maBargraph("second-story", "Second Story Door Motion Sensor")
   plt.show()

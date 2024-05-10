@@ -4,7 +4,7 @@ import numpy as np
 from average import *
 from common import *
 
-def bargraph(location, title):
+def mahBargraph(location, title):
   energyUsageMah = {
     'AES-CCM': (getAvgMAh(prelimData[location]["aes"]["0dbm"]),
                 getAvgMAh(prelimData[location]["aes"]["9dbm"]),
@@ -53,7 +53,7 @@ def bargraph(location, title):
   return
 
 if __name__ == "__main__":
-  bargraph("front-door", "Front Door Motion Sensor")
-  bargraph("air-quality", "Air Quality Monitor")
-  bargraph("second-story", "Second Story Door Motion Sensor")
+  mahBargraph("front-door", "Front Door Motion Sensor")
+  mahBargraph("air-quality", "Air Quality Monitor")
+  mahBargraph("second-story", "Second Story Door Motion Sensor")
   plt.show()

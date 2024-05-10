@@ -2,6 +2,9 @@ all: energy throughput
 
 energy: ma mah
 
+mahAverage:
+	python3 ./mahBargraphAverage.py
+
 mah:
 	python3 ./mahBargraph.py
 
