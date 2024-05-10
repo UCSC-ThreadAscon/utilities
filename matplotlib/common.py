@@ -16,10 +16,10 @@ THESIS_PAPER_HEIGHT_IN = 8.12659
 EXPERIMENT_RUNTIME_MINUTES = 183
 EXPERIMENT_RUNTIME_HOURS = EXPERIMENT_RUNTIME_MINUTES / 60
 
-LOCATIONS = ["front-door", "washing-machine", "second-story"]
+LOCATIONS = ["front-door", "air-quality", "second-story"]
 
 prelimData = {
-    "washing-machine": {
+    "air-quality": {
         "ascon128a": {
             "0dbm": 2.189051048110373,
             "9dbm": 2.2009832102270197,
@@ -79,7 +79,7 @@ cipherToColor = {
 }
 
 averageRTTs = {
-    "washing-machine": {
+    "air-quality": {
         "aes": {
             "0dbm": 42.743,
             "9dbm": 41.800,
@@ -133,7 +133,7 @@ averageRTTs = {
 }
 
 packetLossPercentagae = {
-    "washing-machine": {
+    "air-quality": {
         "aes": {
             "0dbm": 0,
             "9dbm": 0,
