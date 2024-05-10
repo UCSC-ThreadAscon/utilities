@@ -1,31 +1,30 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from linegraph import *
 
 from common import *
 from average import *
 
-TX_POWERS = ["0dbm", "9dbm", "20dbm"]
+def getAverageMahRatios(cipher):
+  num_locations = len(LOCATIONS)
+  average_ratios = [0,            # average @ 0dBm
+                    0,            # average @ 9dBm
+                    0]            # average @ 20dBm
 
-def getAverageRatios(cipher):
-  locations = ['front-door', 'washing-machine', 'second-story']
+  for location in LOCATIONS:
+    location_ratios = getMahRatios(location, cipher)
 
-  average_ratios = [0, 0, 0]
-  for location in locations:
-    location_ratios = get_ratios(location, cipher)
-
-    for i in range(0, 3):
+    for i in range(0, num_locations):
       average_ratios[i] += location_ratios[i]
   
-  for i in range(0, 3):
-    average_ratios[i] /= 3
+  for i in range(0, num_locations):
+    average_ratios[i] /= num_locations
 
   return average_ratios
 
 
 def linegraph_average(title):
-  ascon128a_ratios = getAverageRatios("ascon128a")
-  ascon128_ratios = getAverageRatios("ascon128")
+  ascon128a_ratios = getAverageMahRatios("ascon128a")
+  ascon128_ratios = getAverageMahRatios("ascon128")
 
   all_ratios = ascon128a_ratios + ascon128_ratios
   y_interval = 1
@@ -55,8 +54,8 @@ def linegraph_average(title):
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-energy-ratio-sed.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-energy-ratio-sed.pgf'))
 
 if __name__ == "__main__":
   linegraph_average("All Sleepy End Devices")
-  # plt.show()
+  plt.show()

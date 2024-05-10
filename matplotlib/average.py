@@ -32,6 +32,10 @@ def getAvgMahAll(cipher, tx_power):
   So, when we multiply by -1, we get:
     if > 0%, then it shows that mAh_ascon is % BIGGER than AES.
     if < 0%, then it shows that mAH_ascon is % AES than AES.
+
+  The format of the ratios array:
+  
+    [   ratio @ 0 dBm,  ratio @ 9 dBm,  ratio @ 20dBm   ]
 """
 def getMahRatios(location, cipher):
   ratios = []
