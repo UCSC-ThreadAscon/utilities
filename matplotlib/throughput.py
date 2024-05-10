@@ -4,36 +4,11 @@ import numpy as np
 from common import *
 from average import *
 
-"""
-  x bytes        ? bytes
-  -------  ===  -------
-   y ms          1 ms  
-
-  x / y              bytes / ms  
-  (x / y) * 1000     bytes / second
-"""
-
-TX_POWERS = ["0dbm", "9dbm", "20dbm"]
-
-PACKET_SIZE = 50
-
-def get_throughputs(location, cipher):
-  throughputs = []
-  for tx in TX_POWERS:
-    throughput = (averageRTTs[location][cipher][tx] / PACKET_SIZE) * 1000
-    throughputs.append(throughput)
-  return throughputs
-
 
 def throughput(location, title):
-  aes = get_throughputs(location, 'aes')
-  ascon128 = get_throughputs(location, 'ascon128')
-  ascon128a = get_throughputs(location, 'ascon128a')
-
-  all_ratios = aes + ascon128 + ascon128a
-  # y_interval = 15
-  # y_lim = max(all_ratios) + y_interval
-  # y_min = min(all_ratios) - y_interval
+  aes = getThroughputs(location, 'aes')
+  ascon128 = getThroughputs(location, 'ascon128')
+  ascon128a = getThroughputs(location, 'ascon128a')
 
   y_interval = 50
   y_lim = 1200
@@ -66,11 +41,11 @@ def throughput(location, title):
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-throughput.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-throughput.pgf'))
 
 if __name__ == "__main__":
   throughput('washing-machine', "Water Leakage Detector")
   throughput('front-door', "Bedroom Smart Plug")
   throughput('second-story', "Second Story Room Smart Plug")
-  # plt.show()
+  plt.show()
   pass

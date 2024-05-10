@@ -49,3 +49,19 @@ def getMahRatios(location, cipher):
 
     ratios.append(ratio)
   return ratios
+
+"""
+  x bytes        ? bytes
+  -------  ===  -------
+   y ms          1 ms  
+
+  x / y              bytes / ms  
+  (x / y) * 1000     bytes / second
+"""
+def getThroughputs(location, cipher):
+  throughputs = []
+  for tx in TX_POWERS:
+    throughput = \
+      (averageRTTs[location][cipher][tx] / THROUGHPUT_EXP_PACKET_SIZE) * 1000
+    throughputs.append(throughput)
+  return throughputs

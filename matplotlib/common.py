@@ -20,6 +20,9 @@ LOCATIONS = ["front-door", "air-quality", "second-story"]
 CIPHERS = ["aes", "ascon128a", "ascon128"]
 TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 
+THROUGHPUT_EXP_PACKET_SIZE = 50
+THROUGHPUT_EXP_PAYLOAD_SIZE = 4
+
 cipherToColor = {
   'AES-CCM': 'deepskyblue',
   'ASCON-128a': 'plum',
@@ -135,7 +138,7 @@ prelimData = {
 }
 
 averageRTTs = {
-    "air-quality": {
+    "washing-machine": {
         "aes": {
             "0dbm": 42.743,
             "9dbm": 41.800,
@@ -189,7 +192,7 @@ averageRTTs = {
 }
 
 packetLossPercentagae = {
-    "air-quality": {
+    "washing-machine": {
         "aes": {
             "0dbm": 0,
             "9dbm": 0,

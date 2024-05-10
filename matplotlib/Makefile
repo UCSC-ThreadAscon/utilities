@@ -17,6 +17,11 @@ mahRatio:
 mahRatioAverage:
 	python3 ./mahRatioAverage.py
 
+network: throughput
+
+throughput:
+	python3 ./throughput.py
+
 # throughput:
 # 	python3 ./throughput.py
 # 	python3 ./throughput_average.py

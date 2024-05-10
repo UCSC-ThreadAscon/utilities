@@ -21,7 +21,7 @@ PACKET_SIZE = 50
 def get_average_throughputs(cipher):
   average_throughputs = [0, 0, 0]
   for location in LOCATIONS:
-    location_throughputs = get_throughputs(location, cipher)
+    location_throughputs = getThroughputs(location, cipher)
 
     for i in range(0, 3):
       average_throughputs[i] += location_throughputs[i]
