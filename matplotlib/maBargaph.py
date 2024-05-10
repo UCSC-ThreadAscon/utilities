@@ -5,7 +5,6 @@ from average import *
 from common import *
 
 def bargraph(location, title):
-  txpower = ("0 dBm", "9 dBm", "20 dBm")
   mean_energy_usage = {
     'AES-CCM': (prelimData[location]["aes"]["0dbm"],
                 prelimData[location]["aes"]["9dbm"],
@@ -19,7 +18,7 @@ def bargraph(location, title):
   }
 
   # the label locations
-  x = np.arange(len(txpower))
+  x = np.arange(len(TX_POWERS))
 
   # the width of the bars
   width = 0.25 
@@ -40,7 +39,7 @@ def bargraph(location, title):
 
   ax.set_ylabel('Average (mA)')
   ax.set_title(title)
-  ax.set_xticks(x + width, txpower)
+  ax.set_xticks(x + width, TX_POWERS)
 
   y_values = []
   for cipher in CIPHERS:
