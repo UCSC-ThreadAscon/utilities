@@ -20,6 +20,66 @@ LOCATIONS = ["front-door", "air-quality", "second-story"]
 CIPHERS = ["aes", "ascon128a", "ascon128"]
 TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 
+cipherToColor = {
+  'AES-CCM': 'deepskyblue',
+  'ASCON-128a': 'plum',
+  'ASCON-128': 'orange' 
+}
+
+finalData = {
+    "air-quality": {
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        }
+    },
+    "second-story": {
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        }
+    },
+    "front-door": {
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        }
+    }
+}
+
 prelimData = {
     "air-quality": {
         "ascon128a": {
@@ -72,12 +132,6 @@ prelimData = {
             "20dbm": 2.547015249453203
         }
     }
-}
-
-cipherToColor = {
-  'AES-CCM': 'deepskyblue',
-  'ASCON-128a': 'plum',
-  'ASCON-128': 'orange' 
 }
 
 averageRTTs = {
