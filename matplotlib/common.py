@@ -1,13 +1,13 @@
 import matplotlib
 import os
 
-matplotlib.use("pgf")
-matplotlib.rcParams.update({
-    "pgf.texsystem": "pdflatex",
-    'font.family': 'serif',
-    'text.usetex': True,
-    'pgf.rcfonts': False,
-})
+# matplotlib.use("pgf")
+# matplotlib.rcParams.update({
+#     "pgf.texsystem": "pdflatex",
+#     'font.family': 'serif',
+#     'text.usetex': True,
+#     'pgf.rcfonts': False,
+# })
 
 THESIS_FIGURES_PATH = '/Users/simeon/Desktop/Repositories/ThesisWriteup/images/pgfs'
 THESIS_PAPER_WIDTH_IN = 5.75113
@@ -17,6 +17,8 @@ EXPERIMENT_RUNTIME_MINUTES = 183
 EXPERIMENT_RUNTIME_HOURS = EXPERIMENT_RUNTIME_MINUTES / 60
 
 LOCATIONS = ["front-door", "air-quality", "second-story"]
+CIPHERS = ["aes", "ascon128a", "ascon128"]
+TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 
 prelimData = {
     "air-quality": {

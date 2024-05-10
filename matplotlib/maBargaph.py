@@ -18,8 +18,12 @@ def bargraph(location, title):
                   prelimData[location]["ascon128"]["20dbm"]),
   }
 
-  x = np.arange(len(txpower))  # the label locations
-  width = 0.25  # the width of the bars
+  # the label locations
+  x = np.arange(len(txpower))
+
+  # the width of the bars
+  width = 0.25 
+
   multiplier = 0
 
   fig, ax = plt.subplots(layout='constrained')
@@ -34,14 +38,13 @@ def bargraph(location, title):
     # ax.bar_label(rects, padding=4)
     multiplier += 1
 
-  # Add some text for labels, title and custom x-axis tick labels, etc.
   ax.set_ylabel('Average (mA)')
   ax.set_title(title)
   ax.set_xticks(x + width, txpower)
 
   y_values = []
-  for cipher in ["aes", "ascon128a", "ascon128"]:
-    for tx in ["0dbm", "9dbm", "20dbm"]:
+  for cipher in CIPHERS:
+    for tx in TX_POWERS:
       y_values.append(prelimData[location][cipher][tx])
 
   y_min = 0
@@ -55,11 +58,11 @@ def bargraph(location, title):
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph-mA.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph-mA.pgf'))
   return
 
 if __name__ == "__main__":
-  bargraph("front-door", "Front Door Sleepy End Device")
-  bargraph("washing-machine", "Washing Machine Sleepy End Device")
-  bargraph("second-story", "Second Story Sleepy End Device")
-  # plt.show()
+  bargraph("front-door", "Front Door Motion Sensor")
+  bargraph("air-quality", "Air Quality Monitor")
+  bargraph("second-story", "Second StoryMotion Sensor")
+  plt.show()
