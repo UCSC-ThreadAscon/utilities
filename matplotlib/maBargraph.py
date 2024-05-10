@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from average import *
+from energy import *
 from common import *
 
 def maBargraph(location, title):
@@ -37,6 +37,12 @@ def maBargraph(location, title):
   ax.set_title(title)
   ax.set_xticks(x + width, TX_POWERS)
 
+  # These y values are set up the bar graph so
+  # that the average mA are all shown in the screen.
+
+  # When calculating mAh, the the min and max of the y
+  # axis will he hard coded.
+  #
   y_values = []
   for cipher in CIPHERS:
     for tx in TX_POWERS:
@@ -49,7 +55,6 @@ def maBargraph(location, title):
   ticks = np.arange(0, y_lim, num_ticks)
 
   ax.set_yticks(ticks)
-
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 

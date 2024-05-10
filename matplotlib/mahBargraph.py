@@ -1,20 +1,20 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from average import *
+from energy import *
 from common import *
 
 def mahBargraph(location, title):
   energyUsageMah = {
-    'AES-CCM': (getAvgMAh(prelimData[location]["aes"]["0dbm"]),
-                getAvgMAh(prelimData[location]["aes"]["9dbm"]),
-                getAvgMAh(prelimData[location]["aes"]["20dbm"])),
-    'ASCON-128a': (getAvgMAh(prelimData[location]["ascon128a"]["0dbm"]),
-                    getAvgMAh(prelimData[location]["ascon128a"]["9dbm"]),
-                    getAvgMAh(prelimData[location]["ascon128a"]["20dbm"])),
-    'ASCON-128': (getAvgMAh(prelimData[location]["ascon128"]["0dbm"]),
-                  getAvgMAh(prelimData[location]["ascon128"]["9dbm"]),
-                  getAvgMAh(prelimData[location]["ascon128"]["20dbm"])),
+    'AES-CCM': (getAvgMah(prelimData[location]["aes"]["0dbm"]),
+                getAvgMah(prelimData[location]["aes"]["9dbm"]),
+                getAvgMah(prelimData[location]["aes"]["20dbm"])),
+    'ASCON-128a': (getAvgMah(prelimData[location]["ascon128a"]["0dbm"]),
+                    getAvgMah(prelimData[location]["ascon128a"]["9dbm"]),
+                    getAvgMah(prelimData[location]["ascon128a"]["20dbm"])),
+    'ASCON-128': (getAvgMah(prelimData[location]["ascon128"]["0dbm"]),
+                  getAvgMah(prelimData[location]["ascon128"]["9dbm"]),
+                  getAvgMah(prelimData[location]["ascon128"]["20dbm"])),
   }
 
   x = np.arange(len(TX_POWERS))
@@ -45,7 +45,6 @@ def mahBargraph(location, title):
   ticks = np.append(ticks, [10])
 
   ax.set_yticks(ticks)
-
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 

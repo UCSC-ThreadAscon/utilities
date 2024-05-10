@@ -9,8 +9,8 @@ TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 def get_ratios(location, cipher):
   ratios = []
   for tx in TX_POWERS:
-    value_cipher = getAvgMAh(prelimData[location][cipher][tx])
-    value_aes = getAvgMAh(prelimData[location]["aes"][tx])
+    value_cipher = getAvgMah(prelimData[location][cipher][tx])
+    value_aes = getAvgMah(prelimData[location]["aes"][tx])
 
     ratio = 1 - (value_cipher / value_aes)
     ratio *= 100

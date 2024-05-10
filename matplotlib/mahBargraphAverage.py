@@ -1,46 +1,25 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from average import *
+from energy import *
 from common import *
+from average import *
 
-def getAverageAll(cipher, tx_power):
-  sum = 0
-  locations = ["front-door", "washing-machine", "second-story"]
-
-  for location in locations:
-    sum += getAvgMAh(prelimData[location][cipher][tx_power])
-
-  return sum / len(locations)
-
-
-def bargraph_average(title):
-  txpower = ("0 dBm", "9 dBm", "20 dBm")
-  # mean_energy_usage = {
-  #   'AES-CCM': (getAvgMAh(prelimData[location]["aes"]["0dbm"]),
-  #               getAvgMAh(prelimData[location]["aes"]["9dbm"]),
-  #               getAvgMAh(prelimData[location]["aes"]["20dbm"])),
-  #   'ASCON-128a': (getAvgMAh(prelimData[location]["ascon128a"]["0dbm"]),
-  #                   getAvgMAh(prelimData[location]["ascon128a"]["9dbm"]),
-  #                   getAvgMAh(prelimData[location]["ascon128a"]["20dbm"])),
-  #   'ASCON-128': (getAvgMAh(prelimData[location]["ascon128"]["0dbm"]),
-  #                 getAvgMAh(prelimData[location]["ascon128"]["9dbm"]),
-  #                 getAvgMAh(prelimData[location]["ascon128"]["20dbm"])),
-  # }
+def mahBargraphAverage(title):
   mean_energy_usage = {
-    'AES-CCM': (getAverageAll("aes", "0dbm"),
-                getAverageAll("aes", "9dbm"),
-                getAverageAll("aes", "20dbm")),
-    'ASCON-128a': (getAverageAll("ascon128a", "0dbm"),
-                   getAverageAll("ascon128a", "9dbm"),
-                   getAverageAll("ascon128a", "20dbm")),
-    'ASCON-128': (getAverageAll("ascon128", "0dbm"),
-                  getAverageAll("ascon128", "9dbm"),
-                  getAverageAll("ascon128", "20dbm")),
+    'AES-CCM': (getAvgMahAll("aes", "0dbm"),
+                getAvgMahAll("aes", "9dbm"),
+                getAvgMahAll("aes", "20dbm")),
+    'ASCON-128a': (getAvgMahAll("ascon128a", "0dbm"),
+                   getAvgMahAll("ascon128a", "9dbm"),
+                   getAvgMahAll("ascon128a", "20dbm")),
+    'ASCON-128': (getAvgMahAll("ascon128", "0dbm"),
+                  getAvgMahAll("ascon128", "9dbm"),
+                  getAvgMahAll("ascon128", "20dbm")),
   }
 
-  x = np.arange(len(txpower))  # the label locations
-  width = 0.25  # the width of the bars
+  x = np.arange(len(TX_POWERS))
+  width = 0.25
   multiplier = 0
 
   fig, ax = plt.subplots(layout='constrained')
@@ -55,10 +34,9 @@ def bargraph_average(title):
     # ax.bar_label(rects, padding=4)
     multiplier += 1
 
-  # Add some text for labels, title and custom x-axis tick labels, etc.
   ax.set_ylabel('Average (mAh)')
   ax.set_title(title)
-  ax.set_xticks(x + width, txpower)
+  ax.set_xticks(x + width, TX_POWERS)
 
   y_min = 0
   y_lim = 10
@@ -68,13 +46,12 @@ def bargraph_average(title):
   ticks = np.append(ticks, [10])
 
   ax.set_yticks(ticks)
-
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-energy-bar-graph.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-energy-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
-  bargraph_average("All Sleepy End Devices")
-  # plt.show()
+  mahBargraphAverage("All Sleepy End Devices")
+  plt.show()
