@@ -1,6 +1,6 @@
-all: energy throughput
+all: energy
 
-energy: ma mah mahAverage
+energy: ma mah mahAverage mahRatio
 
 mahAverage:
 	python3 ./mahBargraphAverage.py
@@ -10,6 +10,9 @@ mah:
 
 ma:
 	python3 ./maBargraph.py
+
+mahRatio:
+	python3 ./mahRatio.py
 
 # python3 ./bargraph.py
 # python3 ./bargraph-mA.py

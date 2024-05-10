@@ -6,3 +6,42 @@ def getAvgMahAll(cipher, tx_power):
   for location in LOCATIONS:
     sum += getAvgMah(prelimData[location][cipher][tx_power])
   return sum / len(LOCATIONS)
+
+"""
+  EQUATION TO CALCULATE RATIO
+  ---------------------------
+  mAh_aes => mAh of AES cipher for a given location
+  mAh_ascon => mAh of ASCON-128/a for a given location
+
+  [ 1 - (mAh_ascon / mAh_aes) ]    *    100
+        |-------------------|
+          % mAh_ascon is made
+        up relative to mAh_aes
+
+  |---------------------------|
+    % gap between mAh_ascon and
+    mAh_aes
+
+  For the value shown above:
+    if > 0%, then it shows that mAh_ascon is % SMALLER than AES.
+    if < 0%, then it shows that mAH_ascon is % BIGGER than AES.
+  
+  However, we want to show mAh_ascon being smaller as a decrease,
+  and mAh_ascon being bigger as an increase.
+
+  So, when we multiply by -1, we get:
+    if > 0%, then it shows that mAh_ascon is % BIGGER than AES.
+    if < 0%, then it shows that mAH_ascon is % AES than AES.
+"""
+def getMahRatios(location, cipher):
+  ratios = []
+  for tx in TX_POWERS:
+    value_cipher = getAvgMah(prelimData[location][cipher][tx])
+    value_aes = getAvgMah(prelimData[location]["aes"][tx])
+
+    ratio = 1 - (value_cipher / value_aes)
+    ratio *= 100
+    ratio *= -1
+
+    ratios.append(ratio)
+  return ratios
