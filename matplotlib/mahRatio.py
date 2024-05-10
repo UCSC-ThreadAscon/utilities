@@ -25,7 +25,9 @@ def linegraph(location, title):
                             color=cipherToColor['ASCON-128'],
                             label='ASCON-128')
 
-  ax.set_yticks(np.arange(y_min, y_lim, y_interval))
+  y_ticks = np.arange(y_min, y_lim, y_interval)
+  y_ticks = np.append(y_ticks, [100])
+  ax.set_yticks(y_ticks)
   ax.set_xticks(TX_POWERS)
   ax.set_ylim(y_min, y_lim)
 
