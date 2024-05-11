@@ -120,3 +120,17 @@ def getPacketLoss(location, cipher):
     packet_loss = packetLossPercentagae[location][cipher][tx]
     packet_losses.append(packet_loss)
   return packet_losses
+
+def getAvgPacketLoss(cipher):
+  average_packet_losses = [0, 0, 0]
+
+  for location in LOCATIONS_THROUGHPUT:
+    packet_losses = getPacketLoss(location, cipher)
+
+    for i in range(0, 3):
+      average_packet_losses[i] += packet_losses[i]
+  
+  for i in range(0, 3):
+    average_packet_losses[i] /= 3
+
+  return average_packet_losses
