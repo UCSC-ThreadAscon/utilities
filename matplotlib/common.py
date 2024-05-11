@@ -16,7 +16,8 @@ THESIS_PAPER_HEIGHT_IN = 8.12659
 EXPERIMENT_RUNTIME_MINUTES = 183
 EXPERIMENT_RUNTIME_HOURS = EXPERIMENT_RUNTIME_MINUTES / 60
 
-LOCATIONS = ["front-door", "air-quality", "second-story"]
+LOCATIONS_ENERGY = ["front-door", "air-quality", "second-story"]
+LOCATIONS_THROUGHPUT = ["bedroom", "washing-machine", "second-story"]
 CIPHERS = ["aes", "ascon128a", "ascon128"]
 TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 
@@ -172,7 +173,7 @@ averageRTTs = {
             "20dbm": 41.440
         }
     },
-    "front-door": {
+    "bedroom": {
         "aes": {
             "0dbm": 50.531,
             "9dbm": 44.313,
@@ -226,7 +227,7 @@ packetLossPercentagae = {
             "20dbm": 0
         }
     },
-    "front-door": {
+    "bedroom": {
         "aes": {
             "0dbm": 1.0,
             "9dbm": 0,

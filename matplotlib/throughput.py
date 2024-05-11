@@ -45,7 +45,7 @@ def throughput(location, title):
 
 if __name__ == "__main__":
   throughput('washing-machine', "Water Leakage Detector")
-  throughput('front-door', "Bedroom Smart Plug")
+  throughput('bedroom', "Bedroom Smart Plug")
   throughput('second-story', "Second Story Room Smart Plug")
   plt.show()
   pass

@@ -5,19 +5,19 @@ from common import *
 from average import *
 
 def getAverageMahRatios(cipher):
-  num_locations = len(LOCATIONS)
+  num_LOCATIONS_ENERGY = len(LOCATIONS_ENERGY)
   average_ratios = [0,            # average @ 0dBm
                     0,            # average @ 9dBm
                     0]            # average @ 20dBm
 
-  for location in LOCATIONS:
+  for location in LOCATIONS_ENERGY:
     location_ratios = getMahRatios(location, cipher)
 
-    for i in range(0, num_locations):
+    for i in range(0, num_LOCATIONS_ENERGY):
       average_ratios[i] += location_ratios[i]
   
-  for i in range(0, num_locations):
-    average_ratios[i] /= num_locations
+  for i in range(0, num_LOCATIONS_ENERGY):
+    average_ratios[i] /= num_LOCATIONS_ENERGY
 
   return average_ratios
 

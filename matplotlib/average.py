@@ -3,9 +3,9 @@ from energy import *
 
 def getAvgMahAll(cipher, tx_power):
   sum = 0
-  for location in LOCATIONS:
+  for location in LOCATIONS_ENERGY:
     sum += getAvgMah(prelimData[location][cipher][tx_power])
-  return sum / len(LOCATIONS)
+  return sum / len(LOCATIONS_ENERGY)
 
 """
   EQUATION TO CALCULATE RATIO
@@ -52,11 +52,15 @@ def getMahRatios(location, cipher):
 
 """
   x bytes        ? bytes
-  -------  ===  -------
+  -------  ===  ---------
    y ms          1 ms  
 
   x / y              bytes / ms  
   (x / y) * 1000     bytes / second
+
+The array will end up being:
+
+    [throughput @ 0dBm, throughput @ 9dBm, throughput @ 20dBm]
 """
 def getThroughputs(location, cipher):
   throughputs = []
@@ -65,3 +69,19 @@ def getThroughputs(location, cipher):
       (averageRTTs[location][cipher][tx] / THROUGHPUT_EXP_PACKET_SIZE) * 1000
     throughputs.append(throughput)
   return throughputs
+
+def getAvgThroughputs(cipher):
+  avgThroughputs = [0,        # 0 dBm
+                    0,        # 9 dBm
+                    0]        # 20 dBm
+  numLocations = len(LOCATIONS_THROUGHPUT)
+
+  for location in LOCATIONS_THROUGHPUT:
+    location_throughputs = getThroughputs(location, cipher)
+    for i in range(0, numLocations):
+      avgThroughputs[i] += location_throughputs[i]
+  
+  for i in range(0, numLocations):
+    avgThroughputs[i] /= numLocations
+
+  return avgThroughputs

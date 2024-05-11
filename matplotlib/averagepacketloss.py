@@ -10,7 +10,7 @@ TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 def get_average_packet_losses(cipher):
   average_packet_losses = [0, 0, 0]
 
-  for location in LOCATIONS:
+  for location in LOCATIONS_ENERGY:
     packet_losses = get_packet_losses(location, cipher)
 
     for i in range(0, 3):

@@ -8,7 +8,7 @@ from throughput_ratio import *
 def get_average_throughput_ratios(cipher):
   average_throughput_ratios = [0, 0, 0]
 
-  for location in LOCATIONS:
+  for location in LOCATIONS_ENERGY:
     throughput_ratios = get_throughput_ratios(location, cipher)
   
     for i in range(0, 3):
