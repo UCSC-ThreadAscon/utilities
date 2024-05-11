@@ -17,13 +17,16 @@ mahRatio:
 mahRatioAverage:
 	python3 ./mahRatioAverage.py
 
-network: tp tpAvg
+network: tp tpAvg tpRatio
 
 tp:
 	python3 ./throughput.py
 
 tpAvg:
 	python3 ./throughputAverage.py
+
+tpRatio:
+	python3 ./throughputRatio.py
 
 # throughput:
 # 	python3 ./throughput.py

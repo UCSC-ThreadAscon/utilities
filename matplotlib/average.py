@@ -85,3 +85,16 @@ def getAvgThroughputs(cipher):
     avgThroughputs[i] /= numLocations
 
   return avgThroughputs
+
+def getThroughputRatios(location, cipher):
+  ratios = []
+  for tx in TX_POWERS:
+    throughput_cipher = averageRTTs[location][cipher][tx]
+    throughput_aes = averageRTTs[location]["aes"][tx]
+
+    ratio = 1 - (throughput_cipher / throughput_aes)
+    ratio *= 100
+    ratio *= -1
+    ratios.append(ratio)
+
+  return ratios
