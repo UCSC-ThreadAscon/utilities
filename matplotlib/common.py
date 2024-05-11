@@ -138,7 +138,7 @@ prelimData = {
     }
 }
 
-averageRTTs = {
+prelimAvgRTTs = {
     "washing-machine": {
         "aes": {
             "0dbm": 42.743,
@@ -192,7 +192,7 @@ averageRTTs = {
     }
 }
 
-packetLossPercentagae = {
+prelimPktLossPercentage = {
     "washing-machine": {
         "aes": {
             "0dbm": 0,

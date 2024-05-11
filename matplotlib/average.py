@@ -66,7 +66,7 @@ def getThroughputs(location, cipher):
   throughputs = []
   for tx in TX_POWERS:
     throughput = \
-      (averageRTTs[location][cipher][tx] / THROUGHPUT_EXP_PACKET_SIZE) * 1000
+      (prelimAvgRTTs[location][cipher][tx] / THROUGHPUT_EXP_PACKET_SIZE) * 1000
     throughputs.append(throughput)
   return throughputs
 
@@ -89,8 +89,8 @@ def getAvgThroughputs(cipher):
 def getThroughputRatios(location, cipher):
   ratios = []
   for tx in TX_POWERS:
-    throughput_cipher = averageRTTs[location][cipher][tx]
-    throughput_aes = averageRTTs[location]["aes"][tx]
+    throughput_cipher = prelimAvgRTTs[location][cipher][tx]
+    throughput_aes = prelimAvgRTTs[location]["aes"][tx]
 
     ratio = 1 - (throughput_cipher / throughput_aes)
     ratio *= 100
@@ -117,7 +117,7 @@ def getAvgThroughputRatios(cipher):
 def getPacketLoss(location, cipher):
   packet_losses = []
   for tx in TX_POWERS:
-    packet_loss = packetLossPercentagae[location][cipher][tx]
+    packet_loss = prelimPktLossPercentage[location][cipher][tx]
     packet_losses.append(packet_loss)
   return packet_losses
 
