@@ -17,7 +17,7 @@ mahRatio:
 mahRatioAverage:
 	python3 ./mahRatioAverage.py
 
-network: tp tpAvg tpRatio
+network: tp tpAvg tpRatio tpRatioAvg
 
 tp:
 	python3 ./throughput.py
@@ -28,10 +28,5 @@ tpAvg:
 tpRatio:
 	python3 ./throughputRatio.py
 
-# throughput:
-# 	python3 ./throughput.py
-# 	python3 ./throughput_average.py
-# 	python3 ./throughput_ratio.py
-# 	python3 ./throughput_ratio_average.py
-# 	python3 ./packetloss.py
-# 	python3 ./averagepacketloss.py
+tpRatioAvg:
+	python3 ./throughputRatioAverage.py

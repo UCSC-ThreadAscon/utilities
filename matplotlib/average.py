@@ -98,3 +98,18 @@ def getThroughputRatios(location, cipher):
     ratios.append(ratio)
 
   return ratios
+
+def getAvgThroughputRatios(cipher):
+  avgThroughputRatios = [0, 0, 0]
+  numLocations = len(LOCATIONS_THROUGHPUT)
+
+  for location in LOCATIONS_THROUGHPUT:
+    throughput_ratios = getThroughputRatios(location, cipher)
+  
+    for i in range(0, numLocations):
+      avgThroughputRatios[i] += throughput_ratios[i]
+  
+  for i in range(0, numLocations):
+    avgThroughputRatios[i] /= numLocations
+
+  return avgThroughputRatios
