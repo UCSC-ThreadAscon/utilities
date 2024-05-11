@@ -23,8 +23,8 @@ def maBargraph(location, title):
 
   fig, ax = plt.subplots(layout='constrained')
 
-  fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-  fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+  # fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+  # fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
   for attribute, measurement in energyUsageMa.items():
     offset = width * multiplier
