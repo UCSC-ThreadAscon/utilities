@@ -4,25 +4,11 @@ import numpy as np
 from common import *
 from average import *
 
-TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 
-def get_packet_losses(location, cipher):
-  packet_losses = []
-  for tx in TX_POWERS:
-    packet_loss = packetLossPercentagae[location][cipher][tx]
-    packet_losses.append(packet_loss)
-  return packet_losses
-
-
-def packet_losses(location, title):
-  aes = get_packet_losses(location, 'aes')
-  ascon128 = get_packet_losses(location, 'ascon128')
-  ascon128a = get_packet_losses(location, 'ascon128a')
-
-  all_ratios = aes + ascon128 + ascon128a
-  # y_interval = 15
-  # y_lim = max(all_ratios) + y_interval
-  # y_min = min(all_ratios) - y_interval
+def packetLoss(location, title):
+  aes = getPacketLoss(location, 'aes')
+  ascon128 = getPacketLoss(location, 'ascon128')
+  ascon128a = getPacketLoss(location, 'ascon128a')
 
   y_interval = 1
   y_lim = 2
@@ -55,11 +41,10 @@ def packet_losses(location, title):
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-packet-loss.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-packet-loss.pgf'))
 
 if __name__ == "__main__":
-  packet_losses('washing-machine', "Water Leakage Detector")
-  packet_losses('front-door', "Bedroom Smart Plug")
-  packet_losses('second-story', "Second Story Room Smart Plug")
-  # plt.show()
-  pass
+  packetLoss('washing-machine', "Water Leakage Detector")
+  packetLoss('bedroom', "Bedroom Smart Plug")
+  packetLoss('second-story', "Second Story Room Smart Plug")
+  plt.show()

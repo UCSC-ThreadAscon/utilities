@@ -11,7 +11,7 @@ def get_average_packet_losses(cipher):
   average_packet_losses = [0, 0, 0]
 
   for location in LOCATIONS_ENERGY:
-    packet_losses = get_packet_losses(location, cipher)
+    packet_losses = getPacketLoss(location, cipher)
 
     for i in range(0, 3):
       average_packet_losses[i] += packet_losses[i]

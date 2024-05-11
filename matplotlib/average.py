@@ -113,3 +113,10 @@ def getAvgThroughputRatios(cipher):
     avgThroughputRatios[i] /= numLocations
 
   return avgThroughputRatios
+
+def getPacketLoss(location, cipher):
+  packet_losses = []
+  for tx in TX_POWERS:
+    packet_loss = packetLossPercentagae[location][cipher][tx]
+    packet_losses.append(packet_loss)
+  return packet_losses
