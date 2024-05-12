@@ -87,11 +87,11 @@ def tpAveragesBar(title):
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph-mA.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'throughput-average-bar-graph-mA.pgf'))
   return
 
 if __name__ == "__main__":
-  tpAveragesLine("All Full Thread Devices")
+  # tpAveragesLine("All Full Thread Devices")
   tpAveragesBar("All Full Thread Devices")
   plt.show()
   pass
