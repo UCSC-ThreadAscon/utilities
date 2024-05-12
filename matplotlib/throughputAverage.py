@@ -84,10 +84,10 @@ def tpAveragesBar(title):
   ticks = np.append(ticks, [y_lim])
 
   ax.set_yticks(ticks)
-  ax.legend(loc='best', ncols=3, fontsize=8)
+  ax.legend(loc='best', ncols=3)
   ax.set_ylim(y_min, y_lim)
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'throughput-average-bar-graph-mA.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'throughput-average-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
