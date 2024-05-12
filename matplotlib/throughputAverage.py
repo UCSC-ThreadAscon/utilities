@@ -4,7 +4,7 @@ import numpy as np
 from common import *
 from average import *
 
-def throughput_averages(title):
+def tpAveragesLine(title):
   aes = getAvgThroughputs('aes')
   ascon128 = getAvgThroughputs('ascon128')
   ascon128a = getAvgThroughputs('ascon128a')
@@ -42,7 +42,56 @@ def throughput_averages(title):
 
   # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-throughput.pgf'))
 
+def tpAveragesBar(title):
+  aes = getAvgThroughputs('aes')
+  ascon128 = getAvgThroughputs('ascon128')
+  ascon128a = getAvgThroughputs('ascon128a')
+
+  throughputs = {
+    'AES-CCM': (aes[0],
+                aes[1],
+                aes[2]),
+    'ASCON-128a': (ascon128a[0],
+                   ascon128a[1],
+                   ascon128a[2]),
+    'ASCON-128': (ascon128[0],
+                  ascon128[1],
+                  ascon128[2]),
+  }
+
+  x = np.arange(len(TX_POWERS))
+  width = 0.25 
+  multiplier = 0
+
+  fig, ax = plt.subplots(layout='constrained')
+
+  for attribute, measurement in throughputs.items():
+    offset = width * multiplier
+    rects = ax.bar(x + offset, measurement, width, label=attribute,
+                  color=cipherToColor[attribute])
+    # ax.bar_label(rects, padding=4)
+    multiplier += 1
+
+  ax.set_ylabel('Throughput (bytes/second)')
+  ax.set_title(title)
+  ax.set_xticks(x + width, TX_POWERS)
+
+  y_interval = 50
+  y_lim = 1200
+  y_min = 0
+
+  ticks = np.arange(y_min, y_lim, y_interval)
+  ticks = np.append(ticks, [y_lim])
+
+  ax.set_yticks(ticks)
+  ax.legend(loc='best', ncols=3, fontsize=8)
+  ax.set_ylim(y_min, y_lim)
+
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph-mA.pgf'))
+  return
+
 if __name__ == "__main__":
-  throughput_averages("All Full Thread Devices")
+  tpAveragesLine("All Full Thread Devices")
+  tpAveragesBar("All Full Thread Devices")
   plt.show()
   pass
