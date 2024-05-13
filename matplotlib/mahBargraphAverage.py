@@ -49,9 +49,9 @@ def mahBargraphAverage(title):
   ax.legend(loc='best', ncols=3, fontsize=8)
   ax.set_ylim(y_min, y_lim)
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-energy-bar-graph.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'average-energy-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
   mahBargraphAverage("All Sleepy End Devices")
-  plt.show()
+  # plt.show()
