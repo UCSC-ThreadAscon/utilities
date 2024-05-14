@@ -12,7 +12,7 @@ import csv
 from common import *
 
 def getMicroAmpsList(filename):
-  microAmpsList = [sys.float_info.max - 1]
+  microAmpsList = []
 
   with open(filename) as file:
     reader = csv.DictReader(file)
