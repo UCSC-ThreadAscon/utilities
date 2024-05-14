@@ -7,6 +7,7 @@
   from the exported PPK2 CSV are the "timestamp" AND "Current(uA)"
   fields.
 """
+import sys
 import csv
 from common import *
 
@@ -19,11 +20,21 @@ def getMicroAmpsList(filename):
       microAmpCurrent = float(row['Current(uA)'])
       microAmpsList.append(microAmpCurrent)
 
+      if len(microAmpsList) > sys.maxsize:
+        raise OverflowError("The list is too big.")
+
   return microAmpsList
 
 def getAverageMicroAmps(microAmpsList):
   length = len(microAmpsList)
   listSum = sum(microAmpsList)
+
+  listSum = 0
+  for mA in microAmpsList:
+    listSum += mA
+    if (listSum == sys.float_info.max):
+      raise OverflowError("Reach maxed float. Can't add anymore")
+
   average = listSum / length
   return average
 
