@@ -80,5 +80,5 @@ if __name__ == '__main__':
   # printAvgMa("front-door", "ascon128a")
   # printAvgMa("front-door", "ascon128")
   # test = getAvgMa("/Users/simeon/Desktop/Repositories/utilities/matplotlib/preliminary/csv/front-door/front-door-aes-20dbm.csv")
-  test = getAvgMa("/Users/simeon/Desktop/Thesis/Final PPKs/AES @ 20 dBm, 10k/frontdoor-aes-20.ppk2")
+  test = getAvgMa("/Users/simeon/Desktop/Thesis/10ktest.csv")
   print(f"The average mA for the front door @ AES @ 20 dBm is {test}")
