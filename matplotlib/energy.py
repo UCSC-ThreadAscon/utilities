@@ -27,7 +27,7 @@ def getMicroAmpsList(filename):
 
 def getAverageMicroAmps(microAmpsList):
   length = len(microAmpsList)
-  listSum = sum(microAmpsList)
+  # listSum = sum(microAmpsList)
 
   listSum = 0
   for mA in microAmpsList:
@@ -68,14 +68,15 @@ def printAvgMa(location, cipher):
   return
 
 if __name__ == '__main__':
-  printAvgMa("washing-machine", "ascon128a")
-  printAvgMa("washing-machine", "ascon128")
-  printAvgMa("washing-machine", "aes")
+  # printAvgMa("washing-machine", "ascon128a")
+  # printAvgMa("washing-machine", "ascon128")
+  # printAvgMa("washing-machine", "aes")
 
-  printAvgMa("second-story", "ascon128a")
-  printAvgMa("second-story", "ascon128")
-  printAvgMa("second-story", "aes")
+  # printAvgMa("second-story", "ascon128a")
+  # printAvgMa("second-story", "ascon128")
+  # printAvgMa("second-story", "aes")
 
-  printAvgMa("front-door", "aes")
-  printAvgMa("front-door", "ascon128a")
-  printAvgMa("front-door", "ascon128")
+  # printAvgMa("front-door", "aes")
+  # printAvgMa("front-door", "ascon128a")
+  # printAvgMa("front-door", "ascon128")
+  getAvgMa("/Users/simeon/Desktop/Repositories/utilities/matplotlib/preliminary/csv/front-door/front-door-aes-20dbm.csv")
