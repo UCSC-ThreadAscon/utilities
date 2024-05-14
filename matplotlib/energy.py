@@ -10,10 +10,9 @@
 import sys
 import csv
 from common import *
-import numpy as np
 
 def getMicroAmpsList(filename):
-  microAmpsList = []
+  microAmpsList = [sys.float_info.max - 1]
 
   with open(filename) as file:
     reader = csv.DictReader(file)
@@ -27,13 +26,17 @@ def getMicroAmpsList(filename):
   return microAmpsList
 
 def getAverageMicroAmps(microAmpsList):
-  usArray = np.array(microAmpsList, dtype="float64") 
-  average = np.average(usArray)
+  length = len(microAmpsList)
+  listSum = sum(microAmpsList)
 
-  if (average >= np.finfo(np.float64).max):
-    raise OverflowError("Reach maxed float. Can't add anymore.")
+  listSum = 0
+  for mA in microAmpsList:
+    listSum += mA
+    if (listSum == sys.float_info.max):
+      raise OverflowError("Reach maxed float. Can't add anymore.")
 
-  return np.average(microAmpsList)
+  average = listSum / length
+  return average
 
 def getMilliAmps(microAmps):
   return microAmps * 0.001
