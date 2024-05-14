@@ -20,7 +20,7 @@ def getMicroAmpsList(filename):
       microAmpCurrent = float(row['Current(uA)'])
       microAmpsList.append(microAmpCurrent)
 
-      if len(microAmpsList) > sys.maxsize:
+      if len(microAmpsList) >= sys.maxsize:
         raise OverflowError("The list is too big.")
 
   return microAmpsList
@@ -69,17 +69,5 @@ def printAvgMa(location, cipher):
   return
 
 if __name__ == '__main__':
-  # printAvgMa("washing-machine", "ascon128a")
-  # printAvgMa("washing-machine", "ascon128")
-  # printAvgMa("washing-machine", "aes")
-
-  # printAvgMa("second-story", "ascon128a")
-  # printAvgMa("second-story", "ascon128")
-  # printAvgMa("second-story", "aes")
-
-  # printAvgMa("front-door", "aes")
-  # printAvgMa("front-door", "ascon128a")
-  # printAvgMa("front-door", "ascon128")
-  # test = getAvgMa("/Users/simeon/Desktop/Repositories/utilities/matplotlib/preliminary/csv/front-door/front-door-aes-20dbm.csv")
   test = getAvgMa("/Users/simeon/Desktop/Thesis/10ktest.csv")
-  print(f"The average mA for the front door @ AES @ 20 dBm is {test}")
+  print(f"The average mA for the Front Door AES 20 dBm is {test}")
