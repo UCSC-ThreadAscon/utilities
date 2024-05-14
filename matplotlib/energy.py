@@ -33,7 +33,7 @@ def getAverageMicroAmps(microAmpsList):
   for mA in microAmpsList:
     listSum += mA
     if (listSum == sys.float_info.max):
-      raise OverflowError("Reach maxed float. Can't add anymore")
+      raise OverflowError("Reach maxed float. Can't add anymore.")
 
   average = listSum / length
   return average
