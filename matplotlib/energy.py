@@ -44,7 +44,7 @@ def getMilliAmps(microAmps):
 def getAvgMa(filename):
   microAmpsList = getMicroAmpsList(filename)
   averageMicroAmps = getAverageMicroAmps(microAmpsList)
-  print(f"The average micro amps is {averageMicroAmps}")
+  # print(f"The average micro amps is {averageMicroAmps}")
   return getMilliAmps(averageMicroAmps)
 
 def getMah(mA, hours):
@@ -69,5 +69,4 @@ def printAvgMa(location, cipher):
   return
 
 if __name__ == '__main__':
-  test = getAvgMa("/Users/simeon/Desktop/Thesis/10ktest.csv")
-  print(f"The average mA for the Front Door AES 20 dBm is {test}")
+  printAvgMa("front-door", "aes")
