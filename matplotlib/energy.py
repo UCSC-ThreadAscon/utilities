@@ -44,6 +44,7 @@ def getMilliAmps(microAmps):
 def getAvgMa(filename):
   microAmpsList = getMicroAmpsList(filename)
   averageMicroAmps = getAverageMicroAmps(microAmpsList)
+  print(f"The average micro amps is {averageMicroAmps}")
   return getMilliAmps(averageMicroAmps)
 
 def getMah(mA, hours):
