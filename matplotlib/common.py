@@ -24,6 +24,31 @@ TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 THROUGHPUT_EXP_PACKET_SIZE = 50
 THROUGHPUT_EXP_PAYLOAD_SIZE = 4
 
+DIR = "/Users/simeon/Desktop/Thesis/Final CSVs/"
+files = {
+  "front-door": {
+    "aes": {
+      "0dbm": os.path.join(DIR, "frontdoor-aes-0.csv"),
+      "9dbm": os.path.join(DIR, "frontdoor-aes-9.csv"),
+      "20dbm": os.path.join(DIR, "frontdoor-aes-20.csv")
+    }
+  },
+  "air-quality": {
+    "aes": {
+      "0dbm": os.path.join(DIR, "airquality-aes-0.csv"),
+      "9dbm": os.path.join(DIR, "airquality-aes-9.csv"),
+      "20dbm": os.path.join(DIR, "airquality-aes-20.csv")
+    }
+  },
+  "second-story": {
+    "aes": {
+      "0dbm": os.path.join(DIR, "secondstory-aes-0.csv"),
+      "9dbm": os.path.join(DIR, "secondstory-aes-9.csv"),
+      "20dbm": os.path.join(DIR, "secondstory-aes-20.csv")
+    }
+  }
+}
+
 cipherToColor = {
   'AES-CCM': 'deepskyblue',
   'ASCON-128a': 'plum',
