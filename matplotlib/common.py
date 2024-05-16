@@ -24,6 +24,28 @@ TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 THROUGHPUT_EXP_PACKET_SIZE = 50
 THROUGHPUT_EXP_PAYLOAD_SIZE = 4
 
+TEST_DIR = "/User/simeon/Desktop/Thesis/Archive/CSVs/"
+testFiles = {
+  "front-door": {
+    "aes": {
+      "9dbm": os.path.join(TEST_DIR, "frontdoor-aes-9.csv"),
+      "20dbm": os.path.join(TEST_DIR, "frontdoor-aes-20.csv")
+    },
+  },
+  "second-story": {
+    "aes": {
+      "9dbm": os.path.join(TEST_DIR, "secondstory-aes-9.csv"),
+      "20dbm": os.path.join(TEST_DIR, "secondstory-aes-20.csv")
+    }
+  },
+  "air-quality": {
+    "aes": {
+      "9dbm": os.path.join(TEST_DIR, "airquality-aes-9.csv"),
+      "20dbm": os.path.join(TEST_DIR, "airquality-aes-20.csv")
+    }
+  }
+}
+
 DIR = "/Users/simeon/Desktop/Thesis/Final CSVs/"
 files = {
   "front-door": {
@@ -159,114 +181,6 @@ prelimData = {
             "0dbm": 2.808074486321598,
             "9dbm": 2.4829457013603187,
             "20dbm": 2.547015249453203
-        }
-    }
-}
-
-prelimAvgRTTs = {
-    "washing-machine": {
-        "aes": {
-            "0dbm": 42.743,
-            "9dbm": 41.800,
-            "20dbm": 41.116
-        },
-        "ascon128": {
-            "0dbm": 58.244,
-            "9dbm": 41.23,
-            "20dbm": 40.463
-        },
-        "ascon128a": {
-            "0dbm": 53.410,
-            "9dbm": 42.166,
-            "20dbm": 40.555
-        }
-    },
-    "second-story": {
-        "aes": {
-            "0dbm": 55.393,
-            "9dbm": 41.183,
-            "20dbm": 41.916
-        },
-        "ascon128": {
-            "0dbm": 42.313,
-            "9dbm": 41.673,
-            "20dbm": 45.536
-        },
-        "ascon128a": {
-            "0dbm": 46.590,
-            "9dbm": 45.346,
-            "20dbm": 41.440
-        }
-    },
-    "bedroom": {
-        "aes": {
-            "0dbm": 50.531,
-            "9dbm": 44.313,
-            "20dbm": 44.126
-        },
-        "ascon128": {
-            "0dbm": 52.929,
-            "9dbm": 46.973,
-            "20dbm": 42.586
-        },
-        "ascon128a": {
-            "0dbm": 46.736,
-            "9dbm": 43.943,
-            "20dbm": 49.860
-        }
-    }
-}
-
-prelimPktLossPercentage = {
-    "washing-machine": {
-        "aes": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
-        },
-        "ascon128": {
-            "0dbm": 0.3,
-            "9dbm": 0,
-            "20dbm": 0
-        },
-        "ascon128a": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0.3
-        }
-    },
-    "second-story": {
-        "aes": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
-        },
-        "ascon128": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
-        },
-        "ascon128a": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
-        }
-    },
-    "bedroom": {
-        "aes": {
-            "0dbm": 1.0,
-            "9dbm": 0,
-            "20dbm": 0
-        },
-        "ascon128": {
-            "0dbm": 1.0,
-            "9dbm": 0,
-            "20dbm": 0
-        },
-        "ascon128a": {
-            "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
         }
     }
 }
