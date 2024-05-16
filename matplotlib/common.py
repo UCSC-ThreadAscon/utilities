@@ -24,7 +24,7 @@ TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 THROUGHPUT_EXP_PACKET_SIZE = 50
 THROUGHPUT_EXP_PAYLOAD_SIZE = 4
 
-TEST_DIR = "/User/simeon/Desktop/Thesis/Archive/CSV/"
+TEST_DIR = "/Users/simeon/Desktop/Thesis/Archive/CSV/"
 testFiles = {
   "front-door": {
     "aes": {
