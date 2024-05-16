@@ -11,6 +11,8 @@ import sys
 import csv
 from common import *
 
+MA_WAKEUP_MINIMUM = 2
+
 def getMicroAmpsList(filename):
   microAmpsList = []
 
@@ -18,7 +20,8 @@ def getMicroAmpsList(filename):
     reader = csv.DictReader(file)
     for row in reader:
       microAmpCurrent = float(row['Current(uA)'])
-      microAmpsList.append(microAmpCurrent)
+      if microAmpCurrent >= MA_WAKEUP_MINIMUM:
+        microAmpsList.append(microAmpCurrent)
 
       if len(microAmpsList) >= sys.maxsize:
         raise OverflowError("The list is too big.")
@@ -27,7 +30,6 @@ def getMicroAmpsList(filename):
 
 def getAverageMicroAmps(microAmpsList):
   length = len(microAmpsList)
-  listSum = sum(microAmpsList)
 
   listSum = 0
   for mA in microAmpsList:
