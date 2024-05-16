@@ -6,15 +6,15 @@ from common import *
 
 def maBargraph(location, title):
   energyUsageMa = {
-    'AES-CCM': (prelimData[location]["aes"]["0dbm"],
-                prelimData[location]["aes"]["9dbm"],
-                prelimData[location]["aes"]["20dbm"]),
-    'ASCON-128a': (prelimData[location]["ascon128a"]["0dbm"],
-                   prelimData[location]["ascon128a"]["9dbm"],
-                   prelimData[location]["ascon128a"]["20dbm"]),
-    'ASCON-128': (prelimData[location]["ascon128"]["0dbm"],
-                  prelimData[location]["ascon128"]["9dbm"],
-                  prelimData[location]["ascon128"]["20dbm"]),
+    'AES-CCM': (testMaAll[location]["aes"]["0dbm"],
+                testMaAll[location]["aes"]["9dbm"],
+                testMaAll[location]["aes"]["20dbm"]),
+    'ASCON-128a': (testMaAll[location]["ascon128a"]["0dbm"],
+                   testMaAll[location]["ascon128a"]["9dbm"],
+                   testMaAll[location]["ascon128a"]["20dbm"]),
+    'ASCON-128': (testMaAll[location]["ascon128"]["0dbm"],
+                  testMaAll[location]["ascon128"]["9dbm"],
+                  testMaAll[location]["ascon128"]["20dbm"]),
   }
 
   x = np.arange(len(TX_POWERS))
@@ -30,7 +30,7 @@ def maBargraph(location, title):
     offset = width * multiplier
     rects = ax.bar(x + offset, measurement, width, label=attribute,
                   color=cipherToColor[attribute])
-    # ax.bar_label(rects, padding=4)
+    ax.bar_label(rects, padding=4)
     multiplier += 1
 
   ax.set_ylabel('Average (mA)')

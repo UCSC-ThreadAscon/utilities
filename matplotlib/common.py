@@ -1,13 +1,13 @@
 import matplotlib
 import os
 
-matplotlib.use("pgf")
-matplotlib.rcParams.update({
-    "pgf.texsystem": "pdflatex",
-    'font.family': 'serif',
-    'text.usetex': True,
-    'pgf.rcfonts': False,
-})
+# matplotlib.use("pgf")
+# matplotlib.rcParams.update({
+#     "pgf.texsystem": "pdflatex",
+#     'font.family': 'serif',
+#     'text.usetex': True,
+#     'pgf.rcfonts': False,
+# })
 
 THESIS_FIGURES_PATH = '/Users/simeon/Desktop/Repositories/ThesisWriteup/images/pgfs'
 THESIS_PAPER_WIDTH_IN = 5.75113
@@ -181,6 +181,60 @@ prelimData = {
             "0dbm": 2.808074486321598,
             "9dbm": 2.4829457013603187,
             "20dbm": 2.547015249453203
+        }
+    }
+}
+
+testMaAll = {
+    "air-quality": {
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 2.350501575428397,
+            "20dbm": 2.386913245115555
+        }
+    },
+    "second-story": {
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 2.215943188145589,
+            "20dbm": 2.180619549829353
+        }
+    },
+    "front-door": {
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 2.17115823166256,
+            "20dbm": 2.234762399107365
+        },
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
         }
     }
 }
