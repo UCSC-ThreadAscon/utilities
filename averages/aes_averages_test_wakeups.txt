@@ -1,0 +1,6 @@
+The average mA for front-door aes @ 9dBm is 32.224762845227886 mA
+The average mA for front-door aes @ 20dBm is 34.41029061950814 mA
+The average mA for second-story aes @ 9dBm is 35.73352026111926 mA
+The average mA for second-story aes @ 20dBm is 34.232314544505904 mA
+The average mA for air-quality aes @ 9dBm is 38.29455694509852 mA
+The average mA for air-quality aes @ 20dBm is 38.72802408643833 mA
