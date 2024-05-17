@@ -63,15 +63,13 @@ def printAvgMa(location, cipher):
   # mA = getAvgMa(files[location][cipher]["0dbm"])
   # print(f"The average mA for {location} {cipher} @ 0dBm is {mA} mA")
 
-  mA = getAvgMa(testFiles[location][cipher]["9dbm"])
+  mA = getAvgMa(files[location][cipher]["9dbm"])
   print(f"The average mA for {location} {cipher} @ 9dBm is {mA} mA")
 
-  mA = getAvgMa(testFiles[location][cipher]["20dbm"])
+  mA = getAvgMa(files[location][cipher]["20dbm"])
   print(f"The average mA for {location} {cipher} @ 20dBm is {mA} mA")
 
   return
 
 if __name__ == '__main__':
   printAvgMa("front-door", "aes")
-  printAvgMa("second-story", "aes")
-  printAvgMa("air-quality", "aes")
