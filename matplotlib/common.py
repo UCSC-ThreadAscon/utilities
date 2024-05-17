@@ -20,6 +20,11 @@ LOCATIONS_ENERGY = ["front-door", "air-quality", "second-story"]
 LOCATIONS_THROUGHPUT = ["bedroom", "washing-machine", "second-story"]
 CIPHERS = ["aes", "ascon128a", "ascon128"]
 TX_POWERS = ["0dbm", "9dbm", "20dbm"]
+TX_POWERS_LABELS = {
+  "0dbm": "0 dBm",
+  "9dbm": "9 dBm",
+  "20dbm": "20 dBm"
+}
 
 THROUGHPUT_EXP_PACKET_SIZE = 50
 THROUGHPUT_EXP_PAYLOAD_SIZE = 4
@@ -58,7 +63,7 @@ cipherToColor = {
 finalDataMa = {
     "front-door": {
         "aes": {
-            "0dbm": 0,
+            "0dbm": 31.924641735627052,
             "9dbm": 32.55737426586865,
             "20dbm": 33.90057606226406
         },
