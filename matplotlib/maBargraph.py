@@ -6,15 +6,15 @@ from common import *
 
 def maBargraph(location, title):
   energyUsageMa = {
-    'AES-CCM': (testMaAll[location]["aes"]["0dbm"],
-                testMaAll[location]["aes"]["9dbm"],
-                testMaAll[location]["aes"]["20dbm"]),
-    'ASCON-128a': (testMaAll[location]["ascon128a"]["0dbm"],
-                   testMaAll[location]["ascon128a"]["9dbm"],
-                   testMaAll[location]["ascon128a"]["20dbm"]),
-    'ASCON-128': (testMaAll[location]["ascon128"]["0dbm"],
-                  testMaAll[location]["ascon128"]["9dbm"],
-                  testMaAll[location]["ascon128"]["20dbm"]),
+    'AES-CCM': (finalDataMa[location]["aes"]["0dbm"],
+                finalDataMa[location]["aes"]["9dbm"],
+                finalDataMa[location]["aes"]["20dbm"]),
+    'ASCON-128a': (finalDataMa[location]["ascon128a"]["0dbm"],
+                   finalDataMa[location]["ascon128a"]["9dbm"],
+                   finalDataMa[location]["ascon128a"]["20dbm"]),
+    'ASCON-128': (finalDataMa[location]["ascon128"]["0dbm"],
+                  finalDataMa[location]["ascon128"]["9dbm"],
+                  finalDataMa[location]["ascon128"]["20dbm"]),
   }
 
   x = np.arange(len(TX_POWERS))
@@ -46,7 +46,7 @@ def maBargraph(location, title):
   y_values = []
   for cipher in CIPHERS:
     for tx in TX_POWERS:
-      y_values.append(prelimData[location][cipher][tx])
+      y_values.append(finalDataMa[location][cipher][tx])
 
   y_min = 0
   y_lim = max(y_values) + 0.5
@@ -55,7 +55,7 @@ def maBargraph(location, title):
   ticks = np.arange(0, y_lim, num_ticks)
 
   ax.set_yticks(ticks)
-  ax.legend(loc='best', ncols=3, fontsize=8)
+  ax.legend(loc='best', ncols=3)
   ax.set_ylim(y_min, y_lim)
 
   # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph-mA.pgf'))
@@ -63,6 +63,4 @@ def maBargraph(location, title):
 
 if __name__ == "__main__":
   maBargraph("front-door", "Front Door Motion Sensor")
-  maBargraph("air-quality", "Air Quality Monitor")
-  maBargraph("second-story", "Second Story Door Motion Sensor")
   plt.show()

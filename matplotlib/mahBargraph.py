@@ -53,6 +53,4 @@ def mahBargraph(location, title):
 
 if __name__ == "__main__":
   mahBargraph("front-door", "Front Door Motion Sensor")
-  mahBargraph("air-quality", "Air Quality Monitor")
-  mahBargraph("second-story", "Second Story Door Motion Sensor")
   plt.show()
