@@ -1,0 +1,3 @@
+❯ python3 ./energy.py
+The average mA for front-door aes @ 9dBm is 32.55737426586865 mA
+The average mA for front-door aes @ 20dBm is 33.90057606226406 mA

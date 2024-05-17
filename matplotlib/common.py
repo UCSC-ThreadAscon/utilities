@@ -59,8 +59,8 @@ finalDataMa = {
     "front-door": {
         "aes": {
             "0dbm": 0,
-            "9dbm": 0,
-            "20dbm": 0
+            "9dbm": 32.55737426586865,
+            "20dbm": 33.90057606226406
         },
         "ascon128a": {
             "0dbm": 0,

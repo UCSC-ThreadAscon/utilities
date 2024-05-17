@@ -43,16 +43,18 @@ def maBargraph(location, title):
   # When calculating mAh, the the min and max of the y
   # axis will he hard coded.
   #
-  y_values = []
-  for cipher in CIPHERS:
-    for tx in TX_POWERS:
-      y_values.append(finalDataMa[location][cipher][tx])
+  # y_values = []
+  # for cipher in CIPHERS:
+  #   for tx in TX_POWERS:
+  #     y_values.append(finalDataMa[location][cipher][tx])
 
   y_min = 0
-  y_lim = max(y_values) + 0.5
+  y_lim = 40
+  # y_lim = max(y_values) + 0.5
 
   num_ticks = abs(y_lim - y_min) / 10
   ticks = np.arange(0, y_lim, num_ticks)
+  ticks = np.append(ticks, [y_lim])
 
   ax.set_yticks(ticks)
   ax.legend(loc='best', ncols=3)
