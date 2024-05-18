@@ -38,7 +38,7 @@ files = {
       "20dbm": os.path.join(DIR, "frontdoor-aes-20.csv")
     },
     "ascon128a": {
-      "0dbm": "",
+      "0dbm": os.path.join(DIR, "frontdoor-ascon128a-0.csv"),
       "9dbm": "",
       "20dbm": ""
     },
@@ -64,7 +64,7 @@ finalDataMa = {
             "20dbm": 33.90057606226406
         },
         "ascon128a": {
-            "0dbm": 0,
+            "0dbm": 31.801013388165657,
             "9dbm": 0,
             "20dbm": 0
         },

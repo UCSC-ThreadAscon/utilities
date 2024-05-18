@@ -1,0 +1,2 @@
+❯ python3 ./energy.py
+The average mA for front-door ascon128a @ 0dBm is 31.801013388165657 mA
