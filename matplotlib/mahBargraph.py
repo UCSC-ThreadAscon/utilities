@@ -34,7 +34,7 @@ def mahBargraph(location, title):
     ax.bar_label(rects, padding=4)
     multiplier += 1
 
-  ax.set_ylabel('Average (mAh)')
+  ax.set_ylabel('Average Energy Usage on Wakeup (mAh)')
   ax.set_title(title)
   ax.set_xticks(x + width, TX_POWERS_LABELS.values())
   ax.set_xlabel('TX Power')
