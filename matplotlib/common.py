@@ -36,20 +36,16 @@ files = {
       "0dbm": os.path.join(DIR, "frontdoor-aes-0.csv"),
       "9dbm": os.path.join(DIR, "frontdoor-aes-9.csv"),
       "20dbm": os.path.join(DIR, "frontdoor-aes-20.csv")
-    }
-  },
-  "air-quality": {
-    "aes": {
-      "0dbm": os.path.join(DIR, "airquality-aes-0.csv"),
-      "9dbm": os.path.join(DIR, "airquality-aes-9.csv"),
-      "20dbm": os.path.join(DIR, "airquality-aes-20.csv")
-    }
-  },
-  "second-story": {
-    "aes": {
-      "0dbm": os.path.join(DIR, "secondstory-aes-0.csv"),
-      "9dbm": os.path.join(DIR, "secondstory-aes-9.csv"),
-      "20dbm": os.path.join(DIR, "secondstory-aes-20.csv")
+    },
+    "ascon128a": {
+      "0dbm": "",
+      "9dbm": "",
+      "20dbm": ""
+    },
+    "ascon128": {
+      "0dbm": "",
+      "9dbm": "",
+      "20dbm": ""
     }
   }
 }
