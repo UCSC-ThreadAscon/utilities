@@ -40,8 +40,8 @@ def getAvgMahAll(cipher, tx_power):
 def getMahRatios(location, cipher):
   ratios = []
   for tx in TX_POWERS:
-    value_cipher = getAvgMah(prelimData[location][cipher][tx])
-    value_aes = getAvgMah(prelimData[location]["aes"][tx])
+    value_cipher = getAvgMah(finalDataMa[location][cipher][tx])
+    value_aes = getAvgMah(finalDataMa[location]["aes"][tx])
 
     ratio = 1 - (value_cipher / value_aes)
     ratio *= 100

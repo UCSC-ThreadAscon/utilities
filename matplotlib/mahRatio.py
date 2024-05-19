@@ -7,11 +7,11 @@ from average import *
 
 def linegraph(location, title):
   ascon128a_ratios = getMahRatios(location, "ascon128a")
-  ascon128_ratios = getMahRatios(location, "ascon128")
+  # ascon128_ratios = getMahRatios(location, "ascon128")
 
-  y_interval = 10
-  y_lim = 100
-  y_min = -10
+  y_interval = 0.5
+  y_lim = 10
+  y_min = -2
 
   fig, ax = plt.subplots()
 
@@ -21,9 +21,9 @@ def linegraph(location, title):
   ascon128a_lines = plt.plot(TX_POWERS, ascon128a_ratios, 'o:',
                             color=cipherToColor['ASCON-128a'],
                             label='ASCON-128a')
-  ascion128_lines = plt.plot(TX_POWERS, ascon128_ratios, 'o-.',
-                            color=cipherToColor['ASCON-128'],
-                            label='ASCON-128')
+  # ascion128_lines = plt.plot(TX_POWERS, ascon128_ratios, 'o-.',
+  #                           color=cipherToColor['ASCON-128'],
+  #                           label='ASCON-128')
 
   y_ticks = np.arange(y_min, y_lim, y_interval)
   y_ticks = np.append(y_ticks, [100])
@@ -42,6 +42,4 @@ def linegraph(location, title):
 
 if __name__ == "__main__":
   linegraph('front-door', "Front Door Motion Sensor")
-  linegraph('air-quality', "Air Quality Monitor")
-  linegraph('second-story', "Second Story Door Motion Sensor")
   plt.show()
