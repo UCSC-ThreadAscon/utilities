@@ -4,17 +4,17 @@ import numpy as np
 from energy import *
 from common import *
 
-def maBargraph(location, title):
+def maBargraph(location, title, finalData):
   energyUsageMa = {
-    'AES-CCM': (finalDataMa[location]["aes"]["0dbm"],
-                finalDataMa[location]["aes"]["9dbm"],
-                finalDataMa[location]["aes"]["20dbm"]),
-    'ASCON-128a': (finalDataMa[location]["ascon128a"]["0dbm"],
-                   finalDataMa[location]["ascon128a"]["9dbm"],
-                   finalDataMa[location]["ascon128a"]["20dbm"]),
-    'ASCON-128': (finalDataMa[location]["ascon128"]["0dbm"],
-                  finalDataMa[location]["ascon128"]["9dbm"],
-                  finalDataMa[location]["ascon128"]["20dbm"]),
+    'AES-CCM': (finalData[location]["aes"]["0dbm"],
+                finalData[location]["aes"]["9dbm"],
+                finalData[location]["aes"]["20dbm"]),
+    'ASCON-128a': (finalData[location]["ascon128a"]["0dbm"],
+                   finalData[location]["ascon128a"]["9dbm"],
+                   finalData[location]["ascon128a"]["20dbm"]),
+    'ASCON-128': (finalData[location]["ascon128"]["0dbm"],
+                  finalData[location]["ascon128"]["9dbm"],
+                  finalData[location]["ascon128"]["20dbm"]),
   }
 
   x = np.arange(len(TX_POWERS))
@@ -64,5 +64,6 @@ def maBargraph(location, title):
   return
 
 if __name__ == "__main__":
-  maBargraph("front-door", "Front Door Motion Sensor")
+  maBargraph("front-door", "Front Door Motion Sensor", finalDataMa)
+  maBargraph("front-door", "Front Door Motion Sensor", finalDataMaNoTrigger)
   plt.show()

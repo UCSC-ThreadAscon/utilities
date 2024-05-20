@@ -14,7 +14,7 @@ from common import *
 MA_WAKEUP_MINIMUM = 2
 UA_WAKEUP_MINIMUM = MA_WAKEUP_MINIMUM * 1000
 
-TRIGGER_MODE = True
+TRIGGER_MODE = False
 
 def getMicroAmpsList(filename):
   microAmpsList = []
@@ -24,7 +24,7 @@ def getMicroAmpsList(filename):
     for row in reader:
       microAmpCurrent = float(row['Current(uA)'])
 
-      if TRIGGER_MODE == False:
+      if TRIGGER_MODE:
         if microAmpCurrent >= UA_WAKEUP_MINIMUM:
           microAmpsList.append(microAmpCurrent)
       else:

@@ -1,0 +1,5 @@
+❯ python3 ./energy.py
+The average mA for front-door ascon128 @ 20dbm is 2.188377776081277 mA
+The average mA for front-door aes @ 0dbm is 2.3678119519747614 mA
+The average mA for front-door aes @ 9dbm is 2.335702647417056 mA
+The average mA for front-door aes @ 20dbm is 2.2631310371666786 mA
