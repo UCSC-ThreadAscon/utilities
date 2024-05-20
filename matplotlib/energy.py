@@ -72,5 +72,7 @@ def printAvgMa(location, cipher):
   return
 
 if __name__ == '__main__':
-  # printAvgMa("front-door", "aes")
-  printAvgMa("front-door", "ascon128a")
+  printAvgMa("front-door", "aes")
+
+  mA = getAvgMa(files["front-door"]["ascon128"]["20dbm"])
+  print(f"The average mA for {"front-door"} {"ascon128"} @ 20dBm is {mA} mA")
