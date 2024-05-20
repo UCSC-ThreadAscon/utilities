@@ -14,7 +14,7 @@ from common import *
 MA_WAKEUP_MINIMUM = 2
 UA_WAKEUP_MINIMUM = MA_WAKEUP_MINIMUM * 1000
 
-TRIGGER_MODE = False
+TRIGGER_MODE = True
 
 def getMicroAmpsList(filename):
   microAmpsList = []
