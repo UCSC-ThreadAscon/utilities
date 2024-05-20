@@ -43,9 +43,9 @@ files = {
       "20dbm": os.path.join(DIR, "frontdoor-ascon128a-20.csv")
     },
     "ascon128": {
-      "0dbm": "",
-      "9dbm": "",
-      "20dbm": ""
+      "0dbm": os.path.join(DIR, "frontdoor-ascon128-20.csv"),
+      "9dbm": os.path.join(DIR, "frontdoor-ascon128-9.csv"),
+      "20dbm": os.path.join(DIR, "frontdoor-ascon128-0.csv")
     }
   }
 }
