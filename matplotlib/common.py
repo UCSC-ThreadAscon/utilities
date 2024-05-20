@@ -75,3 +75,23 @@ finalDataMa = {
         }
     }
 }
+
+findDataMaNoTrigger = {
+    "front-door": {
+        "aes": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128a": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        },
+        "ascon128": {
+            "0dbm": 0,
+            "9dbm": 0,
+            "20dbm": 0
+        }
+    }
+}

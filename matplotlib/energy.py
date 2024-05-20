@@ -14,6 +14,8 @@ from common import *
 MA_WAKEUP_MINIMUM = 2
 UA_WAKEUP_MINIMUM = MA_WAKEUP_MINIMUM * 1000
 
+TRIGGER_MODE = True
+
 def getMicroAmpsList(filename):
   microAmpsList = []
 
@@ -21,7 +23,11 @@ def getMicroAmpsList(filename):
     reader = csv.DictReader(file)
     for row in reader:
       microAmpCurrent = float(row['Current(uA)'])
-      if microAmpCurrent >= UA_WAKEUP_MINIMUM:
+
+      if TRIGGER_MODE == False:
+        if microAmpCurrent >= UA_WAKEUP_MINIMUM:
+          microAmpsList.append(microAmpCurrent)
+      else:
         microAmpsList.append(microAmpCurrent)
 
       if len(microAmpsList) >= sys.maxsize:
