@@ -34,7 +34,7 @@ def mahBargraph(location, title):
     offset = width * multiplier
     rects = ax.bar(x + offset, measurement, width, label=attribute,
                   color=cipherToColor[attribute])
-    ax.bar_label(rects, padding=4)
+    # ax.bar_label(rects, padding=4)
     multiplier += 1
 
   ax.set_ylabel('Average Energy Usage on Wakeup (mAh)')
@@ -42,10 +42,10 @@ def mahBargraph(location, title):
 
   x_width_offset = 0.30
   ax.set_xticks(x + x_width_offset, TX_POWERS_LABELS.values())
-  ax.set_xlabel('TX Power')
+  ax.set_xlabel('TX Power (dBm)')
 
   y_min = 0
-  y_lim = 120
+  y_lim = 130
 
   num_ticks = abs(y_lim - y_min) / 10
   ticks = np.arange(0, y_lim, num_ticks)
@@ -55,9 +55,9 @@ def mahBargraph(location, title):
   ax.legend(loc='best', ncols=4)
   ax.set_ylim(y_min, y_lim)
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
+  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
   return
 
 if __name__ == "__main__":
   mahBargraph("front-door", "Front Door Motion Sensor")
-  plt.show()
+  # plt.show()

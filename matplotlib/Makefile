@@ -1,6 +1,6 @@
 all: energy
 
-energy: ma mah
+energy: ma mah mahRatio
 
 mahAverage:
 	python3 ./mahBargraphAverage.py
