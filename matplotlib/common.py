@@ -33,19 +33,24 @@ DIR = "/Users/simeon/Desktop/Thesis/Final CSVs/"
 files = {
   "front-door": {
     "aes": {
-      "0dbm": os.path.join(DIR, "frontdoor-aes-0.csv"),
-      "9dbm": os.path.join(DIR, "frontdoor-aes-9.csv"),
-      "20dbm": os.path.join(DIR, "frontdoor-aes-20.csv")
+      "0dbm": os.path.join(DIR, "frontdoor-aes-0-final.csv"),
+      "9dbm": os.path.join(DIR, "frontdoor-aes-9-final.csv"),
+      "20dbm": os.path.join(DIR, "frontdoor-aes-20-final.csv")
     },
     "ascon128a": {
-      "0dbm": os.path.join(DIR, "frontdoor-ascon128a-0.csv"),
-      "9dbm": os.path.join(DIR, "frontdoor-ascon128a-9.csv"),
-      "20dbm": os.path.join(DIR, "frontdoor-ascon128a-20.csv")
+      "0dbm": os.path.join(DIR, "frontdoor-ascon128a-0-RERUN-final.csv"),
+      "9dbm": os.path.join(DIR, "frontdoor-ascon128a-9-RERUN-final.csv"),
+      "20dbm": os.path.join(DIR, "frontdoor-ascon128a-20-RERUN-final.csv")
     },
     "ascon128": {
-      "0dbm": os.path.join(DIR, "frontdoor-ascon128-0.csv"),
-      "9dbm": os.path.join(DIR, "frontdoor-ascon128-9.csv"),
-      "20dbm": os.path.join(DIR, "frontdoor-ascon128-20.csv")
+      "0dbm": os.path.join(DIR, "frontdoor-ascon128-0-final.csv"),
+      "9dbm": os.path.join(DIR, "frontdoor-ascon128-9-final.csv"),
+      "20dbm": os.path.join(DIR, "frontdoor-ascon128-20-final.csv")
+    },
+    "noencrypt": {
+      "0dbm": os.path.join(DIR, "frontdoor-noencrypt-0-final.csv"),
+      "9dbm": os.path.join(DIR, "frontdoor-noencrypt-9-final.csv"),
+      "20dbm": os.path.join(DIR, "frontdoor-noencrypt-20-final.csv")
     }
   }
 }

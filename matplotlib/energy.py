@@ -71,8 +71,18 @@ def printAvgMa(location, cipher, txPower):
   return
 
 if __name__ == '__main__':
-  printAvgMa("front-door", "ascon128", "20dbm")
-
   printAvgMa("front-door", "aes", "0dbm")
   printAvgMa("front-door", "aes", "9dbm")
   printAvgMa("front-door", "aes", "20dbm")
+
+  printAvgMa("front-door", "ascon128a", "0dbm")
+  printAvgMa("front-door", "ascon128a", "9dbm")
+  # printAvgMa("front-door", "ascon128a", "20dbm")
+
+  printAvgMa("front-door", "ascon128", "0dbm")
+  printAvgMa("front-door", "ascon128", "9dbm")
+  printAvgMa("front-door", "ascon128", "20dbm")
+
+  printAvgMa("front-door", "noencrypt", "0dbm")
+  printAvgMa("front-door", "noencrypt", "9dbm")
+  printAvgMa("front-door", "noencrypt", "20dbm")
