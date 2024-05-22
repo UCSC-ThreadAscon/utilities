@@ -1,0 +1,32 @@
+❯ code .
+❯ python3 ./energy.py
+The average mA for front-door ascon128a @ 20dbm is 34.72951461622266 mA
+ matplotlib  main = !1                                                     😎  1m 43s  03:36:34 PM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
