@@ -36,7 +36,7 @@ def linegraph(location, title):
   ax.set_ylim(y_min, y_lim)
 
   ax.legend(loc='best', ncols=3)
-  ax.set_ylabel('mAh difference between AES-CCM (%)')
+  ax.set_ylabel('mAh difference between No Encryption (%)')
   ax.set_xlabel('TX Power (dBm)')
   ax.set_title(title)
 
