@@ -6,6 +6,9 @@ from common import *
 
 def mahBargraph(location, title):
   energyUsageMah = {
+    'No Encryption': (getAvgMah(finalDataMa[location]["noencrypt"]["0dbm"]),
+                      getAvgMah(finalDataMa[location]["noencrypt"]["9dbm"]),
+                      getAvgMah(finalDataMa[location]["noencrypt"]["20dbm"])),
     'AES-CCM': (getAvgMah(finalDataMa[location]["aes"]["0dbm"]),
                 getAvgMah(finalDataMa[location]["aes"]["9dbm"]),
                 getAvgMah(finalDataMa[location]["aes"]["20dbm"])),
@@ -18,7 +21,7 @@ def mahBargraph(location, title):
   }
 
   x = np.arange(len(TX_POWERS))
-  width = 0.25
+  width = 0.2
   multiplier = 0
 
   fig, ax = plt.subplots(layout='constrained')
@@ -36,7 +39,9 @@ def mahBargraph(location, title):
 
   ax.set_ylabel('Average Energy Usage on Wakeup (mAh)')
   ax.set_title(title)
-  ax.set_xticks(x + width, TX_POWERS_LABELS.values())
+
+  x_width_offset = 0.30
+  ax.set_xticks(x + x_width_offset, TX_POWERS_LABELS.values())
   ax.set_xlabel('TX Power')
 
   y_min = 0
@@ -47,7 +52,7 @@ def mahBargraph(location, title):
   ticks = np.append(ticks, y_lim)
 
   ax.set_yticks(ticks)
-  ax.legend(loc='best', ncols=3)
+  ax.legend(loc='best', ncols=4)
   ax.set_ylim(y_min, y_lim)
 
   # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph.pgf'))
