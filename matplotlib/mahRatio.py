@@ -7,7 +7,8 @@ from average import *
 
 def linegraph(location, title):
   ascon128a_ratios = getMahRatios(location, "ascon128a")
-  # ascon128_ratios = getMahRatios(location, "ascon128")
+  ascon128_ratios = getMahRatios(location, "ascon128")
+  aes_ratios = getMahRatios(location, "aes")
 
   y_interval = 0.5
   y_lim = 10
@@ -21,9 +22,12 @@ def linegraph(location, title):
   ascon128a_lines = plt.plot(TX_POWERS, ascon128a_ratios, 'o:',
                             color=cipherToColor['ASCON-128a'],
                             label='ASCON-128a')
-  # ascion128_lines = plt.plot(TX_POWERS, ascon128_ratios, 'o-.',
-  #                           color=cipherToColor['ASCON-128'],
-  #                           label='ASCON-128')
+  ascon128_lines = plt.plot(TX_POWERS, ascon128_ratios, 'o-.',
+                            color=cipherToColor['ASCON-128'],
+                            label='ASCON-128')
+  aes_lines = plt.plot(TX_POWERS, aes_ratios, 'o--',
+                            color=cipherToColor['AES-CCM'],
+                            label='AES-CCM')
 
   y_ticks = np.arange(y_min, y_lim, y_interval)
   y_ticks = np.append(y_ticks, [100])

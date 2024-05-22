@@ -23,8 +23,8 @@ def getAvgMahAll(cipher, tx_power):
     mAh_aes
 
   For the value shown above:
-    if > 0%, then it shows that mAh_ascon is % SMALLER than AES.
-    if < 0%, then it shows that mAH_ascon is % BIGGER than AES.
+    if > 0%, then it shows that mAh_ascon is % SMALLER than No Encryption.
+    if < 0%, then it shows that mAH_ascon is % BIGGER than No Encryption.
   
   However, we want to show mAh_ascon being smaller as a decrease,
   and mAh_ascon being bigger as an increase.
@@ -41,7 +41,7 @@ def getMahRatios(location, cipher):
   ratios = []
   for tx in TX_POWERS:
     value_cipher = getAvgMah(finalDataMa[location][cipher][tx])
-    value_aes = getAvgMah(finalDataMa[location]["aes"][tx])
+    value_aes = getAvgMah(finalDataMa[location]["noencrypt"][tx])
 
     ratio = 1 - (value_cipher / value_aes)
     ratio *= 100
