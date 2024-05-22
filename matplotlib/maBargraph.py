@@ -33,7 +33,7 @@ def maBargraph(location, title, finalData):
     offset = width * multiplier
     rects = ax.bar(x + offset, measurement, width, label=attribute,
                   color=cipherToColor[attribute])
-    # ax.bar_label(rects, padding=3)
+    ax.bar_label(rects, padding=3)
     multiplier += 1
 
   ax.set_ylabel('Average Energy Usage on Wakeup (mA)')
@@ -67,10 +67,10 @@ def maBargraph(location, title, finalData):
 
   ax.set_xlabel('TX Power (dBm)')
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph-mA.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph-mA.pgf'))
   return
 
 if __name__ == "__main__":
   maBargraph("front-door", "Front Door Motion Sensor", finalDataMa)
   # maBargraph("front-door", "Front Door Motion Sensor", finalDataMaNoTrigger)
-  # plt.show()
+  plt.show()

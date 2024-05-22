@@ -43,8 +43,8 @@ def linegraph(location, title):
 
   plt.axhline(linestyle='dotted', lw=1, color='gainsboro')
 
-  plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-sed.pgf'))
+  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-ratio-sed.pgf'))
 
 if __name__ == "__main__":
   linegraph('front-door', "Front Door Motion Sensor")
-  # plt.show()
+  plt.show()
