@@ -18,7 +18,7 @@ EXPERIMENT_RUNTIME_HOURS = EXPERIMENT_RUNTIME_MINUTES / 60
 
 LOCATIONS_ENERGY = ["front-door", "air-quality", "second-story"]
 LOCATIONS_THROUGHPUT = ["bedroom", "washing-machine", "second-story"]
-CIPHERS = ["aes", "ascon128a", "ascon128"]
+CIPHERS = ["noencrypt", "aes", "ascon128a", "ascon128"]
 TX_POWERS = ["0dbm", "9dbm", "20dbm"]
 TX_POWERS_LABELS = {
   "0dbm": "0 dBm",
@@ -58,7 +58,8 @@ files = {
 cipherToColor = {
   'AES-CCM': 'deepskyblue',
   'ASCON-128a': 'plum',
-  'ASCON-128': 'orange' 
+  'ASCON-128': 'orange',
+  'No Encryption': 'mediumaquamarine'
 }
 
 finalDataMa = {
@@ -102,6 +103,11 @@ finalDataMaNoTrigger = {
             "0dbm": 0,
             "9dbm": 0,
             "20dbm": 2.188377776081277
+        },
+        "noencrypt": {
+          "0dbm": 0,
+          "9dbm": 0,
+          "20dbm": 0
         }
     }
 }
