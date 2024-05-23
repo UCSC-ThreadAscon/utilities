@@ -54,8 +54,8 @@ def maBargraph(location, title, finalData):
       y_values.append(finalData[location][cipher][tx])
 
   y_min = 0
-  # y_lim = max(y_values) + 10
-  y_lim = 40
+  y_lim = max(y_values) + 1
+  # y_lim = 40
 
   num_ticks = abs(y_lim - y_min) / 10
   ticks = np.arange(0, y_lim, num_ticks)
@@ -72,5 +72,5 @@ def maBargraph(location, title, finalData):
 
 if __name__ == "__main__":
   maBargraph("front-door", "Front Door Motion Sensor", finalDataMa)
-  # maBargraph("front-door", "Front Door Motion Sensor", finalDataMaNoTrigger)
+  maBargraph("front-door", "Front Door Motion Sensor", finalDataMaNoTrigger)
   plt.show()
