@@ -14,8 +14,8 @@ def getMa(uA):
 def getMah(mA, hours):
   return mA * hours
 
-def uAList(filename):
-  microAmpsList = []
+def getUaList(filename):
+  uAList = []
 
   with open(filename) as file:
     reader = csv.DictReader(file)
@@ -23,12 +23,12 @@ def uAList(filename):
       microAmpCurrent = float(row['Current(uA)'])
 
       if microAmpCurrent >= UA_WAKEUP_MINIMUM:
-        microAmpsList.append(microAmpCurrent)
+        uAList.append(microAmpCurrent)
   
-      if len(microAmpsList) >= sys.maxsize:
+      if len(uAList) >= sys.maxsize:
         raise OverflowError("The list is too big.")
 
-  return microAmpsList
+  return uAList
 
 def getAvgUa(listUa):
   length = len(listUa)
@@ -43,7 +43,7 @@ def getAvgUa(listUa):
   return average
 
 def getAvgMa(filename):
-  mAList = uAList(filename)
+  mAList = getUaList(filename)
   avgUa = getAvgUa(mAList)
   return getMa(avgUa)
 
