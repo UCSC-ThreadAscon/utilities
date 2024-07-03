@@ -2,8 +2,11 @@ import sys
 import csv
 import os
 
-MA_WAKEUP_MINIMUM = 0.5
-UA_WAKEUP_MINIMUM = MA_WAKEUP_MINIMUM * 1000
+"""
+TO-DO: Calculate how long each wakeup lasted.
+Change the threshold to slightly above 7.5-8 uA.
+"""
+UA_WAKEUP_MINIMUM = 10
 
 def getMa(uA):
   return uA * 0.001
