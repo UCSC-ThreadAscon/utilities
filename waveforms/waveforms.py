@@ -1,7 +1,8 @@
 import sys
 import csv
+import os
 
-MA_WAKEUP_MINIMUM = 1
+MA_WAKEUP_MINIMUM = 0.5
 UA_WAKEUP_MINIMUM = MA_WAKEUP_MINIMUM * 1000
 
 def getMa(uA):
@@ -44,4 +45,6 @@ def getAvgMa(filename):
   return getMa(avgUa)
 
 if __name__ == '__main__':
+  aesWaveformPath = os.path.join('.', 'raw_data', 'AES 20 dBm.csv')
+  print(f"The average wakeup at AES @ 20 dBm is: {getAvgMa(aesWaveformPath)} mA")
   pass
