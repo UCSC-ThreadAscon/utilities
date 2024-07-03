@@ -16,19 +16,24 @@ def getMah(mA, hours):
 
 def getUaList(filename):
   uAList = []
+  timestamps = []
 
   with open(filename) as file:
     reader = csv.DictReader(file)
     for row in reader:
-      microAmpCurrent = float(row['Current(uA)'])
+      uA = float(row['Current(uA)'])
+      time = float(row['Timestamp(ms)'])
 
-      if microAmpCurrent >= UA_WAKEUP_MINIMUM:
-        uAList.append(microAmpCurrent)
+      if uA >= UA_WAKEUP_MINIMUM:
+        uAList.append(uA)
+        timestamps.append(time)
   
       if len(uAList) >= sys.maxsize:
         raise OverflowError("The list is too big.")
+  
+  durationMs = timestamps[-1] - timestamps[0]
 
-  return uAList
+  return (uAList, durationMs)
 
 def getAvgUa(listUa):
   length = len(listUa)
@@ -43,19 +48,31 @@ def getAvgUa(listUa):
   return average
 
 def getAvgMa(filename):
-  mAList = getUaList(filename)
+  mAList, durationMs = getUaList(filename)
   avgUa = getAvgUa(mAList)
-  return getMa(avgUa)
+  return (getMa(avgUa), durationMs)
 
 if __name__ == '__main__':
   aesWaveformPath = os.path.join('.', 'raw_data', 'AES 20 dBm.csv')
-  print(f"The average wakeup at AES @ 20 dBm is: {getAvgMa(aesWaveformPath)} mA")
+  mA, durationMs = getAvgMa(aesWaveformPath)
+  print(f"The average wakeup at AES @ 20 dBm is: {mA} mA.")
+  print(f"The average wakeup time at AES @ 20 dBm is: {durationMs} ms.")
+  print()
 
   noEncryptWaveformPath = os.path.join('.', 'raw_data', 'No Encrypt 20 dBm.csv')
-  print(f"The average wakeup at No Encrypt @ 20 dBm is: {getAvgMa(noEncryptWaveformPath)} mA")
+  mA, durationMs = getAvgMa(noEncryptWaveformPath)
+  print(f"The average wakeup at No Encryption @ 20 dBm is: {mA} mA.")
+  print(f"The average wakeup time at No Encryption @ 20 dBm is: {durationMs} ms.")
+  print()
 
   waveformPathAscon128a = os.path.join('.', 'raw_data', 'ASCON-128a 20 dBm.csv')
-  print(f"The average wakeup at ASCON-128a @ 20 dBm is: {getAvgMa(waveformPathAscon128a)} mA")
+  mA, durationMs = getAvgMa(waveformPathAscon128a)
+  print(f"The average wakeup at ASCON-128a @ 20 dBm is: {mA} mA.")
+  print(f"The average wakeup time at ASCON-128a @ 20 dBm is: {durationMs} ms.")
+  print()
 
   waveformPathAscon128 = os.path.join('.', 'raw_data', 'ASCON-128 20 dBm.csv')
-  print(f"The average wakeup at ASCON-128 @ 20 dBm is: {getAvgMa(waveformPathAscon128)} mA")
+  mA, durationMs = getAvgMa(waveformPathAscon128)
+  print(f"The average wakeup at ASCON-128 @ 20 dBm is: {mA} mA.")
+  print(f"The average wakeup time at ASCON-128 @ 20 dBm is: {durationMs} ms.")
+  print()
