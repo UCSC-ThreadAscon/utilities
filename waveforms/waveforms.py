@@ -49,5 +49,10 @@ if __name__ == '__main__':
   print(f"The average wakeup at AES @ 20 dBm is: {getAvgMa(aesWaveformPath)} mA")
 
   noEncryptWaveformPath = os.path.join('.', 'raw_data', 'No Encrypt 20 dBm.csv')
-  print(f"The average wakeup at AES @ 20 dBm is: {getAvgMa(noEncryptWaveformPath)} mA")
-  pass
+  print(f"The average wakeup at No Encrypt @ 20 dBm is: {getAvgMa(noEncryptWaveformPath)} mA")
+
+  waveformPathAscon128a = os.path.join('.', 'raw_data', 'ASCON-128a 20 dBm.csv')
+  print(f"The average wakeup at ASCON-128a @ 20 dBm is: {getAvgMa(waveformPathAscon128a)} mA")
+
+  waveformPathAscon128 = os.path.join('.', 'raw_data', 'ASCON-128 20 dBm.csv')
+  print(f"The average wakeup at ASCON-128 @ 20 dBm is: {getAvgMa(waveformPathAscon128)} mA")
