@@ -21,34 +21,33 @@ toDisplay = {
 }
 
 def bargraph():
-  x = np.arange(len(TX_POWERS))
+  xAxisValues = np.arange(len(TX_POWERS))
   width = 0.2
   multiplier = 0
 
-  fig, ax = plt.subplots(layout='constrained')
+  figure, axis = plt.subplots(layout='constrained')
 
   if RENDER_PGF:
-    fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-    fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+    figure.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+    figure.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  for attribute, delaysUs in toDisplay.items():
+  for cipher, delaysUs in toDisplay.items():
 
     delaysMs = [usToMs(delay) for delay in delaysUs]
-
     offset = width * multiplier
-    rects = ax.bar(x + offset, delaysMs, width, label=attribute,
-                  color=cipherColors[attribute])
+    rects = axis.bar(xAxisValues + offset, delaysMs, width, label=cipher,
+                  color=cipherColors[cipher])
 
     if SHOW_BAR_LABELS:
-      ax.bar_label(rects, padding=3)
+      axis.bar_label(rects, padding=3)
 
     multiplier += 1
 
-  ax.set_ylabel('Delay (ms)')
-  ax.set_title('Average Delay')
+  axis.set_ylabel('Delay (ms)')
+  axis.set_title('Average Delay')
 
-  x_width_offset = 0.30
-  ax.set_xticks(x + x_width_offset, TX_POWERS_LABELS.values())
+  xWidthOffset = 0.30
+  axis.set_xticks(xAxisValues + xWidthOffset, TX_POWERS_LABELS.values())
 
   y_min = 0
   y_lim = 40
@@ -57,11 +56,11 @@ def bargraph():
   ticks = np.arange(0, y_lim, num_ticks)
   ticks = np.append(ticks, [y_lim])
 
-  ax.set_yticks(ticks)
-  ax.legend(loc='best', ncols=4)
-  ax.set_ylim(y_min, y_lim)
+  axis.set_yticks(ticks)
+  axis.legend(loc='best', ncols=4)
+  axis.set_ylim(y_min, y_lim)
 
-  ax.set_xlabel('TX Power (dBm)')
+  axis.set_xlabel('TX Power (dBm)')
 
   if RENDER_PGF:
     plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'delay-bar-graph-mA.pgf'))
