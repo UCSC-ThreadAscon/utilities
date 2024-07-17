@@ -1,7 +1,22 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from common import *
+from delay_common import *
+
+toDisplay = {
+  'No Encryption': (avgDelaysUs["no encryption"]["0 dBm"],
+                    avgDelaysUs["no encryption"]["9dbm"],
+                    avgDelaysUs["no encryption"]["20dbm"]),
+  'AES-CCM': (avgDelaysUs["aes"]["0 dBm"],
+              avgDelaysUs["aes"]["9 dBm"],
+              avgDelaysUs["aes"]["20 dBm"]),
+  'ASCON-128a': (avgDelaysUs["ascon128a"]["0 dBm"],
+                  avgDelaysUs["ascon128a"]["9 dBm"],
+                  avgDelaysUs["ascon128a"]["20 dBm"]),
+  'ASCON-128': (avgDelaysUs["ascon128"]["0 dBm"],
+                avgDelaysUs["ascon128"]["9 dBm"],
+                avgDelaysUs["ascon128"]["20 dBm"])
+}
 
 def bargraph(location, title, finalData):
   x = np.arange(len(TX_POWERS))
