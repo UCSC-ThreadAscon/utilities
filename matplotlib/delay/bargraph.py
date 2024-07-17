@@ -31,9 +31,12 @@ def bargraph():
     fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
     fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  for attribute, measurement in toDisplay.items():
+  for attribute, delaysUs in toDisplay.items():
+
+    delaysMs = [usToMs(delay) for delay in delaysUs]
+
     offset = width * multiplier
-    rects = ax.bar(x + offset, measurement, width, label=attribute,
+    rects = ax.bar(x + offset, delaysMs, width, label=attribute,
                   color=cipherColors[attribute])
 
     if SHOW_BAR_LABELS:
@@ -41,14 +44,14 @@ def bargraph():
 
     multiplier += 1
 
-  ax.set_ylabel('Delay (μs)')
+  ax.set_ylabel('Delay (ms)')
   ax.set_title('Average Delay')
 
   x_width_offset = 0.30
   ax.set_xticks(x + x_width_offset, TX_POWERS_LABELS.values())
 
   y_min = 0
-  y_lim = 40000
+  y_lim = 40
 
   num_ticks = abs(y_lim - y_min) / 10
   ticks = np.arange(0, y_lim, num_ticks)
@@ -60,7 +63,8 @@ def bargraph():
 
   ax.set_xlabel('TX Power (dBm)')
 
-  # plt.savefig(os.path.join(THESIS_FIGURES_PATH, f'{location}-bar-graph-mA.pgf'))
+  if RENDER_PGF:
+    plt.savefig(os.path.join(THESIS_FIGURES_PATH, 'delay-bar-graph-mA.pgf'))
   return
 
 if __name__ == "__main__":

@@ -59,3 +59,6 @@ avgDelaysUs = \
     "20 dBm": 25155
   }
 }
+
+def usToMs(us):
+  return us / 1000
