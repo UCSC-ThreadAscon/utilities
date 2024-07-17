@@ -5,12 +5,25 @@ THESIS_PAPER_WIDTH_IN = 5.75113
 THESIS_PAPER_HEIGHT_IN = 8.12659
 
 CIPHERS = ["ascon128a", "ascon128", "aes", "no encryption"]
+cipherColors = \
+{
+  'AES-CCM': 'deepskyblue',
+  'ASCON-128a': 'plum',
+  'ASCON-128': 'orange',
+  'No Encryption': 'mediumaquamarine'
+}
+
 TX_POWERS = ["0 dBm", "9 dBm", "20 dBm"]
-NETWORK_TIME_SYNC_PERIOD_SECONDS = 30
+TX_POWERS_LABELS = \
+{
+  "0dbm": "0 dBm",
+  "9dbm": "9 dBm",
+  "20dbm": "20 dBm"
+}
 
-RENDER_LATEX = False
+RENDER_PGF = False
 
-if RENDER_LATEX:
+if RENDER_PGF:
   import matplotlib
   matplotlib.use("pgf")
   matplotlib.rcParams.update({

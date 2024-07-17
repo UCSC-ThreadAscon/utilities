@@ -3,10 +3,12 @@ import numpy as np
 
 from delay_common import *
 
+SHOW_BAR_LABELS = False
+
 toDisplay = {
   'No Encryption': (avgDelaysUs["no encryption"]["0 dBm"],
-                    avgDelaysUs["no encryption"]["9dbm"],
-                    avgDelaysUs["no encryption"]["20dbm"]),
+                    avgDelaysUs["no encryption"]["9 dBm"],
+                    avgDelaysUs["no encryption"]["20 dBm"]),
   'AES-CCM': (avgDelaysUs["aes"]["0 dBm"],
               avgDelaysUs["aes"]["9 dBm"],
               avgDelaysUs["aes"]["20 dBm"]),
@@ -18,43 +20,35 @@ toDisplay = {
                 avgDelaysUs["ascon128"]["20 dBm"])
 }
 
-def bargraph(location, title, finalData):
+def bargraph():
   x = np.arange(len(TX_POWERS))
   width = 0.2
   multiplier = 0
 
   fig, ax = plt.subplots(layout='constrained')
 
-  # fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
-  # fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
+  if RENDER_PGF:
+    fig.set_figwidth(THESIS_PAPER_WIDTH_IN / 1.2)
+    fig.set_figheight(THESIS_PAPER_HEIGHT_IN / 3)
 
-  for attribute, measurement in energyUsageMa.items():
+  for attribute, measurement in toDisplay.items():
     offset = width * multiplier
     rects = ax.bar(x + offset, measurement, width, label=attribute,
-                  color=cipherToColor[attribute])
-    ax.bar_label(rects, padding=3)
+                  color=cipherColors[attribute])
+
+    if SHOW_BAR_LABELS:
+      ax.bar_label(rects, padding=3)
+
     multiplier += 1
 
-  ax.set_ylabel('Average Energy Usage on Wakeup (mA)')
-  ax.set_title(title)
+  ax.set_ylabel('Delay (μs)')
+  ax.set_title('Average Delay')
 
   x_width_offset = 0.30
   ax.set_xticks(x + x_width_offset, TX_POWERS_LABELS.values())
 
-  # These y values are set up the bar graph so
-  # that the average mA are all shown in the screen.
-
-  # When calculating mAh, the the min and max of the y
-  # axis will he hard coded.
-  #
-  y_values = []
-  for cipher in CIPHERS:
-    for tx in TX_POWERS:
-      y_values.append(finalData[location][cipher][tx])
-
   y_min = 0
-  y_lim = max(y_values) + 1
-  # y_lim = 40
+  y_lim = 40000
 
   num_ticks = abs(y_lim - y_min) / 10
   ticks = np.arange(0, y_lim, num_ticks)
@@ -70,6 +64,7 @@ def bargraph(location, title, finalData):
   return
 
 if __name__ == "__main__":
-  maBargraph("front-door", "Front Door Motion Sensor", finalDataMa)
-  maBargraph("front-door", "Front Door Motion Sensor", finalDataMaNoTrigger)
-  plt.show()
+  bargraph()
+
+  if not RENDER_PGF:
+    plt.show()
