@@ -6,6 +6,7 @@ THESIS_PAPER_HEIGHT_IN = 8.12659
 
 CIPHERS = ["ascon128a", "ascon128", "aes", "no encryption"]
 TX_POWERS = ["20 dBm", "9 dBm", "0 dBm"]
+NETWORK_TIME_SYNC_PERIOD_SECONDS = 30
 
 RENDER_LATEX = False
 
@@ -19,14 +20,29 @@ if RENDER_LATEX:
       'pgf.rcfonts': False,
   })
 
-averageDelays = \
+""" The average delays for each experiment are
+    in microseconds (us).
+"""
+avgDelaysUs = \
 {
   "no encryption": {
-    "20 dBm": "",
-     "9 dBm": "",
-     "0 dBm": ""
+     "0 dBm": 20770,
+     "9 dBm": 19606,
+    "20 dBm": 20633
   },
-  "aes": {},
-  "ascon128a": {},
-  "ascon128": {}
+  "ascon128": {
+     "0 dBm": 25420,
+     "9 dBm": 19272,
+    "20 dBm": 19588
+  },
+  "ascon128a": {
+    "0 dBm": 20607,
+    "9 dBm": 21644,
+    "20 dBm": 19449
+  },
+  "aes": {
+    "0 dBm": 38225,
+    "9 dBm": 25461,
+    "20 dBm": 25155
+  }
 }
