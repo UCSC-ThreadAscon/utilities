@@ -1,7 +1,9 @@
+import os
+import matplotlib
+
 RENDER_PGF = False
 
 if RENDER_PGF:
-  import matplotlib
   matplotlib.use("pgf")
   matplotlib.rcParams.update({
       "pgf.texsystem": "pdflatex",
