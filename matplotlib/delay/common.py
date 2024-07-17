@@ -5,7 +5,7 @@ THESIS_PAPER_WIDTH_IN = 5.75113
 THESIS_PAPER_HEIGHT_IN = 8.12659
 
 CIPHERS = ["ascon128a", "ascon128", "aes", "no encryption"]
-TX_POWERS = ["20 dBm", "9 dBm", "0 dBm"]
+TX_POWERS = ["0 dBm", "9 dBm", "20 dBm"]
 NETWORK_TIME_SYNC_PERIOD_SECONDS = 30
 
 RENDER_LATEX = False
