@@ -3,7 +3,7 @@ import numpy as np
 
 from delay_common import *
 
-SHOW_BAR_LABELS = False
+SHOW_BAR_LABELS = True
 
 toDisplay = {
   'No Encryption': (avgDelaysUs["no encryption"]["0 dBm"],

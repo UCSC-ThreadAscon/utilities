@@ -1,4 +1,14 @@
-import os
+RENDER_PGF = False
+
+if RENDER_PGF:
+  import matplotlib
+  matplotlib.use("pgf")
+  matplotlib.rcParams.update({
+      "pgf.texsystem": "pdflatex",
+      'font.family': 'serif',
+      'text.usetex': True,
+      'pgf.rcfonts': False,
+  })
 
 THESIS_FIGURES_PATH = '/Users/simeon/Desktop/Repositories/ThesisWriteup/images/pgfs'
 THESIS_PAPER_WIDTH_IN = 5.75113
@@ -20,18 +30,6 @@ TX_POWERS_LABELS = \
   "9dbm": "9 dBm",
   "20dbm": "20 dBm"
 }
-
-RENDER_PGF = False
-
-if RENDER_PGF:
-  import matplotlib
-  matplotlib.use("pgf")
-  matplotlib.rcParams.update({
-      "pgf.texsystem": "pdflatex",
-      'font.family': 'serif',
-      'text.usetex': True,
-      'pgf.rcfonts': False,
-  })
 
 """ The average delays for each experiment are
     in microseconds (us).
