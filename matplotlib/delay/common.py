@@ -32,7 +32,7 @@ avgDelaysUs = \
   },
   "ascon128": {
      "0 dBm": 25420,
-     "9 dBm": 19272,
+     "9 dBm": 19262,
     "20 dBm": 19588
   },
   "ascon128a": {
